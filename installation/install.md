@@ -14,7 +14,7 @@ For the workshop session on version control,
 we'll be using *Git* and the *Github* website.
 
 Linux users should be able to use their package manager to install all of this software
-(if you're using Linux, we assume you won't have any trouble with theses requirements).
+(if you're using Linux, we assume you won't have any trouble with these requirements).
 Mac and Windows users should follow the instructions below.
 
 Give yourself 30 minutes or so to run through this installation process and don't get intimidated!
@@ -25,7 +25,7 @@ If you do get stuck, first try searching on the internet (e.g. [stackoverflow.co
 Or, try asking a fellow bootcamp attendee for help.
 Finally, your department should organise a session before the bootcamp to help with any issues.
 
-## Mac Users
+## Mac Users ##
 
 ### Python 2.7 ###
 
