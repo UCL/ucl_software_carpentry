@@ -1,4 +1,4 @@
-# Introduction #
+# UCL Software Bootcamp 4th and 8th April 2013: Installation Instructions #
 
 This document contains instructions for installation of the packages
 we'll be using during the Software Carpentry Workshop on the 4th and 8th April 2013.
@@ -7,8 +7,8 @@ For the session on programming,
 we'll be using the language *Python* and in particular version 2.7.
 We'll need *pip*, the package installer for *Python*, as well.
 
-For our database work, we'll need *SQLite3*,
-and the *Firefox* web-browser with the *SQLite addon*.
+For our database work, we'll need *SQLite 3*,
+and the *Firefox* web-browser with the *SQLite add-on*.
 
 For the workshop session on version control, 
 we'll be using *Git* and the *Github* website.
@@ -49,15 +49,17 @@ You will need to enter your administrator password.
 
 ### [SQLite3](http://www.sqlite.org/download.html) ###
 
-#### Slightly easier route - installing a pre-compiled package ####
+#### Slightly easier route: installing a pre-compiled package ####
+
 
 Download the [pre-compiled binary](http://www.sqlite.org/sqlite-shell-osx-x86-3071502.zip)
 
-#### Slightly harder route - compiling from source ####
+#### Slightly harder route: compiling from source ####
 
-Download a compressed "Tarball" of [SQLite3](http://www.sqlite.org/sqlite-autoconf-3071502.tar.gz) and then open a terminal window.
 
-First navigate to the directory to which you downloaded the tarball (you can drag a folder from finder into the terminal window.
+Download a compressed "Tarball" of [SQLite 3](http://www.sqlite.org/sqlite-autoconf-3071502.tar.gz) and then open a terminal window.
+
+First, navigate to the directory to which you downloaded the tarball (you can drag a folder from finder into the terminal window.
 
 So type:
 	cd <space>
@@ -78,7 +80,7 @@ After this has finished, test it's working by typing:
 
 Pretty straightforward - download from the [firefox website](http://firefox.com/)
 
-### Firefox SQLite3 add-on ###
+### Firefox SQLite 3 add-on ###
 
 Go into Firefox/Add-ons and search for *SQLite*. Install the *SQLite Manager*.
 
@@ -107,7 +109,7 @@ depending on whether you've got a 32-bit (x86) or 64-bit (x86-64) machine:
 Now, to install pip, [follow these instructions](http://www.pip-installer.org/en/latest/installing.html#using-get-pip)
 
 Add
-	C:\Python27\Scripts
+	C:\\Python27\\Scripts
 
 (or the equivalent for your operating system) to the path.
 
@@ -115,20 +117,20 @@ Add
 
 This software is available [here](http://www.sqlite.org/download.html).
 
-Windows users should select the Precompiled Binaries for Windows, command-line shell
+Windows users should select the *Precompiled Binaries for Windows, command-line shell*.
 
 ### Firefox ###
 
-Pretty straightforward - download from the [firefox website](http://firefox.com/)
+Pretty straightforward - download from the [firefox website](http://firefox.com/).
 
-### Firefox SQLite3 add-on ###
+### Firefox SQLite 3 add-on ###
 
 Go into Firefox > Add-ons and search for Sqlite . Install the SQLite Manager.
 
 ### Git ###
 
-First, download and install Git https://help.github.com/articles/set-up-git
+First, [download and install Git](https://help.github.com/articles/set-up-git).
 
 Ignore the 'set up git' section.
 
-Then install the [GitHub for Windows client](http://windows.github.com/)
+Then install the [GitHub for Windows client](http://windows.github.com/).
