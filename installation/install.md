@@ -25,9 +25,26 @@ If you do get stuck, first try searching on the internet (e.g. [stackoverflow.co
 Or, try asking a fellow bootcamp attendee for help.
 Finally, your department should organise a session before the bootcamp to help with any issues.
 
+## Linux Users ##
+
+The default shell is usually bash but if not you can get to bash by opening a terminal and typing <code>bash</code>.
+
+If git is not already available on your machine you can try to install it via your distribution package manager (e.g. <code>apt-get</code> or <code>yum</code>).
+
+Many different text editors suitable for programming are available.
+If you don't already have a favourite,
+you could look at [Kate](http://kate-editor.org/).
+
 ## Mac Users ##
 
 ### Python 2.7 ###
+
+The easiest option is to register with [Enthought Scientific Computing](https://www2.enthought.com/licenses/academic)
+using you UCL e-mail address.
+
+Then follow the instructions in the e-mail they send you.
+Goto the "repository login"/installers, then download and install the OSX install package.
+If you use this route, you can ignore the distribute \& pip section.
 
 If you have a newer Mac, i.e. one from the last few years, 
 you should download 
@@ -96,7 +113,16 @@ Then install the [GitHub for Mac client](http://mac.github.com).
 
 ### Python 2.7 ###
 
-Windows folks will want either the 32-bit MSI installer,
+The easiest option is to register with [Enthought Scientific Computing](https://www2.enthought.com/licenses/academic),
+then follow the instructions in the e-mail they send you.
+Goto the repository login/installers, then download and install eps-7.3-2-win-x86.msi or eps-7.3-2-win-x86_64.msi.
+If you use this route, you can ignore the *distribute \& pip* section.
+
+The Enthought Python Distribution includes the [SciTE editor](http://www.scintilla.org/SciTE.html). [Notepad++](http://notepad-plus-plus.org/) is a popular free code editor for Windows.
+
+Alternatively, download *Python* from python.org.
+
+You will want either the 32-bit MSI installer,
 or the 64-bit MSI installer,
 depending on whether you've got a 32-bit (x86) or 64-bit (x86-64) machine:
 
@@ -108,10 +134,8 @@ depending on whether you've got a 32-bit (x86) or 64-bit (x86-64) machine:
 
 Now, to install pip, [follow these instructions](http://www.pip-installer.org/en/latest/installing.html#using-get-pip)
 
-Add
-	C:\\Python27\\Scripts
-
-(or the equivalent for your operating system) to the path.
+Add C:\\Python27\\Scripts
+(or the equivalent for your operating system) [to the path](http://stackoverflow.com/questions/3701646/how-to-add-to-the-pythonpath-in-windows-7).
 
 ### SQLite3 ###
 
@@ -134,3 +158,4 @@ First, [download and install Git](https://help.github.com/articles/set-up-git).
 Ignore the 'set up git' section.
 
 Then install the [GitHub for Windows client](http://windows.github.com/).
+
