@@ -2,7 +2,7 @@ UCL Software Carpentry Pre-Survey
 ---------------------------------
 
 
-Please answer the following questions to help us determine how best to support you through software carpentry. Just answer in free text, and email to rc-softdev@ucl.ac.uk with the title "Software Carpentry Answers".
+Please answer the following questions to help us determine how best to support you through software carpentry. Just answer in free text, and email to rc-softdev@ucl.ac.uk with the title "Software Carpentry Answers", and your numbered answers.
 
 1. What is your career stage? 
 
