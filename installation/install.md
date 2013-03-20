@@ -27,9 +27,10 @@ Finally, your department should organise a session before the bootcamp to help w
 
 ## Linux Users ##
 
-The default shell is usually bash but if not you can get to bash by opening a terminal and typing <code>bash</code>.
+The default shell is usually bash but if not you can get to bash by opening a terminal and typing `bash`.
 
-If git is not already available on your machine you can try to install it via your distribution package manager (e.g. <code>apt-get</code> or <code>yum</code>).
+If git is not already available on your machine 
+you can try to install it via your distribution package manager (e.g. `apt-get` or `yum`).
 
 Many different text editors suitable for programming are available.
 If you don't already have a favourite,
@@ -43,7 +44,7 @@ The easiest option is to register with [Enthought Scientific Computing](https://
 using your UCL e-mail address.
 
 Then follow the instructions in the e-mail they send you.
-Navigate to repository-login/installers, then download and install the OSX install package.
+Navigate to `repository-login/installers`, then download and install the OSX install package.
 If you use this route, you can ignore the distribute \& pip section.
 
 Alternative, you can download *Python* from python.org:
@@ -80,24 +81,19 @@ Download a compressed "Tarball" of [SQLite 3](http://www.sqlite.org/sqlite-autoc
 
 First, navigate to the directory to which you downloaded the tarball (you can drag a folder from finder into the terminal window.
 
-So type:
-	cd <space>
+So type `cd <space>` then drag in the folder from finder (you'll see the file path appear in the terminal window).
 
-then drag in the folder from finder (you'll see the file path appear in the terminal window).
-
-Then run the following commands, pressing 'enter' after each line:
+Then run the following commands, pressing `enter` after each line:
 
 	./configure
 	make
 	[sudo] make install
 
-After this has finished, test it's working by typing:
-
-	sqlite3
+After this has finished, test it's working by typing `sqlite3` at the prompt
 
 ### Firefox ###
 
-Pretty straightforward - download from the [firefox website](http://firefox.com/)
+Pretty straightforward - download and install from the [firefox website](http://firefox.com/)
 
 ### Firefox SQLite 3 add-on ###
 
@@ -117,7 +113,7 @@ Then install the [GitHub for Mac client](http://mac.github.com).
 
 The easiest option is to register with [Enthought Scientific Computing](https://www2.enthought.com/licenses/academic),
 then follow the instructions in the e-mail they send you.
-Goto the repository login/installers, then download and install eps-7.3-2-win-x86.msi or eps-7.3-2-win-x86_64.msi.
+Goto the `repository login/installers`, then download and install *eps-7.3-2-win-x86.msi* or *eps-7.3-2-win-x86_64.msi*.
 If you use this route, you can ignore the *distribute \& pip* section.
 
 The Enthought Python Distribution includes the [SciTE editor](http://www.scintilla.org/SciTE.html). [Notepad++](http://notepad-plus-plus.org/) is a popular free code editor for Windows.
@@ -151,7 +147,7 @@ Pretty straightforward - download from the [firefox website](http://firefox.com/
 
 ### Firefox SQLite 3 add-on ###
 
-Go into Firefox > Add-ons and search for Sqlite . Install the SQLite Manager.
+Go into Firefox > Add-ons and search for Sqlite. Install the SQLite Manager.
 
 ### Git ###
 
