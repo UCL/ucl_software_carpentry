@@ -62,6 +62,4 @@ A database has two tables Scientist and Lab. The Scientist table's columns are t
 *   I would recognize a correct solution if I saw one.
 *   I would not know where to start.
 
-Please describe your research (3 sentences or less). Then discuss how you think the skills you learn in this workshop will improve your research/workflow.
-
 (Acknowledgements to Katy Huff and Ben Waugh for questions)
