@@ -40,11 +40,13 @@ you could look at [Kate](http://kate-editor.org/).
 ### Python 2.7 ###
 
 The easiest option is to register with [Enthought Scientific Computing](https://www2.enthought.com/licenses/academic)
-using you UCL e-mail address.
+using your UCL e-mail address.
 
 Then follow the instructions in the e-mail they send you.
-Goto the "repository login"/installers, then download and install the OSX install package.
+Navigate to repository-login/installers, then download and install the OSX install package.
 If you use this route, you can ignore the distribute \& pip section.
+
+Alternative, you can download *Python* from python.org:
 
 If you have a newer Mac, i.e. one from the last few years, 
 you should download 
