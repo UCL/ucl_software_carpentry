@@ -31,7 +31,8 @@ Please answer the following questions to help us determine how best to support y
 
   *   Save over the current version in the same file
   *   Add some data information in the filename and/or use directories with version information
-  *   Use a version control system like SVN, Git, Mercurial, etc. (if so which one)
+  *   Use a version control system like SVN or CVS.
+  *   Use a distributed version control system like mercurial (hg), git, or bazaar.
   *   Other: 
 
 8 A tab-delimited file has two columns: the date, and the highest temperature on that day. Produce a graph showing the average highest temperature for each month. 
