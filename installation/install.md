@@ -1,5 +1,7 @@
 # UCL Software Bootcamp 4th and 8th April 2013: Installation Instructions #
 
+![Software Carpentry logo](http://software-carpentry.org/img/software-carpentry-banner.png "Software Carpentry logo")
+
 This document contains instructions for installation of the packages
 we'll be using during the Software Carpentry Workshop on the 4th and 8th April 2013.
 
