@@ -131,9 +131,10 @@ Download the file and save as *swc_windows_installer.py*.
 You should be able to simply double click the file in Windows.
 
 Confirm that this has worked by opening to 'Git Bash' in the Start Menu and then typing:
-    python -V
-    git --version
-    nano -V
+	
+	python -V
+	git --version
+	nano -V
     
 The version numbers of *Python*, *Git* and *nano* (a text editor) should be displayed.
 
