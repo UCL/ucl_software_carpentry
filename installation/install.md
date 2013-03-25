@@ -126,7 +126,9 @@ Then install the [GitHub for Windows client](http://windows.github.com/).
 
 ### Editor and Shell ###
 
-Run [swc_windows_installer.py](https://raw.github.com/swcarpentry/boot-camps/master/setup/swc-windows-installer.py).  You should be able to simply double click the file in Windows.
+Run [swc_windows_installer.py](https://raw.github.com/swcarpentry/boot-camps/master/setup/swc-windows-installer.py).
+Download the file and save as *swc_windows_installer.py*.
+You should be able to simply double click the file in Windows.
 
 Confirm that this has worked by opening to 'Git Bash' in the Start Menu and then typing:
     python -V
