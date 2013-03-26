@@ -138,6 +138,13 @@ Confirm that this has worked by opening to 'Git Bash' in the Start Menu and then
     
 The version numbers of *Python*, *Git* and *nano* (a text editor) should be displayed.
 
+### Notepad++ ###
+
+Install the notepad++ editor.
+
+http://notepad-plus-plus.org/download/v6.3.1.html
+
+
 ### SQLite3 ###
 
 This software is available [here](http://www.sqlite.org/download.html).
