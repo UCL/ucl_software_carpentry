@@ -67,6 +67,12 @@ Open terminal (search in spotlight for "terminal" or look in the Applications/Ut
 
 You will need to enter your administrator password.
 
+### XCode and command line tools ###
+
+Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835) using the Mac app store. 
+
+Then, go to Xcode...Preferences...Downloads... and install the command line tools option
+
 ### SQLite3###
 
 #### Slightly easier route: installing a pre-compiled package ####
