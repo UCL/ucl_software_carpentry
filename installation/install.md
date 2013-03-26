@@ -126,7 +126,15 @@ This includes *pip*, *distribute*, *nose* and *pytest*, so your work here is don
 
 ### Git ###
 
-Next, install [msysgit](http://code.google.com/p/msysgit/downloads/list?q=full+installer+official+git)
+Install Homebrew via typing this at a terminal:
+
+    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+    
+and then type
+
+    brew install git
+
+Alternatively, install [msysgit](http://code.google.com/p/msysgit/downloads/list?q=full+installer+official+git)
 
 Then install the [GitHub for Windows client](http://windows.github.com/).
 
