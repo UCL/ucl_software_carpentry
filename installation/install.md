@@ -107,7 +107,15 @@ Go into Firefox/Add-ons and search for *SQLite*. Install the *SQLite Manager*.
 
 ### Git ###
 
-First, download and install [Git](https://help.github.com/articles/set-up-git)
+Install Homebrew via typing this at a terminal:
+
+    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+    
+and then type
+
+    brew install git
+
+Alternatively, download and install [Git](https://help.github.com/articles/set-up-git)
 
 Ignore the 'set up git' section.
 
@@ -126,15 +134,7 @@ This includes *pip*, *distribute*, *nose* and *pytest*, so your work here is don
 
 ### Git ###
 
-Install Homebrew via typing this at a terminal:
-
-    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-    
-and then type
-
-    brew install git
-
-Alternatively, install [msysgit](http://code.google.com/p/msysgit/downloads/list?q=full+installer+official+git)
+Install [msysgit](http://code.google.com/p/msysgit/downloads/list?q=full+installer+official+git)
 
 Then install the [GitHub for Windows client](http://windows.github.com/).
 
