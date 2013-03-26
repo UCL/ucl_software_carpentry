@@ -80,7 +80,18 @@ Then, go to Xcode...Preferences...Downloads... and install the command line tool
 
 Download the [pre-compiled binary](http://www.sqlite.org/sqlite-shell-osx-x86-3071502.zip)
 
-#### Slightly harder route: compiling from source ####
+
+### Slightly harder route: via homebrew ###
+
+Install Homebrew via typing this at a terminal:
+
+    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+    
+and then type
+
+    brew install sqlite
+
+#### Hard route: compiling from source ####
 
 
 Download a compressed "Tarball" of [SQLite 3](http://www.sqlite.org/sqlite-autoconf-3071502.tar.gz) and then open a terminal window.
@@ -111,11 +122,7 @@ Download and install [Git](https://help.github.com/articles/set-up-git)
 
 Ignore the 'set up git' section.
 
-Alternatively, install Homebrew via typing this at a terminal:
-
-    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-    
-and then type
+Alternatively, if you followed the homebrew steps for sqlite above, you can just type
 
     brew install git
 
