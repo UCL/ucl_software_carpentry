@@ -107,17 +107,17 @@ Go into Firefox/Add-ons and search for *SQLite*. Install the *SQLite Manager*.
 
 ### Git ###
 
-Install Homebrew via typing this at a terminal:
+Download and install [Git](https://help.github.com/articles/set-up-git)
+
+Ignore the 'set up git' section.
+
+Alternatively, install Homebrew via typing this at a terminal:
 
     ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
     
 and then type
 
     brew install git
-
-Alternatively, download and install [Git](https://help.github.com/articles/set-up-git)
-
-Ignore the 'set up git' section.
 
 Then install the [GitHub for Mac client](http://mac.github.com).
 
