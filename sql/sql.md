@@ -1,23 +1,20 @@
 Databases using SQL
 ===================
 
-**If you don't have Firefox installed already please install it now**
-
-Relational databases
---------------------
+Background
+----------
 
 * Relational databases store data in tables and with fields (columns) and records (rows)
 * Data in tables has types, just like in Python, and all values in a field have the same type
 * Queries let us look up data or make calculations based on columns
 * The queries are distinct from the data, so if we change the data we can just rerun the query
 
-Getting setup
--------------
+Set-up
+------
 
 1. Install Firefox
 2. Install the SQLite Manager add on **Tools -> Add-ons -> Search -> SQLite Manager -> Install -> Restart**
-3. Download the [Portal Database](https://github.com/swcarpentry/2012-11-UNC/raw/master/SQL/portal_mammals.sqlite)
-4. Open SQLite Manage **Tools -> SQLite Manager**
+3. Open SQLite Manager **Tools -> SQLite Manager**
 
 The data
 --------
@@ -29,22 +26,30 @@ The rodents are sampled on a series of 24 plots, with different
 manipulations of which rodents are allowed to access the plots.
 
 This is a real dataset that has been used in over 100 publications.
-I've simplified it just a little bit for the workshop,
+It has been simplified a bit for the workshop (thanks to Ethan White)
 but you can download the [full dataset](http://esapubs.org/archive/ecol/E090/118/)
 and work with it using exactly the same tools we'll learn about today.
 
 Import
 ------
 
-1. Start a New Database **Database -> New Database**
-2. Start the import **Database -> Import**
-3. Select the file to import
-4. Give the table a name (or use the default)
-5. If the first row has column headings, check the appropriate box
-6. Make sure the delimiter and quotation options are correct
-7. Press **OK**
-8. When asked if you want to modify the table, click **OK**
-9. Set the data types for each field
+1. Go to the [data directory](data/) and download the files
+    * [mammal_plots_table.csv](data/mammal_plots_table.csv)
+    * [mammal_species_table.csv](data/mammal_species_table.csv)
+    * [mammal_surveys_table.csv](data/mammal_surveys_table.csv)
+1. In SQLite Manager, start a new database **Database -> New Database**
+    * give it a meaningful name, e.g. `mammals`
+    * choose a suitable directory to store it in
+1. Import each CSV file as a table
+    * Start the import **Database -> Import**
+    * Select the file to import: **Select File**
+    * Give the table a name like `plots` (rather than `mammal_plots_table`)
+    * Look at the first few lines of the file to work out what options to select
+        - First row contains column names
+        - Fields enclosed by double quotes if necessary
+    * Click **OK**
+    * When asked if you want to modify the table, click **OK**
+    * Set the data types for each field, by looking at the first few lines of the file.
 
 ***Exercise: Import the plots and species tables***
 
