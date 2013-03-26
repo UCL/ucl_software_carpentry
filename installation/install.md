@@ -109,8 +109,8 @@ Then install the [GitHub for Mac client](http://mac.github.com).
 
 ## Windows Users ##
 
-Windows users will install a pre-packages version of Python that includes all the required packages.
-Python will be accessed using the msysgit shell (command prompt) installed in the 
+Windows users will install a pre-packaged version of Python that includes all the required packages.
+Python will be accessed using the msysgit shell (command prompt) installed in thesteps below.
 
 ### Python 2.7 ###
 
