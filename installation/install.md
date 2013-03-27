@@ -1,6 +1,4 @@
-# UCL Software Bootcamp 4th and 8th April 2013: Installation Instructions #
-
-![Software Carpentry logo](http://software-carpentry.org/img/software-carpentry-banner.png "Software Carpentry logo")
+# UCL ![Software Carpentry logo](http://software-carpentry.org/img/software-carpentry-banner.png "Software Carpentry logo") Bootcamp 4th and 8th April 2013: Installation Instructions #
 
 This document contains instructions for installation of the packages
 we'll be using during the Software Carpentry Workshop on the 4th and 8th April 2013.
@@ -69,14 +67,31 @@ Open terminal (search in spotlight for "terminal" or look in the Applications/Ut
 
 You will need to enter your administrator password.
 
-### [SQLite3](http://www.sqlite.org/download.html) ###
+### XCode and command line tools ###
+
+Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835) using the Mac app store. 
+
+Then, go to Xcode...Preferences...Downloads... and install the command line tools option
+
+### SQLite3###
 
 #### Slightly easier route: installing a pre-compiled package ####
 
 
 Download the [pre-compiled binary](http://www.sqlite.org/sqlite-shell-osx-x86-3071502.zip)
 
-#### Slightly harder route: compiling from source ####
+
+### Slightly harder route: via homebrew ###
+
+Install Homebrew via typing this at a terminal:
+
+    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+    
+and then type
+
+    brew install sqlite
+
+#### Hard route: compiling from source ####
 
 
 Download a compressed "Tarball" of [SQLite 3](http://www.sqlite.org/sqlite-autoconf-3071502.tar.gz) and then open a terminal window.
@@ -103,39 +118,53 @@ Go into Firefox/Add-ons and search for *SQLite*. Install the *SQLite Manager*.
 
 ### Git ###
 
-First, download and install [Git](https://help.github.com/articles/set-up-git)
+Download and install [Git](https://help.github.com/articles/set-up-git)
 
 Ignore the 'set up git' section.
+
+Alternatively, if you followed the homebrew steps for sqlite above, you can just type
+
+    brew install git
 
 Then install the [GitHub for Mac client](http://mac.github.com).
 
 ## Windows Users ##
 
+Windows users will install a pre-packaged version of Python that includes all the required packages.
+Python will be accessed using the msysgit shell (command prompt) installed in thesteps below.
+
 ### Python 2.7 ###
 
-The easiest option is to register with [Enthought Scientific Computing](https://www2.enthought.com/licenses/academic),
-then follow the instructions in the e-mail they send you.
-Goto the `repository login/installers`, then download and install *eps-7.3-2-win-x86.msi* or *eps-7.3-2-win-x86_64.msi*.
-If you use this route, you can ignore the *distribute \& pip* section.
+Install [Anaconda CE Python](http://continuum.io/anacondace.html) distribution.
 
-The Enthought Python Distribution includes the [SciTE editor](http://www.scintilla.org/SciTE.html). [Notepad++](http://notepad-plus-plus.org/) is a popular free code editor for Windows.
+This includes *pip*, *distribute*, *nose* and *pytest*, so your work here is done.
 
-Alternatively, download *Python* from python.org.
+### Git ###
 
-You will want either the 32-bit MSI installer,
-or the 64-bit MSI installer,
-depending on whether you've got a 32-bit (x86) or 64-bit (x86-64) machine:
+Install [msysgit](http://code.google.com/p/msysgit/downloads/list?q=full+installer+official+git)
 
-[Windows x86 MSI Installer (2.7.3)](http://www.python.org/ftp/python/2.7.3/python-2.7.3.msi)
+Then install the [GitHub for Windows client](http://windows.github.com/).
 
-[Windows X86-64 MSI Installer (2.7.3)](http://www.python.org/ftp/python/2.7.3/python-2.7.3.amd64.msi)
+### Editor and Shell ###
 
-### distribute \& pip ###
+Run [swc_windows_installer.py](https://raw.github.com/swcarpentry/boot-camps/master/setup/swc-windows-installer.py).
+Download the file and save as *swc_windows_installer.py*.
+You should be able to simply double click the file in Windows.
 
-Now, to install pip, [follow these instructions](http://www.pip-installer.org/en/latest/installing.html#using-get-pip)
+Confirm that this has worked by opening to 'Git Bash' in the Start Menu and then typing:
+	
+	python -V
+	git --version
+	nano -V
+    
+The version numbers of *Python*, *Git* and *nano* (a text editor) should be displayed.
 
-Add C:\\Python27\\Scripts
-(or the equivalent for your operating system) [to the path](http://stackoverflow.com/questions/3701646/how-to-add-to-the-pythonpath-in-windows-7).
+### Notepad++ ###
+
+Install the notepad++ editor.
+
+http://notepad-plus-plus.org/download/v6.3.1.html
+
 
 ### SQLite3 ###
 
@@ -144,18 +173,11 @@ This software is available [here](http://www.sqlite.org/download.html).
 Windows users should select the *Precompiled Binaries for Windows, command-line shell*.
 
 ### Firefox ###
-
-Pretty straightforward - download from the [firefox website](http://firefox.com/).
+Download from the [Firefox website](http://firefox.com/) and install.
 
 ### Firefox SQLite 3 add-on ###
 
-Go into Firefox > Add-ons and search for Sqlite. Install the SQLite Manager.
+Go into Firefox | Add-ons and search for *Sqlite*. Install the *SQLite Manager*.
 
-### Git ###
 
-First, [download and install Git](https://help.github.com/articles/set-up-git).
-
-Ignore the 'set up git' section.
-
-Then install the [GitHub for Windows client](http://windows.github.com/).
 
