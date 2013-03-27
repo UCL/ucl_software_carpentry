@@ -36,7 +36,7 @@ Register with [Enthought Scientific Computing](https://www2.enthought.com/licens
 using your UCL e-mail address.
 
 Then follow the instructions in the e-mail they send you. Once your license is active, you will be able
-to access to the online repository. Navigate to `/repo/epd/installers`, then download and install the 
+to access the online repository. Navigate to `/repo/epd/installers`, then download and install the 
 relevant Linux install package.
 
 ### Git ###
@@ -66,7 +66,7 @@ using your UCL e-mail address.
 
 Then follow the instructions in the e-mail they send you.
 Then follow the instructions in the e-mail they send you. Once your license is active, you will be able
-to access to the online repository. Navigate to `/repo/epd/installers`, then download and install the 
+to access the online repository. Navigate to `/repo/epd/installers`, then download and install the 
 relevant OSX package.
 If you use this route, you can ignore the distribute \& pip section.
 
@@ -159,7 +159,7 @@ Register with [Enthought Scientific Computing](https://www2.enthought.com/licens
 using your UCL e-mail address.
 
 Then follow the instructions in the e-mail they send you. Once your license is active, you will be able
-to access to the online repository. Navigate to `/repo/epd/installers`, then download and install the 
+to access the online repository. Navigate to `/repo/epd/installers`, then download and install the 
 relevant Windows install package.
 
 Python will be accessed using the IPython notepad and the msysgit shell (command prompt) installed in the steps below.
