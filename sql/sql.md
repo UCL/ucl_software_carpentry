@@ -33,10 +33,7 @@ and work with it using exactly the same tools we'll learn about today.
 Import
 ------
 
-1. Go to the [data directory](data/) and download the files
-    * [mammal_plots_table.csv](data/mammal_plots_table.csv)
-    * [mammal_species_table.csv](data/mammal_species_table.csv)
-    * [mammal_surveys_table.csv](data/mammal_surveys_table.csv)
+1. Go to the [data directory](data/) and download the file [mammal_plots_table.csv](data/mammal_plots_table.csv)
 1. In SQLite Manager, start a new database **Database -> New Database**
     * give it a meaningful name, e.g. `mammals`
     * choose a suitable directory to store it in
@@ -49,12 +46,27 @@ Import
         - Fields enclosed by double quotes if necessary
     * Click **OK**
     * When asked if you want to modify the table, click **OK**
-    * Set the data types for each field, by looking at the first few lines of the file.
+    * Set the data types for each field, by looking at the first few lines of the file:
+        - `plot_id` is an `INTEGER`
+        - `plot_type` can be stored as a `VARCHAR` (variable length character data)
+    * Confirm import by clicking **OK**.
+1. Look at the data by selecting the `plots` table and the `Browse & Search` tab.
 
-***Exercise: Import the plots and species tables***
+***Exercise: Import the species and surveys tables.***
+
+***Note: some entries have special meaning or human-readable metadata,*** e.g.
+
+* `Rodent-not censused`
+* `Zero Trapping Success`
+
+***Note: can explicitly tell SQLite which field(s) is the primary key, but haven't done so.***
 
 Basic queries
 -------------
+
+The `Browse & Search` tab allows limited viewing and selection of data, but for more control (and when
+not using the Firefox add-on) we need to learn some SQL. Select the `Execute SQL` tab.
+
 Let's start by using the **surveys** table.
 Here we have data on every individual that was captured at the site,
 including when they were captured, what plot they were captured on,
@@ -62,20 +74,30 @@ their species ID, sex and weight in grams.
 
 Let’s write an SQL query that selects only the year column from the surveys table.
 
+```SQL
     SELECT year FROM surveys;
+```
+
+***Note: Line breaks aren't important, but statement must end with a semicolon.***
 
 We have capitalized the words SELECT and FROM because they are SQL keywords.
-SQL is case insensitive, but it helps for readability – good style.
+SQL is case insensitive, but it helps readability.
 
 If we want more information, we can just add a new column to the list of fields, right after SELECT:
 
+```SQL
     SELECT day, month, year FROM surveys;
+```
 
 Or we can select all of the columns in a table using the wildcard *
 
+```SQL
     SELECT * FROM surveys;
+```
 
-***Exercise: Write a query that returns only the species column***
+***Exercise: Write a query that returns only the species column.***
+
+***Note: no guarantee what order data will be retrieved. Will address this later.***
 
 ### Unique values
 
@@ -83,11 +105,15 @@ So, we've all written a query that pulls out the species column from the databas
 but what if we want only the unique values so that we can quickly see what
 species have been sampled.
 
+```SQL
     SELECT DISTINCT species FROM surveys;
+```
 
 If we select more than one column, then the distinct pairs of values are returned
 
+```SQL
     SELECT DISTINCT year, species FROM surveys;
+```
 
 ### Calculated values
 
@@ -95,7 +121,9 @@ We can also do calculations with the values in a query.
 For example, if we wanted to look at the mass of each individual
 on different dates, but we needed it in kg instead of g we would use
 
-    SELECT month, day, year, wgt/1000.0 from surveys
+```SQL
+    SELECT month, day, year, wgt/1000.0 from surveys;
+```
 
 When we run the query, the expression ``wgt / 1000.0`` is evaluated for each row
 and appended to that row, in a new column. 
@@ -103,44 +131,56 @@ Expressions can use any fields, any arithmetic operators (+ - * /)
 and a variety of built-in functions (). For example, we could round the values to
 make them easier to read.
 
+```SQL
     SELECT plot, species, sex, wgt, ROUND(wgt / 1000.0, 2) FROM surveys;
+```
 
 Filtering
 ---------
+
 One of the most powerful features of a database is the ability to filter data –
 selecting only the data meeting certain criteria.
 For example, let’s say we only want data for the species Dipodomys merriami,
 which has a species code of DM.
-We need to add a WHERE clause to our query:
+We need to add a `WHERE` clause to our query:
 
+```SQL
     SELECT * FROM surveys WHERE species="DM";
+```
 
 We can do the same thing with numbers.
 Here, we only want the data since 2000:
 
+```SQL
     SELECT * FROM surveys WHERE year >= 2000;
+```
 
 ***Exercise: Write a query that returns the day, month, year, species ID, and weight
-for individuals that weigh more than 75 grams***
+for individuals that weigh more than 75 grams.***
 
-We can user more sophisticated conditions by combining tests with AND and OR.
+We can user more sophisticated conditions by combining tests with `AND` and `OR`.
 For example, suppose we want to data on Dipodomys merriami starting in the year 2000:
 
+```SQL
     SELECT * FROM surveys WHERE (year >= 2000) AND (species = "DM");
+```
 
-Note that the parentheses aren’t needed, but again, they help with readability.
-They also ensure that the computer combines AND and OR in the way that we intend.
+Note that the parentheses aren’t needed but, again, they help with readability.
+They also ensure that the computer combines `AND` and `OR` in the way that we intend.
 
 If we wanted to get data for any of the Dipodomys species,
 which have species codes DM, DO, and DS we could combine the tests using OR:
 
+```SQL
     SELECT * FROM surveys WHERE (species = "DM") OR (species = "DO") OR (species = "DS");
+```
 
 ***Exercise: Write a query that returns the day, month, year, species ID, and weight
-(in kg) for individuals caught on plot 1 that weigh more than 0.075 kg***
+(in kg) for individuals caught on plot 1 that weigh more than 0.075 kg.***
 
 Exporting results of queries
 ----------------------------
+
 Getting the result of your query out to work with elsewhere is as easy
 as clicking the **Actions** button and choosing **Save Result to File**.
 
@@ -149,11 +189,13 @@ Building more complex queries
 
 Now, lets combine the above queries to get data for the 3 Dipodomys species
 from the year 2000 on.
-This time, let’s use IN as one way to make the query easier to understand.
+This time, let’s use `IN` as one way to make the query easier to understand.
 It is equivalent to saying ``WHERE (species = "DM") OR (species = "DO") OR (species = "DS")``,
 but reads more neatly:
 
+```SQL
     SELECT * FROM surveys WHERE (year >= 2000) AND (species IN ("DM", "DO", "DS"));
+```
 
 We started with something simple, then added more clauses one by one,
 testing their effects as we went along.
@@ -164,22 +206,28 @@ database to practice your queries on before working on a larger or more complica
 Sorting
 -------
 
-We can also sort the results of our queries by using ORDER BY.
+We can also sort the results of our queries by using `ORDER BY`.
 For simplicity, let’s go back to our species table and alphabetize it by Genus.
 
+```SQL
     SELECT * FROM species ORDER BY Genus ASC;
+```
 
-The keyword ASC tells us to order it in Ascending order.
-We could alternately use DESC to get descending order.
+The keyword `ASC` tells us to order it in Ascending order.
+We could alternately use `DESC` to get descending order.
 
+```SQL
     SELECT * FROM species ORDER BY Genus DESC;
+```
 
-ASC is the default.
+`ASC` is the default.
 
 We can also sort on several fields at once.
 To truly be alphabetical, we might want to order by genus then species.
 
+```SQL
     SELECT * FROM species ORDER BY genus ASC, species ASC;
+```
 
 ***Exercise: Write a query that returns all of the data in the plots table,
 sorted alphabetically by plot type and then (within each plot type),
@@ -192,15 +240,17 @@ Another note for ordering:
 We don’t actually have to display a column to sort by it.
 For example, let’s say we want to order by the species ID, but we only want to see genus and species. 
 
+```SQL
     SELECT genus, species FROM species ORDER BY species_id ASC;
+```
 
 We can do this because sorting occurs earlier in the computational pipeline than field.
 
 The computer is doing this:
 
-1. Filtering rows according to WHERE
-2. Sorting results according to ORDER BY
-3. Displaying requested columns or expressions.
+1. filtering rows according to `WHERE`;
+2. sorting results according to `ORDER BY`;
+3. displaying requested columns or expressions.
 
 
 ***Exercise: Let’s try to combine what we’ve learned so far in a single query.  Let’s go back to the surveys table and lets say that we want to display
@@ -208,7 +258,7 @@ the three date fields, species ID, and weight in kilograms (rounded to two
 decimal places),  for rodents captured in 1999, ordered alphabetically by 
 the species ID.***
 
-The order of the clauses is dictated by SQL: SELECT, FROM, WHERE, ORDER BY
+The order of the clauses is dictated by SQL: `SELECT`, `FROM`, `WHERE`, `ORDER BY`
 and we often write each of them on their own line for readability.
 
 Aggregation
@@ -219,25 +269,33 @@ and calculate combined values in groups.
 Let’s go to the surveys table and find out how many individuals there are.
 Using the wildcard simply counts the number of records (rows)
 
-    SELECT COUNT(*) FROM individuals
+```SQL
+    SELECT COUNT(*) FROM surveys;
+```
 
 We can also find out how all of those individuals weigh.
 
-    SELECT SUM(wgt) FROM individuals
+```SQL
+    SELECT SUM(wgt) FROM surveys;
+```
 
 ***Do you think you could output this value in kilograms,
 rounded to 3 decimal places?***
 
-    SELECT ROUND(SUM(wgt)/1000.0, 3) FROM surveys
+```SQL
+    SELECT ROUND(SUM(wgt)/1000.0, 3) FROM surveys;
+```
 
 There are many other aggregate functions included in SQL including
-MAX, MIN, and AVG.
+`MAX`, `MIN`, and `AVG`.
  
 ***From the surveys table, can you use one query to output the total weight, average weight, and the min and max weights?***
 
 Now, let's try to see how many individuals were counted in each species?
 
-    SELECT species, COUNT(*) FROM individuals
+```SQL
+    SELECT species, COUNT(*) FROM surveys;
+```
 
 Why does this NOT work?
 
@@ -247,14 +305,19 @@ so it just picked an arbitrary value and returned it.
 
 If we select fields and aggregate at the same time, values from 
 unaggregated fields can be any value – we need to tell the data how to 
-aggregate, and we can do that using GROUP BY clause
+aggregate, and we can do that using `GROUP BY` clause
 
+```SQL
     SELECT species, COUNT(*)
     FROM surveys
-    GROUP BY species
+    GROUP BY species;
+```
 
 ***Exercise: How many individuals were counted in each year?***
-SELECT month, COUNT(DISTINCT sp_code) FROM individuals GROUP BY month
+
+```SQL
+    SELECT month, COUNT(DISTINCT sp_code) FROM individuals GROUP BY month
+```
 
 ***Exercise: How many individuals were counted in each species in each year?***
 
@@ -263,14 +326,16 @@ including the aggregated column.
 Let’s count the number of individuals of each species captured,
 ordered by the count
 
+```SQL
     SELECT species, COUNT(*)
     FROM surveys
     GROUP BY species
     ORDER BY COUNT(sp_code)
+```
 
-***Exercise: Write a query that lets us look at which years contained the most individuals and which had the least?***
+***Exercise: Write a query that lets us look at which years contained the most individuals and which had the least.***
 
-***Exercise: Write a query that shows us which species had the largest individuals on average?***
+***Exercise: Write a query that shows us which species had the largest individuals on average.***
 
 Database Design
 ---------------
@@ -293,15 +358,17 @@ and taxa information for the several thousand individuals of each species.
 
 Joins
 -----
-To combine data from two tables we use the SQL JOIN command,
-which comes after the FROM command.
+To combine data from two tables we use the `SQL JOIN` command,
+which comes after the `FROM` command.
 
-    SELECT * FROM surveys JOIN species
+```SQL
+    SELECT * FROM surveys JOIN species;
+```
 
 But this didn’t do what we wanted because we didn’t tell the database 
 manager how the tables are related to each other.
 Look at the number of rows it returned!
-Simply adding the JOIN combines every row of 
+Simply adding the `JOIN` combines every row of 
 one table with every row of the other -
 it creates a cross-product of the sets of rows.
 We need to tell SQL how the tables are related.
@@ -310,11 +377,13 @@ To do this we indicated which columns provide the link between
 the two tables using the word ON.
 What we want is to join the data with the same species codes.
 
+```SQL
     SELECT *
     FROM surveys
-    JOIN species ON surveys.species = species.species_id
+    JOIN species ON surveys.species = species.species_id;
+```
 
-ON is like WHERE, it filters things out according to a test condition.
+`ON` is like `WHERE`, it filters things out according to a test condition.
 We use the table.colname to tell the manager what column in which table
 we are referring to.
 
@@ -326,23 +395,25 @@ For example, what if we wanted information on when individuals of each
 species were captured, but instead of their species ID we wanted their
 actual species names.
 
+```SQL
     SELECT surveys.year, surveys.month, surveys.day, species.genus, species.species
     FROM surveys
-    JOIN species ON surveys.species = species.species_id
+    JOIN species ON surveys.species = species.species_id;
+```
 
-***Exercise: Write a query that the genus, the species, and the weight of every individual captured at the site***
+***Exercise: Write a query that the genus, the species, and the weight of every individual captured at the site.***
 
 Joins can be combined with sorting, filtering, and aggregation.
 So, if we wanted average mass of the individuals on each different
 type of treatment, we could do something like
 
+```SQL
     SELECT plots.plot_type, AVG(surveys.wgt)
     FROM surveys
     JOIN plots
     ON surveys.plot = plots.plot_id
-    GROUP BY plots.plot_type
-
-
+    GROUP BY plots.plot_type;
+```
 
 Creating tables
 ---------------
