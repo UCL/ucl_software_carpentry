@@ -153,14 +153,11 @@ Then install the [GitHub for Mac client](http://mac.github.com).
 
 ## Windows Users ##
 
-### Enthought Python ###
+### Anaconda Python ###
 
-Register with [Enthought Scientific Computing](https://www2.enthought.com/licenses/academic)
-using your UCL e-mail address.
+Install [Anaconda CE Python](http://continuum.io/anacondace.html) distribution.
 
-Then follow the instructions in the e-mail they send you. Once your license is active, you will be able
-to access the online repository. Navigate to `/repo/epd/installers`, then download and install the 
-relevant Windows install package.
+This includes *pip*, *distribute*, *nose* and *pytest*, so your work here is done.
 
 Python will be accessed using the IPython notepad and the msysgit shell (command prompt) installed in the steps below.
 
