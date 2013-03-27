@@ -4,7 +4,10 @@ This document contains instructions for installation of the packages
 we'll be using during the Software Carpentry Workshop on the 4th and 8th April 2013.
 
 For the session on programming,
-we'll be using the language *Python* and in particular version 2.7.
+we'll be using the language *Python* and in particular version 2.7. We will use the *Enthought Python* 
+distribution which contains a good collection of the most common *Python* modules as well as *IPython* 
+(an improved *Python* interpreter) and the IPython notebook (a useful web-based user interface that allows
+you to create documents that combine text and *Python* code, executable with the same browser window).
 We'll need *pip*, the package installer for *Python*, as well.
 
 For our database work, we'll need *SQLite 3*,
@@ -27,24 +30,44 @@ Finally, your department should organise a session before the bootcamp to help w
 
 ## Linux Users ##
 
-The default shell is usually bash but if not you can get to bash by opening a terminal and typing `bash`.
+### Enthought Python ###
+
+Register with [Enthought Scientific Computing](https://www2.enthought.com/licenses/academic)
+using your UCL e-mail address.
+
+Then follow the instructions in the e-mail they send you. Once your license is active, you will be able
+to access the online repository. Navigate to `/repo/epd/installers`, then download and install the 
+relevant Linux install package.
+
+### Git ###
 
 If git is not already available on your machine 
 you can try to install it via your distribution package manager (e.g. `apt-get` or `yum`).
+
+### Editor and shell ###
 
 Many different text editors suitable for programming are available.
 If you don't already have a favourite,
 you could look at [Kate](http://kate-editor.org/).
 
+The default shell is usually bash but if not you can get to bash by opening a terminal and typing `bash`.
+
+### Firefox SQLite 3 add-on ###
+
+Go into Firefox | Add-ons and search for *Sqlite*. Install the *SQLite Manager*.
+
+
 ## Mac Users ##
 
-### Python 2.7 ###
+### Enthought Python ###
 
-The easiest option is to register with [Enthought Scientific Computing](https://www2.enthought.com/licenses/academic)
+Register with [Enthought Scientific Computing](https://www2.enthought.com/licenses/academic)
 using your UCL e-mail address.
 
 Then follow the instructions in the e-mail they send you.
-Navigate to `repository-login/installers`, then download and install the OSX install package.
+Then follow the instructions in the e-mail they send you. Once your license is active, you will be able
+to access the online repository. Navigate to `/repo/epd/installers`, then download and install the 
+relevant OSX package.
 If you use this route, you can ignore the distribute \& pip section.
 
 Alternative, you can download *Python* from python.org:
@@ -81,7 +104,7 @@ Then, go to Xcode...Preferences...Downloads... and install the command line tool
 Download the [pre-compiled binary](http://www.sqlite.org/sqlite-shell-osx-x86-3071502.zip)
 
 
-### Slightly harder route: via homebrew ###
+#### Slightly harder route: via homebrew ####
 
 Install Homebrew via typing this at a terminal:
 
@@ -130,14 +153,13 @@ Then install the [GitHub for Mac client](http://mac.github.com).
 
 ## Windows Users ##
 
-Windows users will install a pre-packaged version of Python that includes all the required packages.
-Python will be accessed using the msysgit shell (command prompt) installed in thesteps below.
-
-### Python 2.7 ###
+### Anaconda Python ###
 
 Install [Anaconda CE Python](http://continuum.io/anacondace.html) distribution.
 
 This includes *pip*, *distribute*, *nose* and *pytest*, so your work here is done.
+
+Python will be accessed using the IPython notepad and the msysgit shell (command prompt) installed in the steps below.
 
 ### Git ###
 
@@ -178,6 +200,3 @@ Download from the [Firefox website](http://firefox.com/) and install.
 ### Firefox SQLite 3 add-on ###
 
 Go into Firefox | Add-ons and search for *Sqlite*. Install the *SQLite Manager*.
-
-
-
