@@ -30,8 +30,8 @@ It has been simplified a bit for the workshop (thanks to Ethan White)
 but you can download the [full dataset](http://esapubs.org/archive/ecol/E090/118/)
 and work with it using exactly the same tools we'll learn about today.
 
-Import
-------
+Importing data
+--------------
 
 1. Go to the [data directory](data/) and download the file [mammal_plots_table.csv](data/mammal_plots_table.csv)
 1. In SQLite Manager, start a new database **Database -> New Database**
@@ -61,8 +61,9 @@ Import
 
 ***Note: can explicitly tell SQLite which field(s) is the primary key, but haven't done so.***
 
-Basic queries
--------------
+
+Selecting data
+--------------
 
 The `Browse & Search` tab allows limited viewing and selection of data, but for more control (and when
 not using the Firefox add-on) we need to learn some SQL. Select the `Execute SQL` tab.
@@ -122,7 +123,7 @@ For example, if we wanted to look at the mass of each individual
 on different dates, but we needed it in kg instead of g we would use
 
 ```SQL
-    SELECT month, day, year, wgt/1000.0 from surveys;
+    SELECT month, day, year, wgt/1000.0 FROM surveys;
 ```
 
 When we run the query, the expression ``wgt / 1000.0`` is evaluated for each row
@@ -134,6 +135,7 @@ make them easier to read.
 ```SQL
     SELECT plot, species, sex, wgt, ROUND(wgt / 1000.0, 2) FROM surveys;
 ```
+
 
 Filtering
 ---------
@@ -178,11 +180,14 @@ which have species codes DM, DO, and DS we could combine the tests using OR:
 ***Exercise: Write a query that returns the day, month, year, species ID, and weight
 (in kg) for individuals caught on plot 1 that weigh more than 0.075 kg.***
 
+
 Exporting results of queries
 ----------------------------
 
 Getting the result of your query out to work with elsewhere is as easy
 as clicking the **Actions** button and choosing **Save Result to File**.
+
+***Note: headers not included in exported CSV file.***
 
 Building more complex queries
 -----------------------------
@@ -202,6 +207,7 @@ testing their effects as we went along.
 For complex queries, this is a good strategy, to make sure you are getting what you want.
 Sometimes it might help to take a subset of the data that you can easily see in a temporary
 database to practice your queries on before working on a larger or more complicated database.
+
 
 Sorting
 -------
@@ -233,6 +239,7 @@ To truly be alphabetical, we might want to order by genus then species.
 sorted alphabetically by plot type and then (within each plot type),
 in descending order of the plot ID.***
 
+
 Order of execution
 ------------------
 
@@ -260,6 +267,7 @@ the species ID.***
 
 The order of the clauses is dictated by SQL: `SELECT`, `FROM`, `WHERE`, `ORDER BY`
 and we often write each of them on their own line for readability.
+
 
 Aggregation
 -----------
@@ -337,6 +345,7 @@ ordered by the count
 
 ***Exercise: Write a query that shows us which species had the largest individuals on average.***
 
+
 Database Design
 ---------------
 Each field in a database should store a single value.
@@ -356,8 +365,10 @@ linked to if we need it.
 This means that we don't have to record the full genus, species,
 and taxa information for the several thousand individuals of each species. 
 
-Joins
------
+
+Joining tables
+--------------
+
 To combine data from two tables we use the `SQL JOIN` command,
 which comes after the `FROM` command.
 
@@ -415,8 +426,41 @@ type of treatment, we could do something like
     GROUP BY plots.plot_type;
 ```
 
+Missing data
+------------
+
+`NULL`
+
+
+Subqueries
+----------
+
+
 Creating tables
 ---------------
 
+
 Adding data to existing tables
 ------------------------------
+
+
+Advanced features
+-----------------
+
+For performance:
+
+* indexes
+* logging
+* tuning
+
+For integrity:
+
+* constraints
+* transactions and roll-back
+
+
+Programming with databases
+--------------------------
+
+* Using the Python API for SQLite.
+* Importing data without Firefox
