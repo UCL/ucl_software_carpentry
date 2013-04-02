@@ -1,4 +1,4 @@
-# Compound Data Types: Lists, Dictionaries, Sets, Tuples, and Reading Files
+# Python 2: Compound Data Types - Lists, Dictionaries, Sets, Tuples, and Reading Files
 
 * * * * *
 
