@@ -497,3 +497,23 @@ In addition to being a repository for code, and a way to publish code, GitHub is
 Here's mine: https://github.com/jamespjh : if you want to you can follow me.
 
 Using GitHub to build up a good public profile of software projects you've worked on is great for your CV!
+
+8. Pull Requests
+----------------
+
+If you want to collaborate with someone, but you don't want to give them the right to change your code directly, you can collaborate through *pull requests* instead of by granting them access.
+
+Swap roles. This time, the collaborator, instead of pulling the principal's code, should *fork* it. Go to the repository on GitHub, and hit "fork" top right.
+
+A new repository will be created on the collaborator's account, which contains all the same stuff.
+
+Both of you can make changes. (Make them to different files now for simplicity.) Now, both of you will be able to push: you're pushing to different repositories!
+ 
+You need to request that the leader accept your changes. The collaborator should go to the page for their *forked* repository and hit "pull request", and then choose the right branches and repositories for the "base", the leader's repository, and the "head repo", the collaborator's repository. Ask a demonstrator for help if this is confusing. 
+
+Give the request a title and a comment, and send it.  
+
+The leader should now see a link to the pull request on their github home page. Check it out, and if you think its fine, then merge it, using the big green button. (If there's a conflict, there won't be a big green button: ask your demonstrator for help with how to merge a conflicted pull request.) 
+
+Note you can comment on and discuss the contribution using the pull request: this is great for open source projects with many people working together.
+
