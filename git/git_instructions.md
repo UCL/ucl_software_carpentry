@@ -166,11 +166,11 @@ There's a big scary error message:
 
 GitHub couldn't work out how to merge the two different sets of changes. The program offers to open a command line for you. You'll need this to mark your change as resolved. Edit the file to manually resolve the conflict.
 
-> <<<<<<< HEAD  
-> Wales is hillier than England, but not quite as hilly as Scotland.  
-> =======  
-> Wales is much hillier than England, but not as hilly as Scotland.  
-> >>>>>>> dba9bbf3bcab1008b4d59342392cc70890aaf8e6  
+>     <<<<<<< HEAD  
+>     Wales is hillier than England, but not quite as hilly as Scotland.  
+>     =======  
+>     Wales is much hillier than England, but not as hilly as Scotland.  
+>     >>>>>>> dba9bbf3bcab1008b4d59342392cc70890aaf8e6  
 
 The syntax with `<<<` `===` and `>>>` shows the differences between the files. You can get editors which can understand this syntax and make it easy to merge, but for now, just manually edit the file, to combine the changes and get rid of the symbols.
 
