@@ -341,8 +341,8 @@ To create a new branch, you can do:
     git branch experiment
     git branch
     
->  experiment
->  * master
+>     experiment
+>     * master
 
 The asterisk indicates the branch you are "on". Although you created the `experiment` branch, you're still on the master branch. Switch to the experiment branch with:
 
@@ -415,3 +415,6 @@ To create hyperlinks in your pages, so you can link between your documents. Try 
 
 6. Collaboration
 ------------------------
+
+Now we're going to get to the most important question of all with Git and GitHub: working with others.
+
