@@ -12,231 +12,50 @@ The purpose of this exercise is to learn how to use Git to manage program code y
 1. Solo work
 --------------------
 
-This tutorial is based on use of the Git command line. Commands you can type will look like this:
+This is an alternative version of the instruction materials that uses the Windows or Mac Github GUI instead of the command line. You'll need to sign up for a GitHub account at [GitHub](https://github.com/), fill in a username and password, and click on "sign up for free". Then, download the client, from http://mac.github.com/ or http://windows.github.com/, and fill in your details. 
 
-    echo some output
-    
-and results you should see will look like this:
+Create a folder to do your work in, using the Finder on mac or Explorer on Windows, then hit "add" in the gui, uncheck "push to github", and choose a location, name, and description.
 
-> some output
+Hit the arrow to open the repo. It contains some default files.
 
-First, we should configure Git to know our name and email address:
+We're going to add a new file via the finder or explorer, then edit it with notepad. Choose "tools" then "open in explorer (or finder)" Use explorer or finder to create a new file called "index.md" (Not index.md.txt: if you've got explorer set to hide file extensions, you won't be able to use "new text file") 
 
-    git config --global user.name "Your Name Here"
-    git config --global user.email "your_email@ucl.ac.uk"
+Edit the file to contain your desired content. Then commit your change using the box in the corner of the window, with a commit message and a description.
+ 
+And note the confirmation: the commit appears as an "unsynced commit" on the right hand side. 
 
-Create a folder to do your work in:
+Make another change to the file, this time with a mistake
 
-    mkdir my_swcarpentry_solutions/
-    mkdir my_swcarpentry_solutions/my_swcarpentry_git_solution
-    cd my_swcarpentry_solutions/my_swcarpentry_git_solution
+Note that the change now appears as an "uncommitted change," showing the differences in the file.
 
-Now, we will tell Git to track the content of this folder as a git "repository".
+Commit the change.
 
-    git init
-
-> Initialized empty Git repository in ...my_swcarpentry_solutions/my_swcarpentry_git_solution
-
-As yet, this repository contains no files:
-
-    ls output
-    git status
-
->    # On branch   
->    #  
->    # Initial commit  
->    #  
->    nothing to commit (create/copy files and use "git add" to track) 
-
-So let's create an example file, and see how to start to manage a history of changes to it. I'm going to be using `vim` as my editor, but you can use whatever editor you prefer. (Windows users should use "Notepad++", Mac users could use "textmate" or "sublime text", linux users could use `vim`, `nano` or `emacs`.) I'm calling this file `index.md`, because it'll be important when we try to publish our website later.
-
-    vim index.md # Type some content into the file.
-    cat index.md
-
->    Mountains in the UK   
->    ===================   
->    England is not very mountainous.   
->    But has some tall hills, and maybe a mountain or two depending on your definition.    
-
-So, let's tell Git that `index.md` is a file which is important, and we would like to keep track of its history:
-
-    git add index.md
-   
-* Don't forget: Any files in repositories which you want to "track" need to be added with `git add` after you create them.
-
-Now, we need to tell Git to record the first version of this file in the history of changes:
-
-    git commit
-    
-With any luck, an editor has just popped up, into which you can provide a "commit message": a note as to what this revision changes in the file. If you don't like your editor, you can change it with:
-
-    git config --global core.editor nano
-    
-I'm happy with vim, so I'll just set my commit message, save, and quit:
-
-> First commit of discourse on UK topography
-
-And note the confirmation from Git:
-
-> [master (root-commit) c438f17] First commit of discourse on UK topography  
-> 1 file changed, 6 insertions(+)  
-> create mode 100644 index.md   
-
-There's a lot of output there you can ignore for now, it'll (mostly) make sense later!
-
-The important thing is that now, we can see that git has one change in its history:
-
-    git log
-   
->   commit c438f1716b2515563e03e82231acbae7dd4f4656     
->   Author: James Hetherington <j.hetherington@ucl.ac.uk>    
->   Date:   Wed Apr 3 15:32:33 2013 +0100   
-
->       First commit of discourse on UK topography     
-
-As well as the commit message, author, and date, the commit "hash code", `c438f1716b2515563e03e82231acbae7dd4f4656` is a unique identifier of that particular revision. (This is a really long code, but whenever you need to use it, you can just use the first few characters, however many characters is long enough to make it unique.)
-
-Note that git will now tell us that our "working directory" is up-to-date with the repository: there are no changes to the files that aren't recorded in the repository history:
-
-    git status
-    
->     # On branch master
->    nothing to commit (working directory clean)
-
-But I'm going to make a change to the file:
-
-    vim index.md
-    cat index.md
-    
->    Mountains in the UK  
->    ===================   
->    England is not very mountainous.  
->    But it has some tall hills, and maybe a mountain or two depending on your definition.  
->    Mount Fictional, in Barsetshire, U.K. is the tallest mountain in the world.   
-
-
-    git status
-
->    # On branch master  
->    # Changes not staged for commit:  
->    #   (use "git add <file>..." to update what will be committed)  
->    #   (use "git checkout -- <file>..." to discard changes in working directory)  
->    #  
->    #	modified:   index.md  
->    #  
->    no changes added to commit (use "git add" and/or "git commit -a")   
-
-We can now see that there is a change to "index.md" which is currently "not staged for commit". What does this mean? It means that if we do a `git commit` now *nothing will happen*. This is because, git will only commit changes to files that you choose to include in each commit. This is a difference from other version control systems, where committing will commit changes to all tracked files. To include the file in the next commit, we have a few choices. This is one of the things to be careful of with git: there are lots of ways to do similar things, and it can be hard to keep track of them all. We're going to do:
-
-    git add --update
-
-This says "include in the next commit, all files which have ever been included before". Note that `git add` is the command we use to introduce git to a new file, but also the command we use to "stage" a file to be included in the next commit. The "staging area" is the git jargon for the place which contains changes which will be included in the next commit.
-
-    git status
-    
->    # On branch master  
->    # Changes to be committed:  
->    #   (use "git reset HEAD <file>..." to unstage)  
->    #  
->    #	modified:   index.md  
->    #  
-
-    git commit
-    git log
-    
->    commit 50280520d33592d093773dfd3e5de4c3da7e1a09  
->    Author: James Hetherington <j.hetherington@ucl.ac.uk>  
->    Date:   Wed Apr 3 15:49:02 2013 +0100  
->
->        Add a lie about a mountain  
->
->    commit c438f1716b2515563e03e82231acbae7dd4f4656  
->    Author: James Hetherington <j.hetherington@ucl.ac.uk>  
->    Date:   Wed Apr 3 15:32:33 2013 +0100  
->
->        First commit of discourse on UK topography  
+Now two commits appear as "unsynced commits".
 
 Great, we now have a file which contains a mistake.
 
 In a while, we'll use Git to roll back to the last correct version: this is one of the main reasons we wanted to use version control, after all! But for now, let's do just as we would if we were writing code, not notice our mistake and keep working...
 
-    vim index.md
-    cat index.md
-    
->  Mountains and Hills in the UK  
+Make a third change.
 
-    git commit -a
-    
-This last command, `git commit -a` automatically adds changes to all tracked files to the staging area, as part of the commit command. So, if you never want to just add changes to some tracked files but not others, you can just use this and forget about the staging area!
-
-    git log | head
-    
-> commit 0bae9055dca14f659154e1d9a50409751b59aad8 
-> Author: James Hetherington <j.hetherington@ucl.ac.uk>  
-> Date:   Wed Apr 3 15:55:38 2013 +0100  
->  
->    Change title  
-
-We now have three changes in the history:
- 
-    git log --oneline
-
-> 0bae905 Change title  
-> 5028052 Add a lie about a mountain  
-> c438f17 First commit of discourse on UK topography  
+We now have three changes in the unsynced commits.
  
 2. Fixing Mistakes
 ------------------
  
 Ok, so now we'd like to undo the nasty commit with the lie about Mount Fictional.
 
-    git revert --in 5028
-
-A commit window pops up, with some default text which you can accept and save. 
-
-You may, depending on the changes you've tried to make, get an error message here. If this happens, it is because git could not automagically decide how to combine the change you made after the change you want to revert, with the attempt to revert the change: this could happen, for example, if they both touch the same line. If that happens, you need to manually edit the file to fix the problem, ask your demonstrator for help.
-    
-The file should now contain the change to the title, but not the extra line with the lie. Note the log:
-
-> commit d6959031d5722cb2b22c408e704e894bce7713e9  
-> Author: James Hetherington <j.hetherington@ucl.ac.uk>  
-> Date:   Wed Apr 3 16:13:19 2013 +0100  
->    Revert "Add a lie about a mountain"  
->    This reverts commit 50280520d33592d093773dfd3e5de4c3da7e1a09.   
+Click on this commit. Notice the "roll back this commit" and "revert commit" buttons. Choose "revert commit". (If you get a warning about a conflict, ask your demonstrator for help.)
 
 Notice how the mistake has stayed in the history: you can see a commit which undoes the change: this is colloquially called an "antipatch". This is nice: you have a record of the full story, including the mistake and its correction.
 
-It is possible, in git, to remove the most recent change altogether, "rewriting history". Let's make another bad change, and see how to do this.
+It is possible, in git, to remove the most recent change altogether, "rewriting history". Make another bad change, of your choice, by editing the file, and committing again. 
 
-    vim index.md
-    cat index.md
+Now, click on the commit, and then on "roll back this commit"
 
-> Engerland is not very mountainous.  
+The silly spelling is gone, and *it isn't even in the list of commits*. This approach to fixing mistakes, "rewriting history" with `reset`, instead of adding an antipatch with `revert` is dangerous, and we don't recommend it. But you may want to do it for small silly mistakes, such as to correct a commit message.
 
-    git commit -a
-    git log | head
-
-> ...Add a silly spelling    
-    
-    git reset HEAD^
-
-Here, HEAD^ refers to the commit before the "head", which is the latest change. That is, we want to go back to the change before the current one. We could have used the hash code to reference this, but you can also refer to the commit before the HEAD as HEAD^, the one before that as HEAD^^, the one before that as HEAD~3 etc.
-
-> Unstaged changes after reset:  
-> M	index.md      
- 
-    git log --oneline
-
->    53f4b50    Revert "Add a lie about a mountain"     This reverts commit 50280520d  
->    0bae905 Change title  
->    5028052 Add a lie about a mountain  
->    c438f17 First commit of discourse on UK topography  
-
-The silly spelling is gone, and *it isn't even in the log*. This approach to fixing mistakes, "rewriting history" with `reset`, instead of adding an antipatch with `revert` is dangerous, and we don't recommend it. But you may want to do it for small silly mistakes, such as to correct a commit message.
-
-When git reset removes commits, it leaves your working directory unchanged -- so you can keep the work in the bad change if you want. If you want to lose the change from the working directory as well, you can do `git reset --hard`. I'm going to get rid of the silly spelling, and I didn't do `--hard`, so I'll reset the file from the working directory to be the same as in the repository (after removing the reset):
-
-    git checkout index.md
+When git reset removes commits, it leaves your working directory unchanged -- so you can see the bad commit is now a new commit ready to be included. To fully get rid of the bad change, right click the file, and choose "discard changes."
     
 
 3. Publishing
@@ -244,22 +63,14 @@ When git reset removes commits, it leaves your working directory unchanged -- so
 
 So far, all our work has been on our own computer. But a big part of the point of version control is keeping your work safe, on remote servers. In this example, we'll be using the "GitHub" cloud repository to store our work. 
 
-First, you should create an account on GitHub: go to [GitHub](https://github.com/), fill in a username and password, and click on "sign up for free". 
 
-You'll probably want to set things up so that you don't have to keep typing in your password whenever you interact with GitHub via the command line. One way is via password caching. On the GitHub website there are [instructions](https://help.github.com/articles/set-up-git) to help with this too. Follow them (under "password caching at the link above"). Another way to do this is with an "ssh keypair". The instructions for this are also [on the GitHub website](https://help.github.com/articles/generating-ssh-keys). Ask your demonstrator for help here if you need it.
+Ok, let's create a repository to store our work. Hit "push to github" on the top of the window.
 
-Ok, let's create a repository to store our work. Hit "new repository" on the right of the github home screen, or click [here](https://github.com/new). Fill in a short name, and a description. Choose a "public" repository. Don't choose to add a Readme.
+For this software carpentry course, you should use public repositories in your personal account for your example work: it's good to share, so don't click "keep this code private". GitHub is free for open source, but in general, charges a fee if you want to keep your work private. In the future, you might want to keep your work on GitHub private: students can get free private repositories on GitHub, by going to [https://github.com/edu] and filling in a form. UCL Research Software Development can support your research group with the cost of private repositories if you need it: get in touch at rc-softdev@ucl.ac.uk for more details.
 
-For this software carpentry course, you should use public repositories in your personal account for your example work: it's good to share! GitHub is free for open source, but in general, charges a fee if you want to keep your work private. In the future, you might want to keep your work on GitHub private: students can get free private repositories on GitHub, by going to [https://github.com/edu] and filling in a form. UCL Research Software Development can support your research group with the cost of private repositories if you need it: get in touch at rc-softdev@ucl.ac.uk for more details.
+This sets up the server on github as a "remote", called "origin". Git, unlike some earlier version control systems is a "distributed" version control system, which means you can work with multiple remote servers. Usually, commands that work with remotes allow you to specify the remote to use, but assume the "origin" server if you don't. 
 
-Instructions will appear, once you've created the repository, as to how to add this new "remote" server to your repository, in the lower box on the screen. Mine say:
-
-    git remote add origin git@github.com:jamespjh/jh-ucl-swcarpentry-answers.git
-    git push -u origin master
-
-Follow these instructions.
-
-The first command sets up the server as a new remote, called "origin". Git, unlike some earlier version control systems is a "distributed" version control system, which means you can work with multiple remote servers. Usually, commands that work with remotes allow you to specify the remote to use, but assume the "origin" server if you don't. Here, `git push` will push your whole history onto the server, and now you'll be able to see it on the internet! Refresh your web browser where the instructions were, and you'll see your repository! 
+Now, hit "publish to github". Now you'll be able to see it on the internet! Click on the icon indicating "GitHub", and the repository will open in your browser.
 
 Take a few moments to click around and work your way through the GitHub interface. Try clicking on 'index.md' to see the content of the file: notice how the markdown renders prettily.
 
@@ -270,122 +81,38 @@ Let's make some more changes, and see how to publish them to GitHub as we go.
 4. Multiple files
 ------------------------
 
-So far, we've only worked with one file. Let's add another:
+So far, we've only worked with one file. Add another with your editor, put some content in it. Make some changes to the first file too.
 
-    vim lakeland.md
-    cat lakeland.md
-    
->    Lakeland  
->    ========   
->  
->    Cumbria has some pretty hills, and lakes too.  
+Note you can use checkboxes to decide which files to include in your next commit. You could do both files together, or two commits with changes to one file in each commit. It's up to you.
 
-    git commit -a
+Your change is on your local copy, but won't hit GitHub until you hit "sync". Hit "sync" to push your changes to github. Visit GitHub, and notice this change is on your repository on the server.
 
->   # On branch master
->    # Untracked files:
->    #   (use "git add <file>..." to include in what will be committed)
->    #
->    #	lakeland.md
->    nothing added to commit but untracked files present (use "git add" to track)
-
-This didn't do anything, because we've not told git to track the new file yet.
-
-    git add lakeland.md
-    git commit -a
-
-Ok, now we have added the change to Cumbria to the file. Let's publish it to the origin repository.
-
-    git push
-    
->    Counting objects: 4, done.  
->    Delta compression using up to 8 threads.  
->    Compressing objects: 100% (3/3), done.  
->    Writing objects: 100% (3/3), 343 bytes, done.  
->    Total 3 (delta 0), reused 0 (delta 0)  
->    To git@github.com:jamespjh/jh-ucl-swcarpentry-answers.git  
->       53f4b50..9e8b69c  master -> master    
-
-Visit GitHub, and notice this change is on your repository on the server. We could have said `git push origin` to specify the remote to use, but origin is the defaut
-
-Note that you can also make changes in the GitHub website itself. Visit one of your files, and hit "edit".
+Note that you can also make changes in the GitHub website itself. Visit one of your files, and hit "edit. This will not work in IE 7 or 8, so you can only try this next bit if you're using IE 9 or another browser.
 
 Make a change in the edit window, and add an appropriate commit message.
 
-That change now appears on the website, but not in your local copy. (Verify this). To get the change into your local copy, do:
-
-    git pull
-    
->    remote: Counting objects: 5, done.  
->    remote: Compressing objects: 100% (3/3), done.  
->    remote: Total 3 (delta 1), reused 0 (delta 0)  
->    Unpacking objects: 100% (3/3), done.  
->    From github.com:jamespjh/jh-ucl-swcarpentry-answers  
->       9e8b69c..d2a1854  master     -> answers/master  
->    Updating 9e8b69c..d2a1854  
->    Fast-forward  
->     index.md | 8 ++++++++  
->     1 file changed, 8 insertions(+)   
-
-and check the change is now present on your local version. `git pull` will fetch changes on the server into your local copy: this is important when you are collaborating with others, as we shall see.
+That change now appears on the website, but not in your local copy. (Verify this). To get the change into your local copy, hit "sync" and check the change is now present on your local version. `git pull` will fetch changes on the server into your local copy: this is important when you are collaborating with others, as we shall see.
  
 5. Branching and tagging
 ------------------------
 
 Git lets you maintain different versions of your history in your repository. These are called branches. You can use these to work on crazy new ideas in your code, and still keep a branch with your working code you use to do science.
 
-To create a new branch, you can do:
+To create a new branch, you should click on the trident symbol. In the "filter or create new" box, type "experiment", and choose "create new branch experiment"
 
-    git branch experiment
-    git branch
-    
->     experiment
->     * master
+The name next to the trident indicates the branch you are "on". Stay on the experiment branch for now.
 
-The asterisk indicates the branch you are "on". Although you created the `experiment` branch, you're still on the master branch. Switch to the experiment branch with:
-
-    git checkout experiment 
-
-And let the server know there's a new branch with:
-
-    git push --set-upsteam origin experiment
-
-We use `--set-upsteam origin` to tell git that this branch should be pushed to and pulled from origin per default. 
-Go ahead and make some changes to files, and commit and push them with `git push`. You'll see that they only appear in the experimental branch. When you want to switch back to your main branch, make sure you're fully commited, with no changes to files waiting to commit, then do:
+Make a change, and commit it. The change is in your file, but if you switch to the master branch, it won't be.
 
     git checkout master
     
-Now, you can pull your changes back from your experimental branch into the master branch, with
-
-    git merge experiment
+You'll need to publish your changes from the experiment branch. Verify the branch appears on the github website. Now, you can pull your changes back from your experimental branch into the master branch,  by choosing "manage" on the branches dropdown. Drag your branches into the merge window, and observe the results. 
     
-If you have committed changes on both master and experiment, you may hit conflicts, where git can't work out how to merge them. We'll discuss this in detail later, when we look at collaboration, so for now, ask a demonstrator to help with this.
+If you have committed changes on both master and experiment, you may hit conflicts, where git can't work out how to merge them. We'll discuss this in detail later, when we look at collaboration, so for now, ask a demonstrator to help with this.          
 
-Git gives you the power to label a particular version of your code with a more readable name. This is called a "tag". This is important for making sure you only do science with a certain version. 
+You'll need to publish the results of your merging, using "sync".
 
-Label your current version with:
-
-    git tag -a v0.2
-
-Pick an old commit using `git log`, and label it like this:
-
-    git tag -a v0.1 c438f17
-
-You can now go back to the v0.1 commit like this:
-
-    git checkout v0.1
-
-and then switch back to the main code with
-
-    git checkout master
-    
-You can refer to any tagged commit with the tag name, anywhere you would otherwise use a commit hash code, or a HEAD-based reference.
-
-You need to push your tag labels up to the remote, with
-
-    git push --tags
-                      
-You should now be able to see these under tags, in the dropdown menu on the left. 
+Git also gives you the power to label a particular version of your code with a more readable name. This is called a "tag". Currently, this isn't possible using the GUI.
 
 6. GitHub pages
 ---------------
@@ -398,12 +125,8 @@ GitHub will publish repositories containing markdown as web pages, automatically
 A pair of lines with three dashes, to the top of each markdown file. 
 [Here's why](https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter) for the curious. 
 
-And then add a special named branch, which GitHub uses to create a website for any repository. This is best used to create documentation for a program you write, but you can use it for anything:
+And then add a special named branch, which GitHub uses to create a website for any repository. This is best used to create documentation for a program you write, but you can use it for anything. The special branch should be called gh-pages.
 
-    git branch gh-pages
-    git checkout gh-pages
-    git push --set-upstream origin gh-pages
-    
 The first time you do this, GitHub takes a few minutes to generate your pages. The website will appear at `http://username.github.com/repositoryname`, for example, here's mine: http://jamespjh.github.com/jh-ucl-swcarpentry-answers/     
 
 You can use this syntax
@@ -425,52 +148,23 @@ In GitHub, go to `settings` on the right, then `collaborators` on the left.
 
 Add the user name of your collaborator to the box. They now have the right to push to your repository.
 
-Next, the collaborator needs to get a copy of the leader's code. Make yourself a space to put it:
+Next, the collaborator needs to get a copy of the leader's code. Go to the collaborator's page, then choose "clone in windows." The repository will appear as another repository in your github client.
 
-    cd .. # To get out of your own solution, and back to a safe place in your working area
-    mkdir carpentry-collaborations
-    cd carpentry-collaborations
+Now, both of you should make some changes. To start with, make changes to *different* files. Both of you should commit, but not publish. This will mean your work doesn't "conflict". Later, we'll see how to deal with changes to a shared file.
 
-Next, the collaborator needs to find out the URL of the repository: they should go to the leader's repository's GitHub page, and note the URL on the top of the screen. Make sure the "ssh" button is pushed, the URL should begin with `git@github.com`. Copy the URL into your clipboard by clicking on the icon to the right of the URL, and then:
+One of you should now sync.
 
-   git clone git@github.com:/... #Subsitute the right URL from your clipboard
-
-Now, both of you should make some changes. To start with, make changes to *different* files. Both of you should commit, but not push. This will mean your work doesn't "conflict". Later, we'll see how to deal with changes to a shared file.
-
-One of you should now push with `git push`.
-
-The other should then push, but should receive an error message:
-
-> To git@github.com:jamespjh/jh-ucl-swcarpentry-answers.git  
-> ! [rejected]        master -> master (non-fast-forward)  
-> error: failed to push some refs to 'git@github.com:jamespjh/jh-ucl-swcarpentry-answers.git'  
-> hint: Updates were rejected because the tip of your current branch is behind  
-> hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')  
-> hint: before pushing again.  
-> hint: See the 'Note about fast-forwards' in 'git push --help' for details.  
-
-Do as it suggests:
-
-    git pull
-    
-Note a window pops up with a suggested default commit message. This commit is special: it is a *merge* commit. It is a commit which combines your collaborator's work with your own.
-
-Now, push again with `git push`. This time it works. If you look on GitHub, you'll now see that it contains both sets of changes.
+The other should then sync, notice you now have both sets of changes.
 
 Go through the whole process again, but this time, both of you should make changes to a single file, but make sure that you don't touch the same *line*. Again, the merge should work as before.
 
 Finally, go through the process again, but this time, make changes which include changes to a shared line.
 
-When you pull, instead of offering a commit message, it says:
+There's a big scary error message:
 
-> CONFLICT (content): Merge conflict in index.md  
-> Automatic merge failed; fix conflicts and then commit the result.  
+> failed to sync this branch due to unmerged files.  
 
-GitHub couldn't work out how to merge the two different sets of changes.
-
-Whoever pushed second, and is now trying to pull, now has to manually resolve the conflict.
-
-Edit the file. It should look something like this:
+GitHub couldn't work out how to merge the two different sets of changes. The program offers to open a command line for you. You'll need this to mark your change as resolved. Edit the file to manually resolve the conflict.
 
 > <<<<<<< HEAD  
 > Wales is hillier than England, but not quite as hilly as Scotland.  
@@ -482,11 +176,11 @@ The syntax with `<<<` `===` and `>>>` shows the differences between the files. Y
 
 > Wales is much hillier than England, but not quite as hilly as Scotland. 
 
-Now commit the merged result:
+Now commit the merged result in the command line:
 
     git commit -a      
     
-A suggested commit message appears, which you can accept, and then you can push the merged result. Check everything is fine on GitHub.
+A suggested commit message appears, which you can accept, and then you can push the merged result. Sync in the gui, then check everything is fine on GitHub.
 
 8. Social Coding
 ----------------
@@ -504,7 +198,7 @@ If you want to collaborate with someone, but you don't want to give them the rig
 
 Swap roles. This time, the collaborator, instead of pulling the principal's code, should *fork* it. Go to the repository on GitHub, and hit "fork" top right.
 
-A new repository will be created on the collaborator's account, which contains all the same stuff.
+A new repository will be created on the collaborator's account, which contains all the same stuff. The new collaborator should hit "clone in windows" to get a copy of this.
 
 Both of you can make changes. (Make them to different files now for simplicity.) Now, both of you will be able to push: you're pushing to different repositories!
  
