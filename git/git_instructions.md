@@ -222,6 +222,8 @@ It is possible, in git, to remove the most recent change altogether, "rewriting 
     
     git reset HEAD^
 
+Here, HEAD^ refers to the commit before the "head", which is the latest change. That is, we want to go back to the change before the current one. We could have used the hash code to reference this, but you can also refer to the commit before the HEAD as HEAD^, the one before that as HEAD^^, the one before that as HEAD~3 etc.
+
 > Unstaged changes after reset:  
 > M	index.md      
  
@@ -267,7 +269,7 @@ Click on "commits" near the top of the screen, to see all the changes you've mad
 
 Let's make some more changes, and see how to publish them to GitHub as we go.
 
-4. Multiple files, branching and tagging
+4. Multiple files
 ------------------------
 
 So far, we've only worked with one file. Let's add another:
@@ -328,19 +330,90 @@ That change now appears on the website, but not in your local copy. (Verify this
 >     1 file changed, 8 insertions(+)   
 
 and check the change is now present on your local version. `git pull` will fetch changes on the server into your local copy: this is important when you are collaborating with others, as we shall see.
+ 
+7. Branching and tagging
+------------------------
 
-Git gives you the power to label a particular version of your code with a more readable name. This is called a "tag". This is important for making sure you only do science with a certain version. Pick an old commit using `git log`, and label it like this:
+Git lets you maintain different versions of your history in your repository. These are called branches. You can use these to work on crazy new ideas in your code, and still keep a branch with your working code you use to do science.
+
+To create a new branch, you can do:
+
+    git branch experiment
+    git branch
+    
+>  experiment
+>  * master
+
+The asterisk indicates the branch you are "on". Although you created the `experiment` branch, you're still on the master branch. Switch to the experiment branch with:
+
+    git checkout experiment 
+
+And let the server know there's a new branch with:
+
+    git push experiment
+
+Go ahead and make some changes to files, and commit and push them with `git push`. You'll see that they only appear in the experimental branch. When you want to switch back to your main branch, make sure you're fully commited, with no changes to files waiting to commit, then do:
+
+    git checkout master
+    
+Now, you can pull your changes back from your experimental branch into the master branch, with
+
+    git merge experiment
+    
+If you have committed changes on both master and experiment, you may hit conflicts, where git can't work out how to merge them. We'll discuss this in detail later, when we look at collaboration, so for now, ask a demonstrator to help with this.
+
+Git gives you the power to label a particular version of your code with a more readable name. This is called a "tag". This is important for making sure you only do science with a certain version. 
+
+Label your current version with:
+
+    git tag -a v0.2
+
+Pick an old commit using `git log`, and label it like this:
 
     git tag -a v0.1 c438f17
-    
 
+You can now go back to the v0.1 commit like this:
+
+    git checkout v0.1
+
+and then switch back to the main code with
+
+    git checkout master
+    
+You can refer to any tagged commit with the tag name, anywhere you would otherwise use a commit hash code, or a HEAD-based reference.
+
+You need to push your tag labels up to the remote, with
+
+    git push --tags
+                      
+You should now be able to see these under tags, in the dropdown menu on the left. 
 
 5. GitHub pages
 ---------------
 
-Git allows you to keep multiple branches of your work. This can be used to 
+GitHub will publish repositories containing markdown as web pages, automatically. You can do this by creating a branch called `gh-pages`. You'll need to add this content:
+
+    ---
+    ---
+
+A pair of lines with three dashes, to the top of each markdown file. 
+[Here's why](https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter) for the curious. 
+
+And then add a special named branch, which GitHub uses to create a website for any repository. This is best used to create documentation for a program you write, but you can use it for anything:
+
+    git branch gh-pages
+    git checkout gh-pages
+    git push origin gh-pages
+    
+The first time you do this, GitHub takes a few minutes to generate your pages. The website will appear at http://username.github.com/repositoryname, for example, here's mine: [http://jamespjh.github.com/jh-ucl-swcarpentry-answers/]     
+
+You can use this syntax
+
+    [link text](URL)
+    
+To create hyperlinks in your pages, so you can link between your documents. Try it! If you want, after the class, to see how to make pretty HTML layouts for github pages, see [http://github.com/UCL/ucl-github-pages-example], which displays at [http://ucl.github.com/ucl-github-pages-example].
+
 
 
 6. Collaboration
 ------------------------
-
