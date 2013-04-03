@@ -11,7 +11,7 @@ In this course, we will use, as an example, the development of a few text files 
 
 The purpose of this exercise is to learn how to use Git to manage program code you write, not simple text website content, but we'll just use these text files instead of code for now, so as not to confuse matters with trying to learn version control while thinking about programming too. On the second day of the bootcamp, you should use the version control tools you learn today as you work on that day's exercises. 
 
-Section 1: Solo work
+1. Solo work
 --------------------
 
 This tutorial is based on use of the Git command line. Commands you can type will look like this:
@@ -239,9 +239,108 @@ When git reset removes commits, it leaves your working directory unchanged -- so
     git checkout index.md
     
 
-Section 2: Publishing
+3. Publishing
 ---------------------
 
+So far, all our work has been on our own computer. But a big part of the point of version control is keeping your work safe, on remote servers. In this example, we'll be using the "GitHub" cloud repository to store our work. 
 
-Section 3: Collaboration
+First, you should create an account on GitHub: go to [GitHub](https://github.com/), fill in a username and password, and click on "sign up for free". 
+
+You'll probably want to set things up so that you don't have to keep typing in your password whenever you interact with GitHub via the command line. One way is via password caching. On the GitHub website there are [instructions](https://help.github.com/articles/set-up-git) to help with this too. Follow them (under "password caching at the link above"). Another way to do this is with an "ssh keypair". The instructions for this are also [on the GitHub website](https://help.github.com/articles/generating-ssh-keys). Ask your demonstrator for help here if you need it.
+
+Ok, let's create a repository to store our work. Hit "new repository" on the right of the github home screen, or click [here](https://github.com/new). Fill in a short name, and a description. Choose a "public" repository. Don't choose to add a Readme.
+
+For this software carpentry course, you should use public repositories in your personal account for your example work: it's good to share! GitHub is free for open source, but in general, charges a fee if you want to keep your work private. In the future, you might want to keep your work on GitHub private: students can get free private repositories on GitHub, by going to [https://github.com/edu] and filling in a form. UCL Research Software Development can support your research group with the cost of private repositories if you need it: get in touch at rc-softdev@ucl.ac.uk for more details.
+
+Instructions will appear, once you've created the repository, as to how to add this new "remote" server to your repository, in the lower box on the screen. Mine say:
+
+    git remote add origin git@github.com:jamespjh/jh-ucl-swcarpentry-answers.git
+    git push -u origin master
+
+Follow these instructions.
+
+The first command sets up the server as a new remote, called "origin". Git, unlike some earlier version control systems is a "distributed" version control system, which means you can work with multiple remote servers. Usually, commands that work with remotes allow you to specify the remote to use, but assume the "origin" server if you don't. Here, `git push` will push your whole history onto the server, and now you'll be able to see it on the internet! Refresh your web browser where the instructions were, and you'll see your repository! 
+
+Take a few moments to click around and work your way through the GitHub interface. Try clicking on 'index.md' to see the content of the file: notice how the markdown renders prettily.
+
+Click on "commits" near the top of the screen, to see all the changes you've made. Click on the commit number next to the right of a change, to see what changes it includes: removals are shown in red, and additions in green.
+
+Let's make some more changes, and see how to publish them to GitHub as we go.
+
+4. Multiple files, branching and tagging
 ------------------------
+
+So far, we've only worked with one file. Let's add another:
+
+    vim lakeland.md
+    cat lakeland.md
+    
+>    Lakeland  
+>    ========   
+>  
+>    Cumbria has some pretty hills, and lakes too.  
+
+    git commit -a
+
+>   # On branch master
+>    # Untracked files:
+>    #   (use "git add <file>..." to include in what will be committed)
+>    #
+>    #	lakeland.md
+>    nothing added to commit but untracked files present (use "git add" to track)
+
+This didn't do anything, because we've not told git to track the new file yet.
+
+    git add lakeland.md
+    git commit -a
+
+Ok, now we have added the change to Cumbria to the file. Let's publish it to the origin repository.
+
+    git push
+    
+>    Counting objects: 4, done.  
+>    Delta compression using up to 8 threads.  
+>    Compressing objects: 100% (3/3), done.  
+>    Writing objects: 100% (3/3), 343 bytes, done.  
+>    Total 3 (delta 0), reused 0 (delta 0)  
+>    To git@github.com:jamespjh/jh-ucl-swcarpentry-answers.git  
+>       53f4b50..9e8b69c  master -> master    
+
+Visit GitHub, and notice this change is on your repository on the server. We could have said `git push origin` to specify the remote to use, but origin is the defaut
+
+Note that you can also make changes in the GitHub website itself. Visit one of your files, and hit "edit".
+
+Make a change in the edit window, and add an appropriate commit message.
+
+That change now appears on the website, but not in your local copy. (Verify this). To get the change into your local copy, do:
+
+    git pull
+    
+>    remote: Counting objects: 5, done.  
+>    remote: Compressing objects: 100% (3/3), done.  
+>    remote: Total 3 (delta 1), reused 0 (delta 0)  
+>    Unpacking objects: 100% (3/3), done.  
+>    From github.com:jamespjh/jh-ucl-swcarpentry-answers  
+>       9e8b69c..d2a1854  master     -> answers/master  
+>    Updating 9e8b69c..d2a1854  
+>    Fast-forward  
+>     index.md | 8 ++++++++  
+>     1 file changed, 8 insertions(+)   
+
+and check the change is now present on your local version. `git pull` will fetch changes on the server into your local copy: this is important when you are collaborating with others, as we shall see.
+
+Git gives you the power to label a particular version of your code with a more readable name. This is called a "tag". This is important for making sure you only do science with a certain version. Pick an old commit using `git log`, and label it like this:
+
+    git tag -a v0.1 c438f17
+    
+
+
+5. GitHub pages
+---------------
+
+Git allows you to keep multiple branches of your work. This can be used to 
+
+
+6. Collaboration
+------------------------
+
