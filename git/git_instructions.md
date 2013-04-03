@@ -350,8 +350,9 @@ The asterisk indicates the branch you are "on". Although you created the `experi
 
 And let the server know there's a new branch with:
 
-    git push experiment
+    git push --set-upsteam origin experiment
 
+We use `--set-upsteam origin` to tell git that this branch should be pushed to and pulled from origin per default. 
 Go ahead and make some changes to files, and commit and push them with `git push`. You'll see that they only appear in the experimental branch. When you want to switch back to your main branch, make sure you're fully commited, with no changes to files waiting to commit, then do:
 
     git checkout master
@@ -403,7 +404,7 @@ And then add a special named branch, which GitHub uses to create a website for a
 
     git branch gh-pages
     git checkout gh-pages
-    git push origin gh-pages
+    git push --set-upstream origin gh-pages
     
 The first time you do this, GitHub takes a few minutes to generate your pages. The website will appear at `http://username.github.com/repositoryname`, for example, here's mine: http://jamespjh.github.com/jh-ucl-swcarpentry-answers/     
 
