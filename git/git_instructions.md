@@ -62,7 +62,7 @@ So let's create an example file, and see how to start to manage a history of cha
 
 So, let's tell Git that `index.md` is a file which is important, and we would like to keep track of its history:
 
-   git add index.md
+    git add index.md
    
 * Don't forget: Any files in repositories which you want to "track" need to be added with `git add` after you create them.
 
@@ -88,7 +88,7 @@ There's a lot of output there you can ignore for now, it'll (mostly) make sense 
 
 The important thing is that now, we can see that git has one change in its history:
 
-   git log
+    git log
    
 >   commit c438f1716b2515563e03e82231acbae7dd4f4656     
 >   Author: James Hetherington <j.hetherington@ucl.ac.uk>    
@@ -110,7 +110,7 @@ But I'm going to make a change to the file:
     vim index.md
     cat index.md
     
->     Mountains in the UK  
+>    Mountains in the UK  
 >    ===================   
 >    England is not very mountainous.  
 >    But it has some tall hills, and maybe a mountain or two depending on your definition.  
@@ -119,14 +119,14 @@ But I'm going to make a change to the file:
 
     git status
 
->    # On branch master
->    # Changes not staged for commit:
->    #   (use "git add <file>..." to update what will be committed)
->    #   (use "git checkout -- <file>..." to discard changes in working directory)
->    #
->    #	modified:   index.md
->    #
->    no changes added to commit (use "git add" and/or "git commit -a")
+>    # On branch master  
+>    # Changes not staged for commit:  
+>    #   (use "git add <file>..." to update what will be committed)  
+>    #   (use "git checkout -- <file>..." to discard changes in working directory)  
+>    #  
+>    #	modified:   index.md  
+>    #  
+>    no changes added to commit (use "git add" and/or "git commit -a")   
 
 We can now see that there is a change to "index.md" which is currently "not staged for commit". What does this mean? It means that if we do a `git commit` now *nothing will happen*. This is because, git will only commit changes to files that you choose to include in each commit. This is a difference from other version control systems, where committing will commit changes to all tracked files. To include the file in the next commit, we have a few choices. This is one of the things to be careful of with git: there are lots of ways to do similar things, and it can be hard to keep track of them all. We're going to do:
 
@@ -178,6 +178,14 @@ This last command, `git commit -a` automatically adds changes to all tracked fil
 > Date:   Wed Apr 3 15:55:38 2013 +0100  
 >  
 >    Change title  
+
+We now have three changes in the history:
+ 
+    git log --oneline
+
+> 0bae905 Change title
+> 5028052 Add a lie about a mountain
+> c438f17 First commit of discourse on UK topography
  
 2. Fixing Mistakes
 ------------------
