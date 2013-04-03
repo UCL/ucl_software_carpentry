@@ -405,15 +405,13 @@ And then add a special named branch, which GitHub uses to create a website for a
     git checkout gh-pages
     git push origin gh-pages
     
-The first time you do this, GitHub takes a few minutes to generate your pages. The website will appear at http://username.github.com/repositoryname, for example, here's mine: [http://jamespjh.github.com/jh-ucl-swcarpentry-answers/]     
+The first time you do this, GitHub takes a few minutes to generate your pages. The website will appear at `http://username.github.com/repositoryname`, for example, here's mine: http://jamespjh.github.com/jh-ucl-swcarpentry-answers/     
 
 You can use this syntax
 
     [link text](URL)
     
-To create hyperlinks in your pages, so you can link between your documents. Try it! If you want, after the class, to see how to make pretty HTML layouts for github pages, see [http://github.com/UCL/ucl-github-pages-example], which displays at [http://ucl.github.com/ucl-github-pages-example].
-
-
+To create hyperlinks in your pages, so you can link between your documents. Try it! If you want, after the class, to see how to make pretty HTML layouts for github pages, see http://github.com/UCL/ucl-github-pages-example, which displays at http://ucl.github.com/ucl-github-pages-example.
 
 6. Collaboration
 ------------------------
