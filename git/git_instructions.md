@@ -31,9 +31,13 @@ As yet, this repository contains no files:
     git status
 
 >    # On branch master
+
 >    #
+
 >    # Initial commit
+
 >    #
+
 >    nothing to commit (create/copy files and use "git add" to track)
 
 Section 2: Publishing
