@@ -169,9 +169,16 @@ Then install the [GitHub for Windows client](http://windows.github.com/).
 
 ### Editor and Shell ###
 
-Run [swc_windows_installer.py](https://raw.github.com/swcarpentry/boot-camps/master/setup/swc-windows-installer.py).
 Download the file and save as *swc_windows_installer.py*.
+Run [swc_windows_installer.py](https://raw.github.com/swcarpentry/boot-camps/master/setup/swc-windows-installer.py).
 You should be able to simply double click the file in Windows.
+
+If the double-click does not work, then:
+
+Add the python path to windows by following [these instructions](http://stackoverflow.com/questions/6318156/adding-python-path-on-windows-7?answertab=votes#tab-top).
+You will need to add `;C:\Anaconda` to the path variable (the directory of your Anaconda Python install).
+
+Then, opening a command prompt (press the `windows` key, then type `command` in the search prompt), navigate to your download directory by using, for example,  `cd downloads`.  Then type `python swc-windows-installer.py`.
 
 Confirm that this has worked by opening to 'Git Bash' in the Start Menu and then typing:
 	
