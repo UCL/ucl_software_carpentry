@@ -161,9 +161,9 @@ This includes *pip*, *distribute*, *nose* and *pytest*, so your work here is don
 
 Python will be accessed using the IPython notebook and the msysgit shell (command prompt) installed in the steps below.
 
-To use the IPython notebook on a Windows computer with Sophos antivirus installed it may be needed to open additional ports
-allowing communication between the notebook and its server. The solution taken from
-http://stackoverflow.com/questions/13036197/ipython-notebook-getting-output is:
+To use the IPython notebook on a Windows computer with Sophos antivirus installed it may be necessary to open additional ports
+allowing communication between the notebook and its server.
+The [solution](http://stackoverflow.com/questions/13036197/ipython-notebook-getting-output) is:
 
 * open your Sophos Endpoint Security and Control Panel from your tray or start menu
 * Select "configure" > "Anti-virus" > "Authorization" from the menu at the top
@@ -180,16 +180,18 @@ Then install the [GitHub for Windows client](http://windows.github.com/).
 
 ### Editor and Shell ###
 
-Download the file and save as *swc_windows_installer.py*.
-Run [swc_windows_installer.py](https://raw.github.com/swcarpentry/boot-camps/master/setup/swc-windows-installer.py).
-You should be able to simply double click the file in Windows.
+Download the python install script [swc_windows_installer.py](https://raw.github.com/swcarpentry/boot-camps/master/setup/swc-windows-installer.py) 
+and save the file as  *swc_windows_installer.py*
+(you may need to right-click and choose `Save link as`, depending on your browser).
+You should be able to simply double click the file in Windows to run it.
 
 If the double-click does not work, then:
 
 Add the python path to windows by following [these instructions](http://stackoverflow.com/questions/6318156/adding-python-path-on-windows-7?answertab=votes#tab-top).
 You will need to add `;C:\Anaconda` to the path variable (the directory of your Anaconda Python install).
 
-Then, opening a command prompt (press the `windows` key, then type `command` in the search prompt), navigate to your download directory by using, for example,  `cd downloads`.  Then type `python swc-windows-installer.py`.
+Then, opening a command prompt (press the `Windows` key, then type `command` in the search prompt),
+navigate to your download directory by using, for example,  `cd downloads`.  Then type `python swc-windows-installer.py`.
 
 Confirm that this has worked by opening to 'Git Bash' in the Start Menu and then typing:
 	
@@ -198,10 +200,11 @@ Confirm that this has worked by opening to 'Git Bash' in the Start Menu and then
 	nano -V
     
 The version numbers of *Python*, *Git* and *nano* (a text editor) should be displayed.
+If *nano* does not install correctly, no problem - just use *Notepad++*...
 
 ### Notepad++ ###
 
-Install the notepad++ editor.
+Install the Notepad++ editor.
 
 http://notepad-plus-plus.org/download/v6.3.1.html
 
