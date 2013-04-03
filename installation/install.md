@@ -159,7 +159,18 @@ Install [Anaconda CE Python](http://continuum.io/anacondace.html) distribution.
 
 This includes *pip*, *distribute*, *nose* and *pytest*, so your work here is done.
 
-Python will be accessed using the IPython notepad and the msysgit shell (command prompt) installed in the steps below.
+Python will be accessed using the IPython notebook and the msysgit shell (command prompt) installed in the steps below.
+
+To use the IPython notebook on a Windows computer with Sophos antivirus installed it may be needed to open additional ports
+allowing communication between the notebook and its server. The solution taken from
+http://stackoverflow.com/questions/13036197/ipython-notebook-getting-output is:
+
+* open your Sophos Endpoint Security and Control Panel from your tray or start menu
+* Select "configure" > "Anti-virus" > "Authorization" from the menu at the top
+* Select the websites tab
+* click the "Add" button and add 127.0.0.1 and localhost to the "Authorized websites" list
+* restart computer (most likely not needed, just restart the IPython notebook)
+* output works now :)
 
 ### Git ###
 
