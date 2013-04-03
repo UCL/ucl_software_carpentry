@@ -418,3 +418,82 @@ To create hyperlinks in your pages, so you can link between your documents. Try 
 
 Now we're going to get to the most important question of all with Git and GitHub: working with others.
 
+Organise into pairs. You're going to be working on the website of one of the two of you, together, so decide who is going to be the leader, and who the collaborator.
+ 
+Next, the leader needs to let the collaborator have the right to make changes to his code.
+
+In GitHub, go to `settings` on the right, then `collaborators` on the left.
+
+Add the user name of your collaborator to the box. They now have the right to push to your repository.
+
+Next, the collaborator needs to get a copy of the leader's code. Make yourself a space to put it:
+
+    cd .. # To get out of your own solution, and back to a safe place in your working area
+    mkdir carpentry-collaborations
+    cd carpentry-collaborations
+
+Next, the collaborator needs to find out the URL of the repository: they should go to the leader's repository's GitHub page, and note the URL on the top of the screen. Make sure the "ssh" button is pushed, the URL should begin with `git@github.com`. Copy the URL into your clipboard by clicking on the icon to the right of the URL, and then:
+
+   git clone git@github.com:/... #Subsitute the right URL from your clipboard
+
+Now, both of you should make some changes. To start with, make changes to *different* files. Both of you should commit, but not push. This will mean your work doesn't "conflict". Later, we'll see how to deal with changes to a shared file.
+
+One of you should now push with `git push`.
+
+The other should then push, but should receive an error message:
+
+> To git@github.com:jamespjh/jh-ucl-swcarpentry-answers.git  
+> ! [rejected]        master -> master (non-fast-forward)  
+> error: failed to push some refs to 'git@github.com:jamespjh/jh-ucl-swcarpentry-answers.git'  
+> hint: Updates were rejected because the tip of your current branch is behind  
+> hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')  
+> hint: before pushing again.  
+> hint: See the 'Note about fast-forwards' in 'git push --help' for details.  
+
+Do as it suggests:
+
+    git pull
+    
+Note a window pops up with a suggested default commit message. This commit is special: it is a *merge* commit. It is a commit which combines your collaborator's work with your own.
+
+Now, push again with `git push`. This time it works. If you look on GitHub, you'll now see that it contains both sets of changes.
+
+Go through the whole process again, but this time, both of you should make changes to a single file, but make sure that you don't touch the same *line*. Again, the merge should work as before.
+
+Finally, go through the process again, but this time, make changes which include changes to a shared line.
+
+When you pull, instead of offering a commit message, it says:
+
+> CONFLICT (content): Merge conflict in index.md  
+> Automatic merge failed; fix conflicts and then commit the result.  
+
+GitHub couldn't work out how to merge the two different sets of changes.
+
+Whoever pushed second, and is now trying to pull, now has to manually resolve the conflict.
+
+Edit the file. It should look something like this:
+
+> <<<<<<< HEAD  
+> Wales is hillier than England, but not quite as hilly as Scotland.  
+> =======  
+> Wales is much hillier than England, but not as hilly as Scotland.  
+> >>>>>>> dba9bbf3bcab1008b4d59342392cc70890aaf8e6  
+
+The syntax with `<<<` `===` and `>>>` shows the differences between the files. You can get editors which can understand this syntax and make it easy to merge, but for now, just manually edit the file, to combine the changes and get rid of the symbols.
+
+> Wales is much hillier than England, but not quite as hilly as Scotland. 
+
+Now commit the merged result:
+
+    git commit -a      
+    
+A suggested commit message appears, which you can accept, and then you can push the merged result. Check everything is fine on GitHub.
+
+7. Social Coding
+----------------
+
+In addition to being a repository for code, and a way to publish code, GitHub is a social network.  You can follow the public work of other coders: go to the profile of your collaborator in your browser, and it the "follow" button. 
+
+Here's mine: https://github.com/jamespjh : if you want to you can follow me.
+
+Using GitHub to build up a good public profile of software projects you've worked on is great for your CV!
