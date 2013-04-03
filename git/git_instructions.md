@@ -5,7 +5,7 @@ In this module, you will learn how to manage your code with Version Control. Thi
 
 This course will use the `git` version control system, but much of what you learn will be valid with other version control tools you may encounter, including subversion (`svn`) and mercurial (`hg`).
 
-This version of the content assumes you will interact with Git through the Git command line. There is an alternative version of the content which uses the GitHub Windows and Mac clients [here](git_gui_instructions.md).
+This version of the content assumes you will interact with Git through the Git command line.
 
 In this course, we will use, as an example, the development of a few text files containing a description of a topic of your choice. This could be your research, a hobby of yours, or something else. In the end, we will show you how to display the content of these files as a very simple website. The text files we create will use a simple "wiki" markup style called [markdown](http://daringfireball.net/projects/markdown/basics) to show formatting. This is the convention used in this file, too. You can view the content of this file in the way Markdown renders it by looking on the [web](https://github.com/UCL/ucl_software_carpentry/blob/master/git/git_instructions.md), and see compare the [raw text](https://raw.github.com/UCL/ucl_software_carpentry/master/git/git_instructions.md).
 
@@ -331,7 +331,7 @@ That change now appears on the website, but not in your local copy. (Verify this
 
 and check the change is now present on your local version. `git pull` will fetch changes on the server into your local copy: this is important when you are collaborating with others, as we shall see.
  
-7. Branching and tagging
+5. Branching and tagging
 ------------------------
 
 Git lets you maintain different versions of your history in your repository. These are called branches. You can use these to work on crazy new ideas in your code, and still keep a branch with your working code you use to do science.
@@ -389,7 +389,7 @@ You need to push your tag labels up to the remote, with
                       
 You should now be able to see these under tags, in the dropdown menu on the left. 
 
-5. GitHub pages
+6. GitHub pages
 ---------------
 
 GitHub will publish repositories containing markdown as web pages, automatically. You can do this by creating a branch called `gh-pages`. You'll need to add this content:
@@ -414,7 +414,7 @@ You can use this syntax
     
 To create hyperlinks in your pages, so you can link between your documents. Try it! If you want, after the class, to see how to make pretty HTML layouts for github pages, see http://github.com/UCL/ucl-github-pages-example, which displays at http://ucl.github.com/ucl-github-pages-example.
 
-6. Collaboration
+7. Collaboration
 ------------------------
 
 Now we're going to get to the most important question of all with Git and GitHub: working with others.
@@ -490,7 +490,7 @@ Now commit the merged result:
     
 A suggested commit message appears, which you can accept, and then you can push the merged result. Check everything is fine on GitHub.
 
-7. Social Coding
+8. Social Coding
 ----------------
 
 In addition to being a repository for code, and a way to publish code, GitHub is a social network.  You can follow the public work of other coders: go to the profile of your collaborator in your browser, and it the "follow" button. 
@@ -499,7 +499,7 @@ Here's mine: https://github.com/jamespjh : if you want to you can follow me.
 
 Using GitHub to build up a good public profile of software projects you've worked on is great for your CV!
 
-8. Pull Requests
+9. Pull Requests
 ----------------
 
 If you want to collaborate with someone, but you don't want to give them the right to change your code directly, you can collaborate through *pull requests* instead of by granting them access.
