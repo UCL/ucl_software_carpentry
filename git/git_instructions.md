@@ -472,11 +472,11 @@ Whoever pushed second, and is now trying to pull, now has to manually resolve th
 
 Edit the file. It should look something like this:
 
-> <<<<<<< HEAD  
-> Wales is hillier than England, but not quite as hilly as Scotland.  
-> =======  
-> Wales is much hillier than England, but not as hilly as Scotland.  
-> >>>>>>> dba9bbf3bcab1008b4d59342392cc70890aaf8e6  
+>     <<<<<<< HEAD  
+>     Wales is hillier than England, but not quite as hilly as Scotland.  
+>     =======  
+>     Wales is much hillier than England, but not as hilly as Scotland.  
+>     >>>>>>> dba9bbf3bcab1008b4d59342392cc70890aaf8e6  
 
 The syntax with `<<<` `===` and `>>>` shows the differences between the files. You can get editors which can understand this syntax and make it easy to merge, but for now, just manually edit the file, to combine the changes and get rid of the symbols.
 
