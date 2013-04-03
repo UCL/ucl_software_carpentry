@@ -54,11 +54,10 @@ So let's create an example file, and see how to start to manage a history of cha
     vim index.md # Type some content into the file.
     cat index.md
 
-> Mountains in the UK 
-> ===================
-> 
-> England is not very mountainous.
-> But it has some tall hills, and maybe a mountain or two depending on your definition.
+>    Mountains in the UK   
+>    ===================   
+>    England is not very mountainous.   
+>    But has some tall hills, and maybe a mountain or two depending on your definition.    
 
 So, let's tell Git that `index.md` is a file which is important, and we would like to keep track of its history:
 
