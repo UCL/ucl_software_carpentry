@@ -504,7 +504,7 @@ If you want to collaborate with someone, but you don't want to give them the rig
 
 Swap roles. This time, the collaborator, instead of pulling the principal's code, should *fork* it. Go to the repository on GitHub, and hit "fork" top right.
 
-A new repository will be created on the collaborator's account, which contains all the same stuff.
+A new repository will be created on the collaborator's account, which contains all the same stuff. Clone it with `git clone`
 
 Both of you can make changes. (Make them to different files now for simplicity.) Now, both of you will be able to push: you're pushing to different repositories!
  
