@@ -183,9 +183,9 @@ We now have three changes in the history:
  
     git log --oneline
 
-> 0bae905 Change title
-> 5028052 Add a lie about a mountain
-> c438f17 First commit of discourse on UK topography
+> 0bae905 Change title  
+> 5028052 Add a lie about a mountain  
+> c438f17 First commit of discourse on UK topography  
  
 2. Fixing Mistakes
 ------------------
@@ -221,16 +221,23 @@ It is possible, in git, to remove the most recent change altogether, "rewriting 
 > ...Add a silly spelling    
     
     git reset HEAD^
-    git log 
 
 > Unstaged changes after reset:  
 > M	index.md      
+ 
+    git log --oneline
 
-git reset will remove the last several commits, leaving your working directory unchanged -- so you can keep the work in the bad change if you want. If you want to lose the change from the working directory as well, you can do `git reset --hard`. I'm going to get rid of the silly spelling, so I'll reset the file from the working directory to be the same as in the repository (after removing the reset):
+>    53f4b50    Revert "Add a lie about a mountain"     This reverts commit 50280520d  
+>    0bae905 Change title  
+>    5028052 Add a lie about a mountain  
+>    c438f17 First commit of discourse on UK topography  
+
+The silly spelling is gone, and *it isn't even in the log*. This approach to fixing mistakes, "rewriting history" with `reset`, instead of adding an antipatch with `revert` is dangerous, and we don't recommend it. But you may want to do it for small silly mistakes, such as to correct a commit message.
+
+When git reset removes commits, it leaves your working directory unchanged -- so you can keep the work in the bad change if you want. If you want to lose the change from the working directory as well, you can do `git reset --hard`. I'm going to get rid of the silly spelling, and I didn't do `--hard`, so I'll reset the file from the working directory to be the same as in the repository (after removing the reset):
 
     git checkout index.md
     
-The silly spelling is gone, and *it isn't even in the log*. This approach to fixing mistakes, "rewriting history" with `reset`, instead of adding an antipatch with `revert` is dangerous, and we don't recommend it. But you may want to do it for small silly mistakes, such as to correct a commit message.
 
 Section 2: Publishing
 ---------------------
