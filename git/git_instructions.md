@@ -14,8 +14,27 @@ The purpose of this exercise is to learn how to use Git to manage your code, but
 Section 1: Solo work
 --------------------
 
+Create a folder to do your work in:
 
+    mkdir my_swcarpentry_solutions/my_swcarpentry_git_solution
+    cd my_swcarpentry_git_solution
 
+Now, we will tell Git to track the content of this folder as a git "repository".
+
+    git init
+
+> Initialized empty Git repository in ...my_swcarpentry_solutions/my_swcarpentry_git_solution
+
+As yet, this repository contains no files:
+
+    ls output
+    git status
+
+>   # On branch master
+    #
+    # Initial commit
+    #
+    nothing to commit (create/copy files and use "git add" to track)
 
 Section 2: Publishing
 ---------------------
