@@ -11,7 +11,7 @@
 ## Software versions, conflicts and installation problems
 * iPython notebook on Windows
 * different versions of iPython notebook on Mac and Windows - Windows using Anaconda, while Mac users are using Enthought
-* bombarding Windows users with use of a text editor such as vim is a bit nasty.  Could include link to Wordpad or TextPad in the setup script.
+* bombarding Windows users with use of a text editor such as vim is a bit nasty.  We could include link to Wordpad or TextPad in the setup script.
 
 ## Facilities 
 * many power sockets in G20 were not working (fuse blown?)
