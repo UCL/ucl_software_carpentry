@@ -9,6 +9,12 @@ Background
 * Queries let us look up data or make calculations based on columns
 * The queries are distinct from the data, so if we change the data we can just rerun the query
 
+Also maybe
+
+* Use a relational database when you find yourself building complex ad-hoc structures with
+  nested dictionaries.
+* Use as alternative to unwieldy Excel spreadsheets.
+
 Set-up
 ------
 
@@ -52,15 +58,22 @@ Importing data
     * Confirm import by clicking **OK**.
 1. Look at the data by selecting the `plots` table and the `Browse & Search` tab.
 
-***Exercise: Import the species and surveys tables.***
+---
 
-***Note: some entries have special meaning or human-readable metadata,*** e.g.
+***Exercise***
 
-* `Rodent-not censused`
-* `Zero Trapping Success`
+* Import the species and surveys tables.
 
-***Note: can explicitly tell SQLite which field(s) is the primary key, but haven't done so.***
+---
 
+***Notes***
+
+* Some entries have special meaning or human-readable metadata, e.g.
+    * `Rodent-not censused`
+    * `Zero Trapping Success`
+* Can explicitly tell SQLite which field(s) is the primary key, but haven't done so.
+
+---
 
 Selecting data
 --------------
@@ -79,7 +92,13 @@ Let’s write an SQL query that selects only the year column from the surveys ta
     SELECT year FROM surveys;
 ```
 
-***Note: Line breaks aren't important, but statement must end with a semicolon.***
+---
+
+***Note***
+
+* Line breaks aren't important, but statement must end with a semicolon.
+
+---
 
 We have capitalized the words SELECT and FROM because they are SQL keywords.
 SQL is case insensitive, but it helps readability.
@@ -96,9 +115,19 @@ Or we can select all of the columns in a table using the wildcard *
     SELECT * FROM surveys;
 ```
 
-***Exercise: Write a query that returns only the species column.***
+---
 
-***Note: no guarantee what order data will be retrieved. Will address this later.***
+***Exercise***
+
+* Write a query that returns only the species column.
+
+---
+
+***Note***
+
+* No guarantee what order data will be retrieved. Will address this later.
+
+---
 
 ### Unique values
 
@@ -157,8 +186,14 @@ Here, we only want the data since 2000:
     SELECT * FROM surveys WHERE year >= 2000;
 ```
 
-***Exercise: Write a query that returns the day, month, year, species ID, and weight
-for individuals that weigh more than 75 grams.***
+---
+
+***Exercise***
+
+* Write a query that returns the day, month, year, species ID, and weight
+for individuals that weigh more than 75 grams.
+
+---
 
 We can user more sophisticated conditions by combining tests with `AND` and `OR`.
 For example, suppose we want to data on Dipodomys merriami starting in the year 2000:
@@ -177,9 +212,14 @@ which have species codes DM, DO, and DS we could combine the tests using OR:
     SELECT * FROM surveys WHERE (species = "DM") OR (species = "DO") OR (species = "DS");
 ```
 
-***Exercise: Write a query that returns the day, month, year, species ID, and weight
-(in kg) for individuals caught on plot 1 that weigh more than 0.075 kg.***
+---
 
+***Exercise:*
+
+* Write a query that returns the day, month, year, species ID, and weight
+(in kg) for individuals caught on plot 1 that weigh more than 0.075 kg.
+
+---
 
 Exporting results of queries
 ----------------------------
@@ -187,7 +227,14 @@ Exporting results of queries
 Getting the result of your query out to work with elsewhere is as easy
 as clicking the **Actions** button and choosing **Save Result to File**.
 
-***Note: headers not included in exported CSV file.***
+---
+
+***Note***
+
+* Headers are not included in exported CSV file.
+
+---
+
 
 Building more complex queries
 -----------------------------
@@ -235,9 +282,15 @@ To truly be alphabetical, we might want to order by genus then species.
     SELECT * FROM species ORDER BY genus ASC, species ASC;
 ```
 
-***Exercise: Write a query that returns all of the data in the plots table,
+---
+
+***Exercise***
+
+* Write a query that returns all of the data in the plots table,
 sorted alphabetically by plot type and then (within each plot type),
-in descending order of the plot ID.***
+in descending order of the plot ID.
+
+---
 
 
 Order of execution
@@ -259,11 +312,18 @@ The computer is doing this:
 2. sorting results according to `ORDER BY`;
 3. displaying requested columns or expressions.
 
+Let’s try to combine what we’ve learned so far in a single query.
 
-***Exercise: Let’s try to combine what we’ve learned so far in a single query.  Let’s go back to the surveys table and lets say that we want to display
-the three date fields, species ID, and weight in kilograms (rounded to two 
-decimal places),  for rodents captured in 1999, ordered alphabetically by 
-the species ID.***
+---
+
+***Exercise***
+
+* Write a query on the `surveys` table to display the three date fields,
+species ID, and weight in kilograms (rounded to two 
+decimal places), for rodents captured in 1999, ordered alphabetically by 
+the species ID.
+
+---
 
 The order of the clauses is dictated by SQL: `SELECT`, `FROM`, `WHERE`, `ORDER BY`
 and we often write each of them on their own line for readability.
@@ -287,8 +347,7 @@ We can also find out how all of those individuals weigh.
     SELECT SUM(wgt) FROM surveys;
 ```
 
-***Do you think you could output this value in kilograms,
-rounded to 3 decimal places?***
+Do you think you could output this value in kilograms, rounded to 3 decimal places?
 
 ```SQL
     SELECT ROUND(SUM(wgt)/1000.0, 3) FROM surveys;
@@ -296,8 +355,14 @@ rounded to 3 decimal places?***
 
 There are many other aggregate functions included in SQL including
 `MAX`, `MIN`, and `AVG`.
+
+---
  
-***From the surveys table, can you use one query to output the total weight, average weight, and the min and max weights?***
+***Exercise***
+
+From the surveys table, use one query to output the total weight, average weight, and the min and max weights.
+
+---
 
 Now, let's try to see how many individuals were counted in each species?
 
@@ -321,13 +386,25 @@ aggregate, and we can do that using `GROUP BY` clause
     GROUP BY species;
 ```
 
-***Exercise: How many individuals were counted in each year?***
+---
+
+***Exercise***
+
+* How many individuals were counted in each year?
+
+---
 
 ```SQL
     SELECT month, COUNT(DISTINCT sp_code) FROM individuals GROUP BY month
 ```
 
-***Exercise: How many individuals were counted in each species in each year?***
+---
+
+***Exercise***
+
+* How many individuals were counted in each species in each year?
+
+---
 
 We can order the results of our aggregation by a specific column, 
 including the aggregated column.
@@ -341,9 +418,14 @@ ordered by the count
     ORDER BY COUNT(sp_code)
 ```
 
-***Exercise: Write a query that lets us look at which years contained the most individuals and which had the least.***
+---
 
-***Exercise: Write a query that shows us which species had the largest individuals on average.***
+***Exercises***
+
+* Write a query that lets us look at which years contained the most individuals and which had the least.
+* Write a query that shows us which species had the largest individuals on average.
+
+---
 
 
 Database Design
@@ -412,7 +494,13 @@ actual species names.
     JOIN species ON surveys.species = species.species_id;
 ```
 
-***Exercise: Write a query that the genus, the species, and the weight of every individual captured at the site.***
+---
+
+***Exercise***
+
+* Write a query that the genus, the species, and the weight of every individual captured at the site.
+
+---
 
 Joins can be combined with sorting, filtering, and aggregation.
 So, if we wanted average mass of the individuals on each different
@@ -463,4 +551,5 @@ Programming with databases
 --------------------------
 
 * Using the Python API for SQLite.
-* Importing data without Firefox
+* Importing data without Firefox.
+
