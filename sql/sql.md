@@ -245,7 +245,7 @@ which have species codes DM, DO, and DS we could combine the tests using OR:
 
 ---
 
-***Exercise:*
+***Exercise***
 
 * Write a query that returns the day, month, year, species ID, and weight
 (in kg) for individuals caught on plot 1 that weigh more than 0.075 kg.
@@ -426,7 +426,7 @@ aggregate, and we can do that using `GROUP BY` clause
 ---
 
 ```SQL
-    SELECT month, COUNT(DISTINCT sp_code) FROM individuals GROUP BY month
+    SELECT month, COUNT(DISTINCT sp_code) FROM individuals GROUP BY month;
 ```
 
 ---
@@ -446,7 +446,7 @@ ordered by the count
     SELECT species, COUNT(*)
     FROM surveys
     GROUP BY species
-    ORDER BY COUNT(sp_code)
+    ORDER BY COUNT(sp_code);
 ```
 
 ---
@@ -461,22 +461,38 @@ ordered by the count
 
 Database Design
 ---------------
-Each field in a database should store a single value.
-Information should not be duplicated in a database.
-Each table should be about a single subject (avoids unnecessary replication).
-When naming fields, you should think about meaning, not presentation.
+
+Principles of database *normalization* aim to minimize redundancy and dependency among records,
+so relationships are clear and we are less likely to introduce inconsistencies.
+
+* Each field in a database should store a single value.
+* Information should not be duplicated in a database.
+* Each table should be about a single subject (avoids unnecessary replication).
+
+Also, remembering to *write for people, not computers*:
+
+* When naming fields, you should think about meaning, not presentation.
 
 When we divide our data between several tables,
 we need a way to bring it back together again.
-The key is to have an identifier in common between tables – shared columns.
+The key is to have an identifier in common between tables: shared columns.
 This will allow us to join tables, which we will discuss now.
 
-For example, the species ID is included in the surveys table,
+For example, the species ID is included in the `surveys` table,
 but we don’t know what the species ID stands for.
-That information is stored in the Species table and can be
+That information is stored in the `species` table and can be
 linked to if we need it.
 This means that we don't have to record the full genus, species,
 and taxa information for the several thousand individuals of each species. 
+
+---
+
+***Note***
+
+* When using a spreadsheet, it is common for information to be duplicated in this way. Getting round this 
+  involves using *look-up* or *database* functions in the spreadsheet.
+
+---
 
 
 Joining tables
@@ -529,7 +545,14 @@ actual species names.
 
 ***Exercise***
 
-* Write a query that the genus, the species, and the weight of every individual captured at the site.
+* Write a query that returns the genus, the species, and the weight of every individual captured at the
+  site.
+
+---
+
+***Note***
+
+* In many records, the weight has not been recorded.
 
 ---
 
@@ -540,10 +563,22 @@ type of treatment, we could do something like
 ```SQL
     SELECT plots.plot_type, AVG(surveys.wgt)
     FROM surveys
-    JOIN plots
-    ON surveys.plot = plots.plot_id
+      JOIN plots
+      ON surveys.plot = plots.plot_id
     GROUP BY plots.plot_type;
 ```
+
+---
+
+***Exercise***
+
+* Modify the query above so that it returns only the average mass of the individuals of
+  *Sigmodon hispidus* on each type of plot.
+* Modify the query so it returns the average mass of individuals of all *Sigmodon* species
+  on each type of plot.
+
+---
+
 
 Missing data
 ------------

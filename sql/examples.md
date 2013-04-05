@@ -63,3 +63,18 @@ SELECT species.genus, species.species, meanweights.meanweight FROM
 LIMIT 1
 ;
 ```
+
+Modify the query so it returns the average mass of individuals of all *Sigmodon* species
+on each type of plot.
+```sql
+SELECT plots.plot_type, AVG(surveys.wgt)
+    FROM 
+      surveys
+        JOIN plots
+          ON surveys.plot = plots.plot_id
+        JOIN species
+          ON surveys.species = species.species_id
+    WHERE species.genus = 'Sigmodon'
+    GROUP BY plots.plot_type;
+```
+
