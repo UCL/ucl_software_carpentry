@@ -350,7 +350,7 @@ And let the server know there's a new branch with:
 
     git push --set-upstream origin experiment
 
-We use `--set-upsteam origin` to tell git that this branch should be pushed to and pulled from origin per default. 
+We use `--set-upstream origin` to tell git that this branch should be pushed to and pulled from origin per default. 
 Go ahead and make some changes to files, and commit and push them with `git push`. You'll see that they only appear in the experimental branch. When you want to switch back to your main branch, make sure you're fully commited, with no changes to files waiting to commit, then do:
 
     git checkout master
