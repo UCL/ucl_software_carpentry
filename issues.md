@@ -7,6 +7,7 @@
 ## Coordination
 * Not clear where people to go to at beginning - signs for tables?
 * Tension between grouping individuals by departmental teams versus by platform
+* Name badges / identifiers for demonstrators
 
 ## Software versions, conflicts and installation problems
 * iPython notebook on Windows
