@@ -580,10 +580,40 @@ type of treatment, we could do something like
 ---
 
 
-Missing data
-------------
+Missing or inconsistent data
+----------------------------
 
-`NULL`
+In browsing the tables, and looking at your query results, you may have noticed that some fields
+have no value in certain records. The absence of a value is represented in SQL by a `NULL` value.
+The existence of `NULL` entries can complicate the interpretation of results, but this is not a feature
+of SQL so much as a reflection of the complexity or imperfections of the underlying data. In our data, some animals were not weighed, or sexed, so the corresponding fields are `NULL`.
+
+There may also be more subtle issues to consider in interpreting the data. In this case, some of the
+entries in the `species` table correspond to specimens that were only identified to the level of their
+genus or above.
+
+---
+
+***Note***
+
+* Failing to allow for `NULL` or missing values, or errors in the data, can make the results of
+  an analysis invalid.
+
+---
+
+To check whether a value is `NULL`, the special syntax `IS NULL` or `IS NOT NULL` is needed.
+Trying to compare a `NULL` value with anything for either equality (`=`) or inequality (`!=`)
+always results in another `NULL`, which is interpreted as "false" in selection criteria.
+
+When joining two tables, one or both of which may contain `NULL` values in the join variable, the
+result is that some combinations of values you might expect are not included in the result. This could
+occur if, for example, some species in the `species` table never showed up in the `surveys` table,
+or a species showed up in a survey without being added to the `species` table.
+
+We don't have time here to follow this up, but the solution involves using an *outer join*.
+
+It is also possible to use *constraints* to prevent the database from ending up in certain types
+of inconsistent state, such as having a species in `surveys` that is not included in `species`.
 
 
 Subqueries
@@ -592,6 +622,10 @@ Subqueries
 
 Creating tables
 ---------------
+
+
+Views
+-----
 
 
 Adding data to existing tables
