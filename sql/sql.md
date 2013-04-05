@@ -1,19 +1,46 @@
-Databases using SQL
-===================
+Relational Databases
+====================
 
 Background
 ----------
 
-* Relational databases store data in tables and with fields (columns) and records (rows)
-* Data in tables has types, just like in Python, and all values in a field have the same type
-* Queries let us look up data or make calculations based on columns
-* The queries are distinct from the data, so if we change the data we can just rerun the query
+### What is a relational database?
 
-Also maybe
+* A relational database stores data in a structured form, using tables of *records* (rows) containing
+*fields* (columns).
+* Data in tables has types, just like in Python, and all values in a field have the same type.
+* Queries let us look up data or make calculations based on columns.
+* The queries are distinct from the data, so if we change the data we can just rerun the query.
 
-* Use a relational database when you find yourself building complex ad-hoc structures with
-  nested dictionaries.
-* Use as alternative to unwieldy Excel spreadsheets.
+### What are the alternatives?
+
+Non-relational databases:
+
+* The newer examples are often lumped together under the *NoSQL* buzzword, sometimes said to stand
+  for "Not *only* SQL".
+* These are often used in cases where it is important to be able to access large amounts of data,
+  especially when this is distributed across multiple servers, and may not have as rigid a structure as
+  required by a relational database.
+* They may also in some cases be simpler to use in applications where the relational features are not
+  needed.
+
+Ad-hoc data structures:
+
+* You can combine lists, tuples, sets and dictionaries (or their equivalents in other languages) into 
+  arbitrarily complex objects.
+* It can become awkward and inefficient to use these to track all the relationships between different
+  records.
+* There are *object-relational mapping* packages available if you do need to switch between approaches.
+
+Spreadsheets:
+
+* Often the first tool people reach for to track their data.
+* Easy to manipulate small, relatively simple data sets.
+* Simplest approach often involves duplicating data across rows: violates *Don't Repeat Yourself* principle.
+* Can evolve into complex systems of formulas, macros and functions.
+* Can be very hard to understand, as relationships between cells and sheets are not easily visible.
+* Size limits: 1 million rows per sheeet in Excel 2010.
+
 
 Set-up
 ------
@@ -71,6 +98,7 @@ Importing data
 * Some entries have special meaning or human-readable metadata, e.g.
     * `Rodent-not censused`
     * `Zero Trapping Success`
+* Some fields are missing in some records.
 * Can explicitly tell SQLite which field(s) is the primary key, but haven't done so.
 
 ---
@@ -125,7 +153,10 @@ Or we can select all of the columns in a table using the wildcard *
 
 ***Note***
 
-* No guarantee what order data will be retrieved. Will address this later.
+* The `species` field in the `surveys` table contains an abbreviated identifier rather than the full
+  species name.
+* No guarantee what order data will be retrieved.
+* Will address both points later.
 
 ---
 
