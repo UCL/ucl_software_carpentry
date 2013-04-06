@@ -71,13 +71,14 @@ SELECT day, month, year, species, round(wgt/1000.0,2)
 
 ---
 
-Add condition so only show cases where species is recorded:
+Modify the previous query to display results only for individuals whose species and weight
+were recorded.
 
 ```sql
 SELECT day, month, year, species, round(wgt/1000.0,2)
   FROM surveys
   WHERE year = 1999
-    AND species IS NOT NULL
+    AND wgt IS NOT NULL
   ORDER BY species ASC;
 ```
 
