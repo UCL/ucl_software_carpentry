@@ -1,28 +1,35 @@
-This collection of material is licensed under a Creative Commons - Attribution-ShareAlike 2.0 UK: England & Wales (CC BY-SA 2.0 UK) license.
+This work is the copyright of its various contributors. 
+
+This collection of material is licensed under a Creative Commons - Attribution license. 
+
+The list of contributors can be found at https://github.com/UCL/ucl_software_carpentry/graphs/contributors.
+
+It is a derivative work of the work of the Software Carpentry Initiative, a full list of contributors can be found at https://github.com/swcarpentry/boot-camps/graphs/contributors. 
 
 You are free:
 
-- to copy, distribute, display, and perform the work
-- to make derivative works
-- to make commercial use of the work
+- to **Share** - to copy, distribute and transmit the work
+- to **Remix** - to adapt the work
 
 Under the following conditions:
 
-- **Attribution** — You must give the original author credit.
-
-- **Share Alike** — If you alter, transform, or build upon this work, you may distribute the resulting work only under a licence identical to this one.
+- **Attribution** - You must attribute the work in the manner specified by the
+  author or licensor (but not in any way that suggests that they endorse you or
+  your use of the work).
 
 With the understanding that:
 
-**Waiver** — Any of the above conditions can be waived if you get permission from the copyright holder.
+- **Waiver** - Any of the above conditions can be waived if you get permission
+  from the copyright holder.
+- **Other Rights** - In no way are any of the following rights affected by the
+  license:
+  - Your fair dealing or fair use rights;
+  - The author’s moral rights;
+  - Rights other persons may have either in the work itself or in how the work
+    is used, such as publicity or privacy rights.
+- **Notice** - For any reuse or distribution, you must make clear to others the
+  license terms of this work. The best way to do this is with a link to this
+  [web page](http://creativecommons.org/licenses/by/3.0/).
 
-**Public Domain** — Where the work or any of its elements is in the public domain under applicable law, that status is in no way affected by the license.
-
-**Other Rights** — In no way are any of the following rights affected by the license:
- - Your fair dealing or fair use rights, or other applicable copyright exceptions and limitations;
- - The author's moral rights;
- - Rights other persons may have either in the work itself or in how the work is used, such as publicity or privacy rights.
-
-**Notice** — For any reuse or distribution, you must make clear to others the licence terms of this work.
-
-For the full legal text of the licence, see http://creativecommons.org/licenses/by-sa/2.0/uk/legalcode
+For the full legal text of this license, please see
+http://creativecommons.org/licenses/by/3.0/legalcode.
