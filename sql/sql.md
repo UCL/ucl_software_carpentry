@@ -252,6 +252,21 @@ which have species codes DM, DO, and DS we could combine the tests using OR:
 
 ---
 
+***Note***
+
+* We can give a name to a calculated quantity to reduce repetition and thus make it less likely
+  that we will introduce errors.
+
+```SQL
+SELECT (wgt/1000.0) AS weight_kg
+  FROM
+    surveys
+  WHERE
+    weight_kg > 0.075;
+```
+
+---
+
 Exporting results of queries
 ----------------------------
 
@@ -277,7 +292,13 @@ It is equivalent to saying ``WHERE (species = "DM") OR (species = "DO") OR (spec
 but reads more neatly:
 
 ```SQL
-    SELECT * FROM surveys WHERE (year >= 2000) AND (species IN ("DM", "DO", "DS"));
+SELECT *
+  FROM
+    surveys
+  WHERE
+    (year >= 2000)
+    AND
+    (species IN ("DM", "DO", "DS"));
 ```
 
 We started with something simple, then added more clauses one by one,
@@ -318,7 +339,7 @@ To truly be alphabetical, we might want to order by genus then species.
 ***Exercise***
 
 * Write a query that returns all of the data in the plots table,
-sorted alphabetically by plot type and then (within each plot type),
+sorted alphabetically by plot type and then (within each plot type)
 in descending order of the plot ID.
 
 ---
@@ -344,6 +365,8 @@ The computer is doing this:
 3. displaying requested columns or expressions.
 
 Let’s try to combine what we’ve learned so far in a single query.
+The order of the clauses is dictated by SQL: `SELECT`, `FROM`, `WHERE`, `ORDER BY`
+and we often write each of them on their own line for readability.
 
 ---
 
@@ -351,13 +374,11 @@ Let’s try to combine what we’ve learned so far in a single query.
 
 * Write a query on the `surveys` table to display the three date fields,
 species ID, and weight in kilograms (rounded to two 
-decimal places), for rodents captured in 1999, ordered alphabetically by 
+decimal places) for rodents captured in 1999, ordered alphabetically by 
 the species ID.
 
 ---
 
-The order of the clauses is dictated by SQL: `SELECT`, `FROM`, `WHERE`, `ORDER BY`
-and we often write each of them on their own line for readability.
 
 
 Aggregation
@@ -419,20 +440,9 @@ aggregate, and we can do that using `GROUP BY` clause
 
 ---
 
-***Exercise***
+***Exercises***
 
 * How many individuals were counted in each year?
-
----
-
-```SQL
-    SELECT month, COUNT(DISTINCT sp_code) FROM individuals GROUP BY month;
-```
-
----
-
-***Exercise***
-
 * How many individuals were counted in each species in each year?
 
 ---
@@ -454,7 +464,7 @@ ordered by the count
 ***Exercises***
 
 * Write a query that lets us look at which years contained the most individuals and which had the least.
-* Write a query that shows us which species had the largest individuals on average.
+* Write a query that shows us which species had the largest and smallest individuals on average.
 
 ---
 
@@ -545,8 +555,7 @@ actual species names.
 
 ***Exercise***
 
-* Write a query that returns the genus, the species, and the weight of every individual captured at the
-  site.
+* Write a query that returns the genus, the species, and the weight of every individual captured.
 
 ---
 
