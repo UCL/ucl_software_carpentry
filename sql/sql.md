@@ -44,6 +44,12 @@ Spreadsheets:
 * Can be very hard to understand, as relationships between cells and sheets are not easily visible.
 * Size limits: 1 million rows per sheeet in Excel 2010.
 
+### SQLite
+
+* Simple to install and use.
+* Provides most standard SQL features.
+* Free and open source.
+* Not suitable for large databases with many simultaneous users.
 
 Set-up
 ------
