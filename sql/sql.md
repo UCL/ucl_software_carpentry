@@ -252,6 +252,21 @@ which have species codes DM, DO, and DS we could combine the tests using OR:
 
 ---
 
+***Note***
+
+* We can give a name to a calculated quantity to reduce repetition and thus make it less likely
+  that we will introduce errors.
+
+```SQL
+SELECT (wgt/1000.0) AS weight_kg
+  FROM
+    surveys
+  WHERE
+    weight_kg > 0.075;
+```
+
+---
+
 Exporting results of queries
 ----------------------------
 
@@ -277,7 +292,13 @@ It is equivalent to saying ``WHERE (species = "DM") OR (species = "DO") OR (spec
 but reads more neatly:
 
 ```SQL
-    SELECT * FROM surveys WHERE (year >= 2000) AND (species IN ("DM", "DO", "DS"));
+SELECT *
+  FROM
+    surveys
+  WHERE
+    (year >= 2000)
+    AND
+    (species IN ("DM", "DO", "DS"));
 ```
 
 We started with something simple, then added more clauses one by one,
@@ -318,7 +339,7 @@ To truly be alphabetical, we might want to order by genus then species.
 ***Exercise***
 
 * Write a query that returns all of the data in the plots table,
-sorted alphabetically by plot type and then (within each plot type),
+sorted alphabetically by plot type and then (within each plot type)
 in descending order of the plot ID.
 
 ---
@@ -344,6 +365,8 @@ The computer is doing this:
 3. displaying requested columns or expressions.
 
 Let’s try to combine what we’ve learned so far in a single query.
+The order of the clauses is dictated by SQL: `SELECT`, `FROM`, `WHERE`, `ORDER BY`
+and we often write each of them on their own line for readability.
 
 ---
 
@@ -351,13 +374,54 @@ Let’s try to combine what we’ve learned so far in a single query.
 
 * Write a query on the `surveys` table to display the three date fields,
 species ID, and weight in kilograms (rounded to two 
-decimal places), for rodents captured in 1999, ordered alphabetically by 
+decimal places) for rodents captured in 1999, ordered alphabetically by 
 the species ID.
 
 ---
 
-The order of the clauses is dictated by SQL: `SELECT`, `FROM`, `WHERE`, `ORDER BY`
-and we often write each of them on their own line for readability.
+Missing or inconsistent data
+----------------------------
+
+In browsing the tables, and looking at your query results, you may have noticed that some fields
+have no value in certain records. The absence of a value is represented in SQL by a `NULL` value.
+The existence of `NULL` entries can complicate the interpretation of results, but this is not a feature
+of SQL so much as a reflection of the complexity or imperfections of the underlying data. In our data, some animals were not weighed, or sexed, so the corresponding fields are `NULL`.
+
+There may also be more subtle issues to consider in interpreting the data. In this case, some of the
+entries in the `species` table correspond to specimens that were only identified to the level of their
+genus or above.
+
+---
+
+***Note***
+
+* Failing to allow for `NULL` or missing values, or errors in the data, can make the results of
+  an analysis invalid.
+
+---
+
+To check whether a value is `NULL`, the special syntax `IS NULL` or `IS NOT NULL` is needed.
+Trying to compare a `NULL` value with anything for either equality (`=`) or inequality (`!=`)
+always results in another `NULL`, which is interpreted as "false" in selection criteria.
+
+---
+
+***Exercise***
+
+Modify the previous query to display results only for individuals whose species and weight
+were recorded.
+
+---
+
+When joining two tables, one or both of which may contain `NULL` values in the join variable, the
+result is that some combinations of values you might expect are not included in the result. This could
+occur if, for example, some species in the `species` table never showed up in the `surveys` table,
+or a species showed up in a survey without being added to the `species` table.
+
+We don't have time here to follow this up, but the solution involves using an *outer join*.
+
+It is also possible to use *constraints* to prevent the database from ending up in certain types
+of inconsistent state, such as having a species in `surveys` that is not included in `species`.
 
 
 Aggregation
@@ -419,20 +483,9 @@ aggregate, and we can do that using `GROUP BY` clause
 
 ---
 
-***Exercise***
+***Exercises***
 
 * How many individuals were counted in each year?
-
----
-
-```SQL
-    SELECT month, COUNT(DISTINCT sp_code) FROM individuals GROUP BY month;
-```
-
----
-
-***Exercise***
-
 * How many individuals were counted in each species in each year?
 
 ---
@@ -454,7 +507,7 @@ ordered by the count
 ***Exercises***
 
 * Write a query that lets us look at which years contained the most individuals and which had the least.
-* Write a query that shows us which species had the largest individuals on average.
+* Write a query that shows us which species had the largest and smallest individuals on average.
 
 ---
 
@@ -545,8 +598,7 @@ actual species names.
 
 ***Exercise***
 
-* Write a query that returns the genus, the species, and the weight of every individual captured at the
-  site.
+* Write a query that returns the genus, the species, and the weight of every individual captured.
 
 ---
 
@@ -579,58 +631,70 @@ type of treatment, we could do something like
 
 ---
 
-
-Missing or inconsistent data
-----------------------------
-
-In browsing the tables, and looking at your query results, you may have noticed that some fields
-have no value in certain records. The absence of a value is represented in SQL by a `NULL` value.
-The existence of `NULL` entries can complicate the interpretation of results, but this is not a feature
-of SQL so much as a reflection of the complexity or imperfections of the underlying data. In our data, some animals were not weighed, or sexed, so the corresponding fields are `NULL`.
-
-There may also be more subtle issues to consider in interpreting the data. In this case, some of the
-entries in the `species` table correspond to specimens that were only identified to the level of their
-genus or above.
-
----
-
-***Note***
-
-* Failing to allow for `NULL` or missing values, or errors in the data, can make the results of
-  an analysis invalid.
-
----
-
-To check whether a value is `NULL`, the special syntax `IS NULL` or `IS NOT NULL` is needed.
-Trying to compare a `NULL` value with anything for either equality (`=`) or inequality (`!=`)
-always results in another `NULL`, which is interpreted as "false" in selection criteria.
-
-When joining two tables, one or both of which may contain `NULL` values in the join variable, the
-result is that some combinations of values you might expect are not included in the result. This could
-occur if, for example, some species in the `species` table never showed up in the `surveys` table,
-or a species showed up in a survey without being added to the `species` table.
-
-We don't have time here to follow this up, but the solution involves using an *outer join*.
-
-It is also possible to use *constraints* to prevent the database from ending up in certain types
-of inconsistent state, such as having a species in `surveys` that is not included in `species`.
-
-
 Subqueries
 ----------
+
+Which individual was the heaviest? We can answer this in two steps by finding the greatest mass and
+then finding the individual(s) with this value:
+
+```SQL
+SELECT MAX(wgt)
+  FROM
+    surveys;
+
+SELECT *
+  FROM
+    surveys
+  WHERE
+    wgt = 280;
+```
+
+However, we can also feed the result of the first query into the second by making it into a
+*subquery*:
+
+```SQL
+SELECT *
+  FROM
+    surveys
+  WHERE
+    wgt = (SELECT MAX(wgt)
+                  FROM
+                      surveys);
+```
 
 
 Creating tables
 ---------------
 
+You can see the command that could have been used to create an existing table in the Firefox add-in
+by selecting the relevant table and choosing the ***Structure*** tab, e.g.
 
-Views
------
+```SQL
+CREATE TABLE "plots" ("plot_id" INTEGER, "plot_type" VARCHAR)
+```
 
+You can create a new table by executing a similar SQL statement. In the Firefox add-in you can
+also do so through the GUI.
+
+---
+
+***Exercise***
+
+Add a table called `surveyor` with fields for the individual and family names, and a unique identifier,
+for each person involved in carrying out the surveys.
+
+---
 
 Adding data to existing tables
 ------------------------------
 
+To insert a row into our new table:
+```SQL
+INSERT INTO surveyors
+  (id, individual_name, family_name)
+    VALUES
+      (1, 'Ben', 'Waugh');
+```
 
 Advanced features
 -----------------
@@ -645,6 +709,11 @@ For integrity:
 
 * constraints
 * transactions and roll-back
+
+Functionality:
+
+* views
+* temporary tables
 
 
 Programming with databases
