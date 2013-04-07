@@ -734,6 +734,6 @@ Functionality:
 Programming with databases
 --------------------------
 
-* Using the Python API for SQLite.
+* Using the Python API for SQLite: see [this IPython notebook](sql.ipynb) for a short example.
 * Importing data without Firefox.
 
