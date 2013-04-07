@@ -667,10 +667,6 @@ Creating tables
 ---------------
 
 
-Views
------
-
-
 Adding data to existing tables
 ------------------------------
 
@@ -688,6 +684,11 @@ For integrity:
 
 * constraints
 * transactions and roll-back
+
+Functionality:
+
+* views
+* temporary tables
 
 
 Programming with databases
