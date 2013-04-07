@@ -1,6 +1,9 @@
 Relational Databases
 ====================
 
+Based on material from [Ethan White](https://github.com/ethanwhite) and the
+[Software Carpentry](http://github.com/swcarpentry) team.
+
 Background
 ----------
 
