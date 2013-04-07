@@ -118,9 +118,9 @@ What should be done if you pass a list of integers? What if you pass a
 list of strings?
 
 **Example**:
+
 ```cd exercises/mean
-nosetests test_mean.py 
-```
+nosetests test_mean.py```
 
 
 # When should we test?
