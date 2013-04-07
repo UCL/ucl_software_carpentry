@@ -3,6 +3,8 @@ Relational Databases
 
 Based on material from [Ethan White](https://github.com/ethanwhite) and the
 [Software Carpentry](http://github.com/swcarpentry) team.
+This material is provided with a Creative Commons Attribution licence
+[CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/).
 
 Background
 ----------
