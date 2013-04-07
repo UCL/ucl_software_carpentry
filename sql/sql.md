@@ -496,10 +496,13 @@ Let’s count the number of individuals of each species captured,
 ordered by the count
 
 ```SQL
-    SELECT species, COUNT(*)
-    FROM surveys
-    GROUP BY species
-    ORDER BY COUNT(sp_code);
+SELECT species, COUNT(*) AS number
+  FROM
+    surveys
+  GROUP BY
+    species
+  ORDER BY
+    number DESC;
 ```
 
 ---
