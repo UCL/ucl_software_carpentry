@@ -634,6 +634,34 @@ type of treatment, we could do something like
 Subqueries
 ----------
 
+Which individual was the heaviest? We can answer this in two steps by finding the greatest mass and
+then finding the individual(s) with this value:
+
+```SQL
+SELECT MAX(wgt)
+  FROM
+    surveys;
+
+SELECT *
+  FROM
+    surveys
+  WHERE
+    wgt = 280;
+```
+
+However, we can also feed the result of the first query into the second by making it into a
+*subquery*:
+
+```SQL
+SELECT *
+  FROM
+    surveys
+  WHERE
+    wgt = (SELECT MAX(wgt)
+                  FROM
+                      surveys);
+```
+
 
 Creating tables
 ---------------
