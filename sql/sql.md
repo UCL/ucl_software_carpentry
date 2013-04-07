@@ -689,6 +689,7 @@ Adding data to existing tables
 ------------------------------
 
 To insert a row into our new table:
+
 ```SQL
 INSERT INTO surveyors
   (id, individual_name, family_name)
