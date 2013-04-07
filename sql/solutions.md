@@ -198,6 +198,19 @@ SELECT plots.plot_type, AVG(surveys.wgt)
   GROUP BY plots.plot_type;
 ```
 
+---
+
+Add a table called `surveyor` with fields for the individual and family names, and a unique identifier,
+for each person involved in carrying out the surveys.
+
+```sql
+CREATE TABLE
+  surveyors
+  (id INT, individual_name VARCHAR, family_name VARCHAR);
+```
+
+---
+
 Not included in lecture notes
 -----------------------------
 

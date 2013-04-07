@@ -666,10 +666,35 @@ SELECT *
 Creating tables
 ---------------
 
+You can see the command that could have been used to create an existing table in the Firefox add-in
+by selecting the relevant table and choosing the ***Structure*** tab, e.g.
+
+```SQL
+CREATE TABLE "plots" ("plot_id" INTEGER, "plot_type" VARCHAR)
+```
+
+You can create a new table by executing a similar SQL statement. In the Firefox add-in you can
+also do so through the GUI.
+
+---
+
+***Exercise***
+
+Add a table called `surveyor` with fields for the individual and family names, and a unique identifier,
+for each person involved in carrying out the surveys.
+
+---
 
 Adding data to existing tables
 ------------------------------
 
+To insert a row into our new table:
+```SQL
+INSERT INTO surveyors
+  (id, individual_name, family_name)
+    VALUES
+      (1, 'Ben', 'Waugh');
+```
 
 Advanced features
 -----------------
