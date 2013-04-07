@@ -119,9 +119,8 @@ list of strings?
 
 **Example**:
 
-```cd exercises/mean
-nosetests test_mean.py```
-
+    cd exercises/mean
+    nosetests test_mean.py
 
 # When should we test?
 
