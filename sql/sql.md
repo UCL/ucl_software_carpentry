@@ -1,6 +1,11 @@
 Relational Databases
 ====================
 
+Based on material from [Ethan White](https://github.com/ethanwhite) and the
+[Software Carpentry](http://github.com/swcarpentry) team.
+This material is provided with a Creative Commons Attribution licence
+[CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/).
+
 Background
 ----------
 
@@ -41,6 +46,12 @@ Spreadsheets:
 * Can be very hard to understand, as relationships between cells and sheets are not easily visible.
 * Size limits: 1 million rows per sheeet in Excel 2010.
 
+### SQLite
+
+* Simple to install and use.
+* Provides most standard SQL features.
+* Free and open source.
+* Not suitable for large databases with many simultaneous users.
 
 Set-up
 ------
@@ -496,10 +507,13 @@ Let’s count the number of individuals of each species captured,
 ordered by the count
 
 ```SQL
-    SELECT species, COUNT(*)
-    FROM surveys
-    GROUP BY species
-    ORDER BY COUNT(sp_code);
+SELECT species, COUNT(*) AS number
+  FROM
+    surveys
+  GROUP BY
+    species
+  ORDER BY
+    number DESC;
 ```
 
 ---
@@ -689,6 +703,7 @@ Adding data to existing tables
 ------------------------------
 
 To insert a row into our new table:
+
 ```SQL
 INSERT INTO surveyors
   (id, individual_name, family_name)
@@ -719,6 +734,6 @@ Functionality:
 Programming with databases
 --------------------------
 
-* Using the Python API for SQLite.
+* Using the Python API for SQLite: see [this IPython notebook](sql.ipynb) for a short example.
 * Importing data without Firefox.
 
