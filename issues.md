@@ -23,3 +23,7 @@
 
 ## Tricky problems found in exercises
 * One person had `nosetests` not finding her tests, due to them having the executable flag set.  See http://stackoverflow.com/questions/1457104/nose-unable-to-find-tests-in-ubuntu.  Fix by changing the flag or using `nosetests --exe`.  `nosetests -vv` is useful for debugging this.
+
+## Other
+* Unable to view text in SQLite Manager - see http://code.google.com/p/sqlite-manager/issues/detail?id=520 (In SQLite options, set open in new tab not new window, then use Firefox's normal zoom.)
+* GitHub requires horizontal scrolling when you increase font size :(
