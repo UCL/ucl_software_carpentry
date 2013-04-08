@@ -57,18 +57,18 @@ def test_floating_mean():
 # Nose: A Python Testing Framework
 
 The testing framework we'll discuss today is called nose. However, there
-are several other testing frameworks available in most language. Most
+are several other testing frameworks available in most languages. Most
 notably there is [JUnit](http://www.junit.org/) in Java which can
-arguably attributed to inventing the testing framework.
+arguably be attributed with the invention of testing frameworks.
 
 ## Where do nose tests live?
 
 Nose tests are files that begin with `Test-`, `Test_`, `test-`, or
-`test_`. Specifically, these satisfy the testMatch regular expression
+`test_`. Specifically, these satisfy the `testMatch` regular expression
 `[Tt]est[-_]`. (You can also teach nose to find tests by declaring them
-in the unittest.TestCase subclasses chat you create in your code. You
-can also create test functions which are not unittest.TestCase
-subclasses if they are named with the configured testMatch regular
+in the `unittest.TestCase` subclasses chat you create in your code. You
+can also create test functions which are not `unittest.TestCase`
+subclasses if they are named with the configured `testMatch` regular
 expression.)
 
 ## Nose Test Syntax
@@ -80,7 +80,7 @@ assert should_be_true()
 assert not should_not_be_true()
 ```
 
-Additionally, nose itself defines number of assert functions which can
+Additionally, nose itself defines a number of assert functions which can
 be used to test more specific aspects of the code base.
 
 ```python
@@ -118,9 +118,9 @@ What should be done if you pass a list of integers? What if you pass a
 list of strings?
 
 **Example**:
+
     cd exercises/mean
     nosetests test_mean.py
-
 
 # When should we test?
 
@@ -137,7 +137,7 @@ used for something important is too late.
 If we have a robust set of tests, we can run them before adding
 something new and after adding something new. If the tests give the same
 results (as appropriate), we can have some assurance that we didn't
-wreak anything. The same idea applies to making changes in your system
+wreck anything. The same idea applies to making changes in your system
 configuration, updating support codes, etc.
 
 Another important feature of testing is that it helps you remember what
@@ -166,10 +166,10 @@ framework you adopt. Don't worry, there are a lot of choices.
 ## Types of Tests
 
 **Exceptions:** Exceptions can be thought of as type of runtime test.
-They alert the user to exceptional behavior in the code. Often,
+They alert the user to exceptional behaviour in the code. Often,
 exceptions are related to functions that depend on input that is unknown
 at compile time. Checks that occur within the code to handle exceptional
-behavior that results from this type of input are called Exceptions.
+behaviour that results from this type of input are called Exceptions.
 
 **Unit Tests:** Unit tests are a type of test which test the fundamental
 units of a program's functionality. Often, this is on the class or
@@ -178,15 +178,15 @@ formally defined.
 
 To test functions and classes, the interfaces (API) - rather than the
 implementation - should be tested. Treating the implementation as a
-black box, we can probe the expected behavior with boundary cases for
+black box, we can probe the expected behaviour with boundary cases for
 the inputs.
 
 **System Tests:** System level tests are intended to test the code as a
-whole. As opposed to unit tests, system tests ask for the behavior as a
+whole. As opposed to unit tests, system tests ask for the behaviour as a
 whole. This sort of testing involves comparison with other validated
 codes, analytical solutions, etc.
 
-**Regression Tests:** A regression test ensures that new code does
+**Regression Tests:** A regression test ensures that new code does not
 change anything. If you change the default answer, for example, or add a
 new question, you'll need to make sure that missing entries are still
 found and fixed.
@@ -205,7 +205,7 @@ code base still functions after changes have been made.
 
 # Elements of a Test
 
-**Behavior:** The behavior you want to test. For example, you might want
+**Behaviour:** The behaviour you want to test. For example, you might want
 to test the fun() function.
 
 **Expected Result:** This might be a single number, a range of numbers,
@@ -213,8 +213,8 @@ a new fully defined object, a system state, an exception, etc. When we
 run the fun() function, we expect to generate some fun. If we don't
 generate any fun, the fun() function should fail its test.
 Alternatively, if it does create some fun, the fun() function should
-pass this test. The the expected result should known *a priori*. For
-numerical functions, this is result is ideally analytically determined
+pass this test. The expected result should known *a priori*. For
+numerical functions, this result is ideally analytically determined
 even if the function being tested isn't.
 
 **Assertions:** Require that some conditional be true. If the
