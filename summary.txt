@@ -15,6 +15,7 @@ Well pitched and not patronising
 Liked the flow of ideas and topics
 Number of demonstrators was excellent
 Unit testing was really useful
+Software supported on all platforms
 
 # Suggested improvements for next time
 Some people struggled with SQL
