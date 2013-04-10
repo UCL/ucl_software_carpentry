@@ -44,7 +44,7 @@ Spreadsheets:
 * Simplest approach often involves duplicating data across rows: violates *Don't Repeat Yourself* principle.
 * Can evolve into complex systems of formulas, macros and functions.
 * Can be very hard to understand, as relationships between cells and sheets are not easily visible.
-* Size limits: 1 million rows per sheeet in Excel 2010.
+* Size limits: 1 million rows per sheet in Excel 2010.
 
 ### SQLite
 
