@@ -14,6 +14,7 @@
 * iPython notebook on Windows
 * Different versions of iPython notebook on Mac and Windows - Windows using Anaconda, while Mac users are using Enthought
 * Bombarding Windows users with use of a text editor such as vim is a bit nasty.  We could include link to Wordpad or TextPad in the setup script.
+* Can't copy/paste URL from browser to terminal (e.g. Git Bash).
 
 ## Facilities 
 * Many power sockets in G20 were not working (fuse blown?)

@@ -135,6 +135,9 @@ After this has finished, test it's working by typing `sqlite3` at the prompt
 
 Pretty straightforward - download and install from the [firefox website](http://firefox.com/)
 
+As of April 2013, SQLite3 only worked with Firefox 19.0 or below.
+You can download the Mac version [here](https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/19.0/mac/en-GB/Firefox%2019.0.dmg) 
+
 ### Firefox SQLite 3 add-on ###
 
 Go into Firefox/Add-ons and search for *SQLite*. Install the *SQLite Manager*.

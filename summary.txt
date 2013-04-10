@@ -1,0 +1,32 @@
+# Summary points from the UCL Software Carpentry Workshop (April 2013)
+
+# Good stuff
+Interactive
+Liked SQL
+Got lots of experience in development
+Missed the first morning but could still follow
+Python tutorial was great
+Got all the basics that I needed to carry out my own work
+Demonstrators were very helpful
+Diversity of topics was great
+Interactivity and level of complexity was good
+Really liked the notes & use of notebook: can go back to material afterwards
+Well pitched and not patronising
+Liked the flow of ideas and topics
+Number of demonstrators was excellent
+Unit testing was really useful
+Software supported on all platforms
+
+# Suggested improvements for next time
+Some people struggled with SQL
+Coffee next time please!
+Would have liked notes etc in advance
+Version control went a little too quickly
+Could make better use of people's offline time
+Would like to have got to joins faster in SQL
+Sometimes hard to see how techniques are applicable to work
+More big picture would be useful
+Couldn't open all of the files easily during the workshop (Windows user)
+Would have preferred half days rather than whole days
+Sometimes moved too fast
+Could have done with a break in the afternoon

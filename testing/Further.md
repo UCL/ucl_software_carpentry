@@ -11,20 +11,7 @@ def mean(numlist):
     return total/length
 ```
 
-Tests could be implemented as runtime **exceptions in the function**:
-
-```python
-def mean(numlist):
-    try:
-        total = sum(numlist)
-        length = len(numlist)
-    except TypeError:
-        raise TypeError("The number list was not a list of numbers.")
-    except:
-        print "There was a problem evaluating the number list."
-    return total/length
-```
-Better to use an independent executable independent of the main executable.
+For tests, use an independent executable independent of the main executable.
 
 ```python
 def mean(numlist):
@@ -38,7 +25,7 @@ def mean(numlist):
     return total/length
 ```
 
-Where, in a different file exists a test module:
+Where, in a different file (in a /tests folder) exists a test module:
 
 ```python
 import mean
