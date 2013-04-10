@@ -3,13 +3,11 @@ from nose.tools import assert_equal, assert_almost_equal, assert_true, \
 
 from close_line import \
    closest_data_to_line1,closest_data_to_line2,closest_data_to_line3,closest_data_to_line4
-           
-functions_to_test=[closest_data_to_line1,closest_data_to_line2,closest_data_to_line3,closest_data_to_line4] 
 
 import numpy.testing
 
 # Here's an example test function, you should add more:
-def test_one_point_all_methods():
+def test_one_point_method1():
     
 
       data=numpy.array([
