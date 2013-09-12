@@ -39,18 +39,18 @@ There are various ways of installing python and the needed python packages on Li
 
 #### Package manager ####
 
-Resent versions of Ubuntu (12.10 and 13.04) pack resent versions of all needed packages. You should ensure 
-that the following packages are installed. 
+Recent versions of Ubuntu (12.10 and 13.04) pack mostly up to date versions of all needed packages. 
+You should ensure that the following packages are installed:
 
-python-numpy
-python-scipy
-python-nose
-python-matplotlib
-ipython
-ipython-notebook
+*  python-numpy  
+*  python-scipy  
+*  python-nose
+*  python-matplotlib
+*  ipython
+*  ipython-notebook
 
 Older distributions may have outdated versions of specific packages. 
-Other linux distributions most likely also package the needed python packages but 
+Other linux distributions most likely also contain the needed python packages but 
 they may also be outdated. 
 
 #### Enthought Canopy ####
@@ -59,7 +59,7 @@ Alternatively we may install a complete independent scientific python distributi
 Enthought Canopy. 
 
 The Enthought Canopy python distribution exists in two different versions. A basic free version with a 
-limited number of packages (Canopy express) and a non free full version. The full version can however be obtained 
+limited number of packages (Canopy express) and a non free full version. The full version can be obtained 
 free of charge for academic use. Register with [Enthought Scientific Computing](https://enthought.com/products/canopy/academic/)
 using your UCL e-mail address for an academic licence.
 
@@ -94,7 +94,7 @@ The default shell is usually bash but if not you can get to bash by opening a te
 #### Enthought Canopy ####
 
 The Enthought Canopy python distribution exists in two different versions. A basic free version with a 
-limited number of packages (Canopy express) and a non free full version. The full version can however be obtained 
+limited number of packages (Canopy express) and a non free full version. The full version can be obtained 
 free of charge for academic use. Register with [Enthought Scientific Computing](https://enthought.com/products/canopy/academic/)
 using your UCL e-mail address for an academic licence.
 
@@ -153,7 +153,7 @@ Then install the [GitHub for Mac client](http://mac.github.com).
 The default text editor on OS X "textedit" should be sufficient for our use. Alternatively 
 http://mac.appstorm.net/roundups/office-roundups/top-10-mac-text-editors/ lists a number of other good editors. 
 
-To setup git to use textedit the following should do.
+To setup git to use textedit executing the following in a terminal should do.
 
 git config --global core.editor /Applications/TextEdit.app/Contents/MacOS/TextEdit
 
@@ -161,7 +161,8 @@ The default terminal on OSX should also be sufficient. If you want a more advanc
 
 ## Windows Users ##
 
-### Enthought Canopy ###
+### Python ###
+#### Enthought Canopy ####
 
 The Enthought Canopy python distribution exists in two different versions. A basic free version with a 
 limited number of packages (Canopy express) and a non free full version. The full version can be obtained 
@@ -190,15 +191,16 @@ Then install the [GitHub for Windows client](http://windows.github.com/).
 
 ### Editor and Shell ###
 
-In order to write and edit code examples during the carpentry event a good text editor is esential. 
-Unless you already use a specific editor which you are comfortable with we recommend installing Notepad++ on windows.
+Msysgit provides git bash which we will use as the default shell on Windows. 
+In order to write and edit code examples during the carpentry event a good text editor is essential. 
+Unless you already use a specific editor which you are comfortable with we recommend using Notepad++ on windows.
 
 http://notepad-plus-plus.org/
 
-Using Notepad++ to edit text files including code should be straight forward but in addition we should configure git 
+Using Notepad++ to edit text files including code should be straight forward but in addition you should configure git 
 to use notepad++ when writing commit messages (We will learn about these in the version controle session).   
 
-By opening git bash and entering the following we tell git to use the editor located at 
+By opening git bash and entering the following we configure git to use the editor located at 
 "C:/Program Files/Notepad++/notepad++.exe" to open commit messages. Depending on the version and language of your windows 
 installation you might need to adjust this path. You should be able to figure out the corret path by using the windows file explorer to navigate 
 to the installation folder of notepad++. 
@@ -213,12 +215,12 @@ On 64 bit windows7/8 the correct command should be:
 git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst  -nosession -noPlugin"
 ```
 
-Note that it is not obvious how to copy and paste text in a windows terminal including Git Bash. Copy and paste can be found by right
-clicking on the top bar and selecting the commands from the drop down menu.  
+Note that it is not obvious how to copy and paste text in a Windows terminal including Git Bash. Copy and paste can be found by right
+clicking on the top bar and selecting the commands from the drop down menu (in a sub menu).  
 
-Confirm that this has worked by opening to 'Git Bash' in the Start Menu and then typing:
+Confirm that the installation has worked by opening to 'Git Bash' in the Start Menu and then typing:
 	
 	python -V
 	git --version
 
-This should print the installed version of the python and git confirming that both are installed at working correctly.     
+This should print the installed version of the python and git confirming that both are installed at working correctly. 
