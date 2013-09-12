@@ -79,7 +79,7 @@ If you don't already have a favourite,
 you could look at [Kate](http://kate-editor.org/).
 
 
-Whatever editor you have chosen you should configure git to use the same. Executing something like this in a terminal should work:
+Regardless of which editor you have chosen you should configure git to use it. Executing something like this in a terminal should work:
 
 ```
 git config --global core.editor NameofYourEditorHere
@@ -148,6 +148,16 @@ and then type
     brew install git
 
 Then install the [GitHub for Mac client](http://mac.github.com).
+
+### Editor and shell ###
+The default text editor on OS X "textedit" should be sufficient for our use. Alternatively 
+http://mac.appstorm.net/roundups/office-roundups/top-10-mac-text-editors/ lists a number of other good editors. 
+
+To setup git to use textedit the following should do.
+
+git config --global core.editor /Applications/TextEdit.app/Contents/MacOS/TextEdit
+
+The default terminal on OSX should also be sufficient. If you want a more advanced terminal [iTerm2](http://www.iterm2.com/) is an alternative.
 
 ## Windows Users ##
 
