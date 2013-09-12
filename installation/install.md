@@ -34,7 +34,29 @@ that they have a working git, python, and editor and shell installation by follo
 
 ## Linux Users ##
 
-### Enthought Canopy ###
+### Python ###
+There are various ways of installing python and the needed python packages on Linux.
+
+#### Package manager ####
+
+Resent versions of Ubuntu (12.10 and 13.04) pack resent versions of all needed packages. You should ensure 
+that the following packages are installed. 
+
+python-numpy
+python-scipy
+python-nose
+python-matplotlib
+ipython
+ipython-notebook
+
+Older distributions may have outdated versions of specific packages. 
+Other linux distributions most likely also package the needed python packages but 
+they may also be outdated. 
+
+#### Enthought Canopy ####
+
+Alternatively we may install a complete independent scientific python distribution. On of these is 
+Enthought Canopy. 
 
 The Enthought Canopy python distribution exists in two different versions. A basic free version with a 
 limited number of packages (Canopy express) and a non free full version. The full version can however be obtained 
@@ -67,7 +89,9 @@ The default shell is usually bash but if not you can get to bash by opening a te
 
 ## Mac Users ##
 
-### Enthought Canopy ###
+### Python ###
+
+#### Enthought Canopy ####
 
 The Enthought Canopy python distribution exists in two different versions. A basic free version with a 
 limited number of packages (Canopy express) and a non free full version. The full version can however be obtained 
@@ -79,6 +103,8 @@ from where it is possible to install and update a large number of python package
 
 If you use this route, you can ignore the distribute \& pip section.
 
+#### Python from python.org ####
+
 Alternative, you can download *Python* from python.org:
 
 If you have a newer Mac, i.e. one from the last few years, 
@@ -89,7 +115,7 @@ and [follow the instructions](http://www.python.org/download/mac/tcltk/) about T
 If you have an older Mac, [follow these instructions](http://www.python.org/getit/releases/2.7.5/ "Python download"),
 including OS-version-specific information and important details about Tcl/Tk/TKinter dependencies.
 
-### distribute \& pip ###
+##### distribute \& pip #####
 
 Open terminal (search in spotlight for "terminal" or look in the Applications/Utilities folder) and paste in this:
 	
@@ -171,7 +197,7 @@ to the installation folder of notepad++.
 git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession -noPlugin"
 ```
 
-I.e. on 64 bit windows7/8 the correct command is: 
+On 64 bit windows7/8 the correct command should be: 
 
 ```
 git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst  -nosession -noPlugin"
