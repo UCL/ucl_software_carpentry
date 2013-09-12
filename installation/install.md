@@ -2,8 +2,8 @@
 
 This document contains instructions for installation of the packages
 we'll be using during the Software Carpentry Workshop on the 26th and 27th September, 2013
-For the session on programming,
-we'll be using the language *Python* and in particular version 2.7. We will use the *Enthought Canopy* 
+
+For the session on programming, we'll be using the language *Python* and in particular version 2.7. We will use the *Enthought Canopy* 
 python distribution which contains a good collection of the most common *Python* modules as well as *IPython* 
 (an improved *Python* interpreter) and the IPython notebook (a useful web-based user interface that allows
 you to create documents that combine text and *Python* code, executable with the same browser window).
@@ -46,6 +46,7 @@ You should ensure that the following packages are installed:
 *  python-scipy  
 *  python-nose
 *  python-matplotlib
+*  python-pip
 *  ipython
 *  ipython-notebook
 
@@ -77,7 +78,6 @@ you can try to install it via your distribution package manager (e.g. `apt-get` 
 Many different text editors suitable for programming are available.
 If you don't already have a favourite,
 you could look at [Kate](http://kate-editor.org/).
-
 
 Regardless of which editor you have chosen you should configure git to use it. Executing something like this in a terminal should work:
 
@@ -150,12 +150,14 @@ and then type
 Then install the [GitHub for Mac client](http://mac.github.com).
 
 ### Editor and shell ###
-The default text editor on OS X "textedit" should be sufficient for our use. Alternatively 
+The default text editor on OS X *textedit* should be sufficient for our use. Alternatively 
 http://mac.appstorm.net/roundups/office-roundups/top-10-mac-text-editors/ lists a number of other good editors. 
 
-To setup git to use textedit executing the following in a terminal should do.
+To setup git to use *textedit* executing the following in a terminal should do.
 
+```
 git config --global core.editor /Applications/TextEdit.app/Contents/MacOS/TextEdit
+```
 
 The default terminal on OSX should also be sufficient. If you want a more advanced terminal [iTerm2](http://www.iterm2.com/) is an alternative.
 
@@ -192,8 +194,9 @@ Then install the [GitHub for Windows client](http://windows.github.com/).
 ### Editor and Shell ###
 
 Msysgit provides git bash which we will use as the default shell on Windows. 
+
 In order to write and edit code examples during the carpentry event a good text editor is essential. 
-Unless you already use a specific editor which you are comfortable with we recommend using Notepad++ on windows.
+Unless you already use a specific editor which you are comfortable with we recommend using *Notepad++* on windows.
 
 http://notepad-plus-plus.org/
 
