@@ -14,8 +14,8 @@ we'll be using *Git* and the *Github* website.
 
 Linux users should be able to use their package manager to install all of this software
 (if you're using Linux, we assume you won't have any trouble with these requirements).
-However note that if you are running an older linux distribution you may get older versions with different look and features.
-A resent linux distribution is recommended. 
+However note that if you are running an older Linux distribution you may get older versions with different look and features.
+A recent Linux distribution is recommended. 
 
 Mac and Windows users should follow the instructions below.
 
@@ -26,11 +26,10 @@ as it is important that we don't waste time during the workshop trying to mend i
 If you do get stuck, first try searching on the internet (e.g. [stackoverflow.com](http://stackoverflow.com)) for solutions.
 Or, try asking a fellow bootcamp attendee for help.
 
-
 We will be running a drop-in session on the afternoon of Monday 23rd September from 13:00 - 17:00 in Room G07,
 Chadwick Building (main campus on Gower Street) for people that would like some help with setting up their laptop in 
-advance of the boot camp. There is no need to pre-book for this. All students should either attend this or ensure 
-that they have a working git, python, and editor and shell installation by following the instructions bellow. 
+advance of the boot camp. All students should either attend this or ensure 
+that they have a working git, python, and editor and shell installation by following the instructions bellow before the workshop. 
 
 ## Linux Users ##
 
@@ -51,7 +50,7 @@ You should ensure that the following packages are installed:
 *  ipython-notebook
 
 Older distributions may have outdated versions of specific packages. 
-Other linux distributions most likely also contain the needed python packages but 
+Other linux distributions most likely also contain the needed python packages but again 
 they may also be outdated. 
 
 #### Enthought Canopy ####
@@ -98,7 +97,7 @@ limited number of packages (Canopy express) and a non free full version. The ful
 free of charge for academic use. Register with [Enthought Scientific Computing](https://enthought.com/products/canopy/academic/)
 using your UCL e-mail address for an academic licence.
 
-You may then use your Enthought user accout to sign into the installed application and activate the academic version. Canopy comes with a package manager
+You may then use your Enthought user account to sign into the installed application and activate the academic version. Canopy comes with a package manager
 from where it is possible to install and update a large number of python packaged. The packages installed by default should cover our needs.
 
 If you use this route, you can ignore the distribute \& pip section.
@@ -204,8 +203,8 @@ Using Notepad++ to edit text files including code should be straight forward but
 to use notepad++ when writing commit messages (We will learn about these in the version controle session).   
 
 By opening git bash and entering the following we configure git to use the editor located at 
-"C:/Program Files/Notepad++/notepad++.exe" to open commit messages. Depending on the version and language of your windows 
-installation you might need to adjust this path. You should be able to figure out the corret path by using the windows file explorer to navigate 
+"C:/Program Files/Notepad++/notepad++.exe" to write commit messages. Depending on the version and language of your windows 
+installation you might need to adjust this path. You should be able to figure out the correct path by using the windows file explorer to navigate 
 to the installation folder of notepad++. 
 
 ```
@@ -219,7 +218,7 @@ git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe
 ```
 
 Note that it is not obvious how to copy and paste text in a Windows terminal including Git Bash. Copy and paste can be found by right
-clicking on the top bar and selecting the commands from the drop down menu (in a sub menu).  
+clicking on the top bar of the window and selecting the commands from the drop down menu (in a sub menu).  
 
 Confirm that the installation has worked by opening to 'Git Bash' in the Start Menu and then typing:
 	
