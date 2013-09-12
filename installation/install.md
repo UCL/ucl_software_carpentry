@@ -14,26 +14,36 @@ we'll be using *Git* and the *Github* website.
 
 Linux users should be able to use their package manager to install all of this software
 (if you're using Linux, we assume you won't have any trouble with these requirements).
+However note that if you are running an older linux distribution you may get older versions with different look and features.
+A resent linux distribution is recommended. 
+
 Mac and Windows users should follow the instructions below.
 
 Give yourself 30 minutes or so to run through this installation process and don't get intimidated!
 Please try to install everything well before the bootcamp,
-as it is important that we don't waste time during the workshop trying to mend installations.
+as it is important that we don't waste time during the workshop trying to mend installations. 
 
 If you do get stuck, first try searching on the internet (e.g. [stackoverflow.com](http://stackoverflow.com)) for solutions.
 Or, try asking a fellow bootcamp attendee for help.
-Finally, your department should organise a session before the bootcamp to help with any issues.
+
+
+We will be running a drop-in session on the afternoon of Monday 23rd September from 13:00 - 17:00 in Room G07,
+Chadwick Building (main campus on Gower Street) for people that would like some help with setting up their laptop in 
+advance of the boot camp. There is no need to pre-book for this. All students should either attend this or ensure 
+that they have a working git, python, and editor and shell installation by following the instructions bellow. 
 
 ## Linux Users ##
 
 ### Enthought Canopy ###
 
-Register with [Enthought Scientific Computing](https://www2.enthought.com/licenses/academic)
-using your UCL e-mail address.
+The Enthought Canopy python distribution exists in two different versions. A basic free version with a 
+limited number of packages (Canopy express) and a non free full version. The full version can however be obtained 
+free of charge for academic use. Register with [Enthought Scientific Computing](https://enthought.com/products/canopy/academic/)
+using your UCL e-mail address for an academic licence.
 
-Then follow the instructions in the e-mail they send you. Once your license is active, you will be able
-to access the online repository. Navigate to `/repo/epd/installers`, then download and install the 
-relevant Linux install package.
+You may then use your Enthought user account to sign into the installed Canopy application and activate the full academic version. 
+Canopy comes with a package manager from where it is possible to install and update a large number of python packages. 
+The packages installed by default should cover our needs.
 
 ### Git ###
 
@@ -46,19 +56,27 @@ Many different text editors suitable for programming are available.
 If you don't already have a favourite,
 you could look at [Kate](http://kate-editor.org/).
 
+
+Whatever editor you have chosen you should configure git to use the same. Executing something like this in a terminal should work:
+
+```
+git config --global core.editor NameofYourEditorHere
+```
+
 The default shell is usually bash but if not you can get to bash by opening a terminal and typing `bash`.
 
 ## Mac Users ##
 
 ### Enthought Canopy ###
 
-Register with [Enthought Scientific Computing](https://www2.enthought.com/licenses/academic)
-using your UCL e-mail address.
+The Enthought Canopy python distribution exists in two different versions. A basic free version with a 
+limited number of packages (Canopy express) and a non free full version. The full version can however be obtained 
+free of charge for academic use. Register with [Enthought Scientific Computing](https://enthought.com/products/canopy/academic/)
+using your UCL e-mail address for an academic licence.
 
-Then follow the instructions in the e-mail they send you.
-Then follow the instructions in the e-mail they send you. Once your license is active, you will be able
-to access the online repository. Navigate to `/repo/epd/installers`, then download and install the 
-relevant OSX package.
+You may then use your Enthought user accout to sign into the installed application and activate the academic version. Canopy comes with a package manager
+from where it is possible to install and update a large number of python packaged. The packages installed by default should cover our needs.
+
 If you use this route, you can ignore the distribute \& pip section.
 
 Alternative, you can download *Python* from python.org:
@@ -107,13 +125,15 @@ Then install the [GitHub for Mac client](http://mac.github.com).
 
 ## Windows Users ##
 
-### Anaconda Python ###
+### Enthought Canopy ###
 
-Install [Anaconda CE Python](http://continuum.io/anacondace.html) distribution.
+The Enthought Canopy python distribution exists in two different versions. A basic free version with a 
+limited number of packages (Canopy express) and a non free full version. The full version can be obtained 
+free of charge for academic use. Register with [Enthought Scientific Computing](https://enthought.com/products/canopy/academic/)
+using your UCL e-mail address for an academic licence. After registering download and install the Canopy package for your operating system. 
 
-This includes *pip*, *distribute*, *nose* and *pytest*, so your work here is done.
-
-Python will be accessed using the IPython notebook and the msysgit shell (command prompt) installed in the steps below.
+You may then use your Enthought user account to sign into the installed application. Canopy comes with a package manager
+from where it is possible to install and update all the shiped python packaged. The packages installed by default should cover our needs.
 
 To use the IPython notebook on a Windows computer with Sophos antivirus installed it may be necessary to open additional ports
 allowing communication between the notebook and its server.
@@ -134,30 +154,35 @@ Then install the [GitHub for Windows client](http://windows.github.com/).
 
 ### Editor and Shell ###
 
-Download the python install script [swc_windows_installer.py](https://raw.github.com/swcarpentry/boot-camps/master/setup/swc-windows-installer.py) 
-and save the file as  *swc_windows_installer.py*
-(you may need to right-click and choose `Save link as`, depending on your browser).
-You should be able to simply double click the file in Windows to run it.
+In order to write and edit code examples during the carpentry event a good text editor is esential. 
+Unless you already use a specific editor which you are comfortable with we recommend installing Notepad++ on windows.
 
-If the double-click does not work, then:
+http://notepad-plus-plus.org/
 
-Add the python path to windows by following [these instructions](http://stackoverflow.com/questions/6318156/adding-python-path-on-windows-7?answertab=votes#tab-top).
-You will need to add `;C:\Anaconda` to the path variable (the directory of your Anaconda Python install).
+Using Notepad++ to edit text files including code should be straight forward but in addition we should configure git 
+to use notepad++ when writing commit messages (We will learn about these in the version controle session).   
 
-Then, opening a command prompt (press the `Windows` key, then type `command` in the search prompt),
-navigate to your download directory by using, for example,  `cd downloads`.  Then type `python swc-windows-installer.py`.
+By opening git bash and entering the following we tell git to use the editor located at 
+"C:/Program Files/Notepad++/notepad++.exe" to open commit messages. Depending on the version and language of your windows 
+installation you might need to adjust this path. You should be able to figure out the corret path by using the windows file explorer to navigate 
+to the installation folder of notepad++. 
+
+```
+git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession -noPlugin"
+```
+
+I.e. on 64 bit windows7/8 the correct command is: 
+
+```
+git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst  -nosession -noPlugin"
+```
+
+Note that it is not obvious how to copy and paste text in a windows terminal including Git Bash. Copy and paste can be found by right
+clicking on the top bar and selecting the commands from the drop down menu.  
 
 Confirm that this has worked by opening to 'Git Bash' in the Start Menu and then typing:
 	
 	python -V
 	git --version
-	nano -V
-    
-The version numbers of *Python*, *Git* and *nano* (a text editor) should be displayed.
-If *nano* does not install correctly, no problem - just use *Notepad++*...
 
-### Notepad++ ###
-
-Install the Notepad++ editor.
-
-http://notepad-plus-plus.org/download/v6.3.1.html
+This should print the installed version of the python and git confirming that both are installed at working correctly.     
