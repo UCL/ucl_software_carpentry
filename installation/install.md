@@ -201,7 +201,7 @@ to use notepad++ when writing commit messages (We will learn about these in the 
 
 ### Unix tools for automation class ###
 
-Install [MinGW](http://sourceforge.net/projects/mingw/)
+Install [MinGW](http://sourceforge.net/projects/mingw/) by following the download link.
 
 Now, we need to find out where Git and Notepad++ have been installed, this will be either in 
 `C:/Program Files (x86)` or in `C:\ProgramFiles`. The former is the norm on more modern versions of windows.
