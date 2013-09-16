@@ -190,11 +190,8 @@ Install [msysgit](http://code.google.com/p/msysgit/downloads/list?q=full+install
 
 Then install the [GitHub for Windows client](http://windows.github.com/).
 
-### Editor and Shell ###
+### Editor ###
 
-Msysgit provides git bash which we will use as the default shell on Windows. 
-
-In order to write and edit code examples during the carpentry event a good text editor is essential. 
 Unless you already use a specific editor which you are comfortable with we recommend using *Notepad++* on windows.
 
 http://notepad-plus-plus.org/
@@ -202,16 +199,42 @@ http://notepad-plus-plus.org/
 Using Notepad++ to edit text files including code should be straight forward but in addition you should configure git 
 to use notepad++ when writing commit messages (We will learn about these in the version controle session).   
 
-By opening git bash and entering the following we configure git to use the editor located at 
-"C:/Program Files/Notepad++/notepad++.exe" to write commit messages. Depending on the version and language of your windows 
-installation you might need to adjust this path. You should be able to figure out the correct path by using the windows file explorer to navigate 
-to the installation folder of notepad++. 
+### Unix tools for automation class ###
+
+Install [MinGW](http://sourceforge.net/projects/mingw/)
+
+Now, we need to find out where Git and Notepad++ have been installed, this will be either in 
+`C:/Program Files (x86)` or in `C:\ProgramFiles`. The former is the norm on more modern versions of windows.
+If you have the older version, replace `Program\ Files\ \(x86\)` with `Program\ Files` in the instructions below.
+
+We need to tell the new shell installed in this way where git and Notepad++ are.
+
+To do this, use NotePad++ to edit the file at `C:\MinGW\mysys\1.0\etc\profile`
+
+and toward the end, above the line `alias clear=clsb` add the following:
 
 ```
-git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession -noPlugin"
+# Path settings from SoftwareCarpentry
+export PATH=$PATH:/c/Program\ Files\ \(x86\)/Git/bin
+export PATH=$PATH:/c/Program\ Files\ \(x86\)/Notepad++
+# End of Software carpentry settings
 ```
 
-On 64 bit windows7/8 the correct command should be: 
+Check this works by opening MinGW shell, with the start menu (Start->All programs->MinGW->MinGW Shell) and typing
+
+```
+which notepad++
+```
+
+which should produce readout similar to `/c/Program Files (x86)/Notepad++/notepad++.exe`
+
+```
+which git
+```
+
+which should produce `/c/Program Files (x86)/Notepad++/notepad++.exe`
+
+Now we need to update the default editor used by Git.
 
 ```
 git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst  -nosession -noPlugin"
@@ -220,9 +243,15 @@ git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe
 Note that it is not obvious how to copy and paste text in a Windows terminal including Git Bash. Copy and paste can be found by right
 clicking on the top bar of the window and selecting the commands from the drop down menu (in a sub menu).  
 
-Confirm that the installation has worked by opening to 'Git Bash' in the Start Menu and then typing:
+Confirm that the Python installation has worked by typing:
 	
-	python -V
-	git --version
+```python -V```
+
+Which should result in details of your installed python version.
 
 This should print the installed version of the python and git confirming that both are installed at working correctly. 
+
+You should now have a working version of git, python, and notepad++, all accessible from your shell.
+
+If you have problems following these instructions, please come to our drop-in session on Monday 23rd September, 1-5, 
+G07 Chadwick building.
