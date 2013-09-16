@@ -31,6 +31,9 @@ Chadwick Building (main campus on Gower Street) for people that would like some 
 advance of the boot camp. All students should either attend this or ensure 
 that they have a working git, python, and editor and shell installation by following the instructions bellow before the workshop. 
 
+We will be using UCL's [eduroam](http://www.ucl.ac.uk/isd/staff/wireless/eduroam) service to connect to the internet for this work. 
+So you should ensure you have eduroam installed and working.
+
 ## Linux Users ##
 
 ### Python ###
