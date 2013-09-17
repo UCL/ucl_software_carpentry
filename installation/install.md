@@ -139,11 +139,7 @@ Then, go to Xcode...Preferences...Downloads... and install the command line tool
 
 ### Git ###
 
-Download and install [Git](https://help.github.com/articles/set-up-git)
-
-Ignore the 'set up git' section.
-
-#### Slightly harder route: via homebrew ####
+#### Recommended route: via homebrew ####
 
 Install Homebrew via typing this at a terminal:
 
@@ -154,6 +150,10 @@ and then type
     brew install git
 
 Then install the [GitHub for Mac client](http://mac.github.com).
+
+Alternatively, you can install Git directly without Homebrew
+via [Git](https://help.github.com/articles/set-up-git). Ignore the 'set up git' section.
+Homebrew is the better route, as it will then be easier to obtain other tools you may need later.
 
 ### Editor and shell ###
 The default text editor on OS X *textedit* should be sufficient for our use. Alternatively 
