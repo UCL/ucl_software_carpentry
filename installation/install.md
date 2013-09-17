@@ -1,7 +1,8 @@
 # UCL ![Software Carpentry logo](http://software-carpentry.org/img/software-carpentry-banner.png "Software Carpentry logo") Bootcamp Thursday 26th and Friday 27th September, 2013: Installation Instructions #
 
 This document contains instructions for installation of the packages
-we'll be using during the Software Carpentry Workshop on the 26th and 27th September, 2013, and for the C++ course.
+we'll be using during the Software Carpentry Workshop on the 26th and 27th September, 2013, 
+and for the Autumn 2013 RITS C++ course.
 
 Carpentry trainees should complete all the below instructions. 
 C++ course attendees are recommended to complete all the below instructions, but can skip the Pythin instructions if they have problems.
