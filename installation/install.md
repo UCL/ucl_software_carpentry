@@ -5,7 +5,7 @@ we'll be using during the Software Carpentry Workshop on the 26th and 27th Septe
 and for the Autumn 2013 RITS C++ course.
 
 Carpentry trainees should complete all the below instructions. 
-C++ course attendees are recommended to complete all the below instructions, but can skip the Pythin instructions if they have problems.
+C++ course attendees are recommended to complete all the below instructions, but can skip the Python instructions if they have problems.
 
 For the software carpentry session on programming, we'll be using the language *Python* and in particular version 2.7. We will use the *Enthought Canopy* 
 python distribution which contains a good collection of the most common *Python* modules as well as *IPython* 
