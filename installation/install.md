@@ -205,6 +205,9 @@ to use notepad++ when writing commit messages (We will learn about these in the 
 ### Unix tools for automation class ###
 
 Install [MinGW](http://sourceforge.net/projects/mingw/) by following the download link.
+It should install MinGW's package manager. On the left, select ``Basic Setup``, and on right select
+``mingw32-base, mingw-developer-toolkit, mingw-gcc-g++, msys-base``. On some systems these package
+might be selected from start. Finally, click the installation menu and ``Apply Changes``. 
 
 Now, we need to find out where Git and Notepad++ have been installed, this will be either in 
 `C:/Program Files (x86)` or in `C:\ProgramFiles`. The former is the norm on more modern versions of windows.
@@ -216,14 +219,17 @@ To do this, use NotePad++ to edit the file at `C:\MinGW\mysys\1.0\etc\profile`
 
 and toward the end, above the line `alias clear=clsb` add the following:
 
-```
+ ```
 # Path settings from SoftwareCarpentry
 export PATH=$PATH:/c/Program\ Files\ \(x86\)/Git/bin
 export PATH=$PATH:/c/Program\ Files\ \(x86\)/Notepad++
 # End of Software carpentry settings
 ```
 
-Check this works by opening MinGW shell, with the start menu (Start->All programs->MinGW->MinGW Shell) and typing
+Check this works by opening MinGW shell, with the start menu (Start->All programs->MinGW->MinGW
+Shell). This should open a *terminal* window, where commands can be typed in directly. On windows 8,
+there may be no app for MinGW. In that case, open the ``run`` app and type in
+``C:\MinGW\msys\1.0\msys.bat``. Once you have a terminal open, type
 
 ```
 which notepad++
@@ -235,7 +241,8 @@ which should produce readout similar to `/c/Program Files (x86)/Notepad++/notepa
 which git
 ```
 
-which should produce `/c/Program Files (x86)/Notepad++/notepad++.exe`
+which should produce `/c/Program Files (x86)/Notepad++/notepad++.exe`. The ``which`` command is used
+to figure out where a given program is located on disk.
 
 Now we need to update the default editor used by Git.
 
@@ -243,8 +250,9 @@ Now we need to update the default editor used by Git.
 git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst  -nosession -noPlugin"
 ```
 
-Note that it is not obvious how to copy and paste text in a Windows terminal including Git Bash. Copy and paste can be found by right
-clicking on the top bar of the window and selecting the commands from the drop down menu (in a sub menu).  
+Note that it is not obvious how to copy and paste text in a Windows terminal including Git Bash.
+Copy and paste can be found by right clicking on the top bar of the window and selecting the
+commands from the drop down menu (in a sub menu).  
 
 Confirm that the Python installation has worked by typing:
 	
