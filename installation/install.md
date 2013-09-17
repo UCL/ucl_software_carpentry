@@ -1,9 +1,12 @@
 # UCL ![Software Carpentry logo](http://software-carpentry.org/img/software-carpentry-banner.png "Software Carpentry logo") Bootcamp Thursday 26th and Friday 27th September, 2013: Installation Instructions #
 
 This document contains instructions for installation of the packages
-we'll be using during the Software Carpentry Workshop on the 26th and 27th September, 2013
+we'll be using during the Software Carpentry Workshop on the 26th and 27th September, 2013, and for the C++ course.
 
-For the session on programming, we'll be using the language *Python* and in particular version 2.7. We will use the *Enthought Canopy* 
+Carpentry trainees should complete all the below instructions. 
+C++ course attendees are recommended to complete all the below instructions, but can skip the Pythin instructions if they have problems.
+
+For the software carpentry session on programming, we'll be using the language *Python* and in particular version 2.7. We will use the *Enthought Canopy* 
 python distribution which contains a good collection of the most common *Python* modules as well as *IPython* 
 (an improved *Python* interpreter) and the IPython notebook (a useful web-based user interface that allows
 you to create documents that combine text and *Python* code, executable with the same browser window).
