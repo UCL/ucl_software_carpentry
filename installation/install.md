@@ -274,7 +274,7 @@ This should print the installed version of the python and git confirming that bo
 
 You should now have a working version of git, python, and notepad++, all accessible from your shell.
 
-C++ trainees should also complete the [C++ extra setup instructions](https://github.com/UCL/rsd-cppcourse/blob/develop/appendices/extra_preparation.md).
+C++ trainees should also complete the [C++ extra setup instructions](https://github.com/UCL/rsd-cppcourse/blob/develop/appendices/02extra_preparation.md).
 
 If you have problems following these instructions, please come to our drop-in session on Monday 23rd September, 1-5, 
 G07 Chadwick building.
