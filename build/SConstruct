@@ -1,0 +1,25 @@
+import os
+
+pandoc_latex=Builder(action='pandoc --template=report -V documentclass=scrartcl -V'+
+	' links-as-notes -V linkcolor="uclmidgreen" --number-sections $SOURCES -o $TARGET')
+reveal_slides=Builder(action='pandoc -t revealjs -s -V theme=beige'+
+	' --css=beige.css'+
+	' --css=slidetheme.css'+
+	' -V revealjs-url=http://lab.hakim.se/reveal-js/'+
+	' $SOURCES -o $TARGET')
+env=Environment()
+env.Append(BUILDERS={'PandocLatex':pandoc_latex})
+env.Append(BUILDERS={'PandocSlides':reveal_slides})
+
+git_content=Glob("../git/*.md")
+setup_content=Glob("../installation/*.md")
+intro_content=Glob("../intro/*.md")
+git_slides=env.PandocSlides("reveal/git.html",git_content)
+
+setup_slides=env.PandocSlides("reveal/setup.html",setup_content)
+
+intro_slides=env.PandocSlides("reveal/intro.html",intro_content)
+
+notes=env.PandocLatex('notes.pdf',[intro_content,setup_content,git_content])
+tex=env.PandocLatex('notes.tex',[intro_content,setup_content,git_content])
+Depends(notes,'report.latex')

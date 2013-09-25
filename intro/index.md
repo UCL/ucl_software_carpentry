@@ -1,9 +1,5 @@
 # Software Carpentry
 
----
-
-# Software Carpentry
-
 * Helps researchers be more productive by teaching them basic computing skills:
     * program construction
     * version control
@@ -16,8 +12,6 @@
     * http://www.software-carpentry.org/
     * Twitter: @swcarpentry
     * E-mail: info@software-carpentry.org
-
----
 
 # Why is Software Carpentry needed?
 
@@ -35,8 +29,6 @@
     * learn lessons from software engineering practice, and empirical studies
     * start with most important practical steps: software *carpentry*
 
----
-
 # Best Practices for Scientific Computing
 
 * Greg Wilson and 12 others: http://arxiv.org/abs/1210.0530
@@ -51,8 +43,6 @@
     * Optimize software only after it works correctly
     * Document design and purpose, not mechanics
     * Collaborate
-
----
 
 # Schedule
 
