@@ -379,7 +379,7 @@ Reverting
  
 Ok, so now we'd like to undo the nasty commit with the lie about Mount Fictional.
 
-    git revert --in 5028
+    git revert 5028
 
 A commit window pops up, with some default text which you can accept and save. 
 
