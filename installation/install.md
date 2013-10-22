@@ -1,4 +1,3 @@
-
 # UCL Software Carpentry Bootcamp Thursday 26th and Friday 27th September 2013: Installation Instructions #
 
 ![Software Carpentry logo](http://software-carpentry.org/img/software-carpentry-banner.png "Software Carpentry logo")
@@ -10,7 +9,7 @@ and for the Autumn 2013 RITS C++ course.
 Carpentry trainees should complete all the below instructions. 
 
 C++ course attendees are recommended to complete all the below instructions, but can skip the Python instructions if they have problems.
-C++ trainees should also complete the [C++ extra setup instructions](https://github.com/UCL/rsd-cppcourse/blob/develop/appendices/extra_preparation.md).
+C++ trainees should also complete the [C++ extra setup instructions](https://github.com/UCL/rsd-cppcourse/blob/develop/appendices/02extra_preparation.md).
 
 For the software carpentry session on programming, we'll be using the language *Python* and in particular version 2.7. We will use the *Enthought Canopy* 
 python distribution which contains a good collection of the most common *Python* modules as well as *IPython* 
