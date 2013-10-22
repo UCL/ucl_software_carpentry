@@ -1,15 +1,32 @@
 import os
 
-pandoc_latex=Builder(action='pandoc --template=report -V documentclass=scrartcl -V'+
-	' links-as-notes -V linkcolor="uclmidgreen" --number-sections $SOURCES -o $TARGET')
 reveal_slides=Builder(action='pandoc -t revealjs -s -V theme=beige'+
 	' --css=beige.css'+
 	' --css=slidetheme.css'+
+	' --mathjax '+
+	' --default-image-extension=png'
 	' -V revealjs-url=http://lab.hakim.se/reveal-js/'+
 	' $SOURCES -o $TARGET')
+
 env=Environment()
-env.Append(BUILDERS={'PandocLatex':pandoc_latex})
 env.Append(BUILDERS={'PandocSlides':reveal_slides})
+
+
+generate_WSD_figures=False
+if generate_WSD_figures:
+	web_sequence_builder=Builder(action='python -m websequence --style magazine --format=png --in $SOURCE --out $TARGET',
+	    suffix='.png',
+	    src_suffix='.wsd')
+else:
+	web_sequence_builder=Builder(action='echo "Not generating WSD  figures"',
+	    suffix='.png',
+	    src_suffix='.wsd')
+
+graphviz_dot_builder=Builder(action="dot -Tpng $SOURCE -o $TARGET", suffix=".png", src_suffix=".dot")
+graphviz_neato_builder=Builder(action="neato -Tpng $SOURCE -o $TARGET", suffix=".png", src_suffix=".dot")
+env.Append(BUILDERS={'WSD':web_sequence_builder})
+env.Append(BUILDERS={'Dot':graphviz_dot_builder})
+env.Append(BUILDERS={'Neato':graphviz_neato_builder})
 
 git_content=Glob("../git/*.md")
 setup_content=Glob("../installation/*.md")
@@ -20,6 +37,16 @@ setup_slides=env.PandocSlides("reveal/setup.html",setup_content)
 
 intro_slides=env.PandocSlides("reveal/intro.html",intro_content)
 
-notes=env.PandocLatex('notes.pdf',[intro_content,setup_content,git_content])
-tex=env.PandocLatex('notes.tex',[intro_content,setup_content,git_content])
-Depends(notes,'report.latex')
+def assetpath(node):
+	return os.path.join('reveal','assets',
+		os.path.basename(os.path.splitext(env.GetBuildPath(node))[0])+'.png')
+
+for source in Glob('../git/figures/*.wsd'):
+    png=env.WSD(assetpath(source),source)
+    Depends(git_slides,png)
+for source in Glob('../git/figures/*.dot'):
+    png=env.Dot(assetpath(source),source)
+    Depends(git_slides,png)
+for source in Glob('../git/figures/*.nto'):
+	png=env.Neato(assetpath(source),source)
+	Depends(git_slides,png)

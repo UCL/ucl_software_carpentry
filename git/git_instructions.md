@@ -5,10 +5,46 @@
 Introduction
 ============
 
-Goals
------
+What Version Control is For
+---------------------------
 
-In this module, you will learn how to manage your code with Version Control. This will allow you to see the history of your code, roll back mistakes, to collaborate smoothly with other people on the same code, and to publish your code to the internet for other people to use.
+* Managing Code Inventory
+    * "When did I introduce this bug"?
+    * Undoing Mistakes
+* Working with other programmers
+    * "How can I merge my work with Jim's"
+
+What is version control?
+------------------------
+
+Do some programming
+
+`my_vcs commit`
+
+Program some more
+
+Realise mistake
+
+`my_vcs rollback`
+
+Mistake is undone
+
+What is version control? (Team version)
+---------------------------------------
+
+Sue                 James
+------------------ ------   
+`my_vcs commit`     
+                    Join the team
+                    `my_vcs checkout`
+                    Do some programming
+                    `my_vcs commit`
+`my_vcs update`		
+Do some programming Do some programming
+					`my_vcs commit`
+`my_vcs update`
+`my_vcs merge`
+`my_vcs commit`
 
 Scope
 -----
@@ -27,7 +63,7 @@ Programming and documents
 
 The purpose of this exercise is to learn how to use Git to manage program code you write, not simple text website content, but we'll just use these text files instead of code for now, so as not to confuse matters with trying to learn version control while thinking about programming too. 
 
-On the second day of the bootcamp, you should use the version control tools you learn today as you work on that day's exercises. 
+In later parts of the bootcamp, you could use the version control tools you learn today as you work on that day's exercises. 
 
 Markdown
 --------
@@ -86,14 +122,20 @@ do this now:
 git config --global core.editor "myeditor"
 ```
 
-e.g. on windows:
+You can find out what you currently have with:
+
+``` Bash
+git config --get core.editor
+```
+
+e.g. on windows with Notepad++:
 
 ``` Bash
 git config --global core.editor "'C:/Program Files (x86)/Notepad++
    /notepad++.exe' -multiInst  -nosession -noPlugin"
 ```
 
-I'm going to be using `vim` as my editor, but you can use whatever editor you prefer. (Windows users should use "Notepad++", Mac users could use "textmate" or "sublime text", linux users could use `vim`, `nano` or `emacs`.)
+I'm going to be using `vim` as my editor, but you can use whatever editor you prefer. (Windows users could use "Notepad++", Mac users could use "textmate" or "sublime text", linux users could use `vim`, `nano` or `emacs`.)
 
 Initialising the repository
 ---------------------------
@@ -130,7 +172,6 @@ A first example file
 
 So let's create an example file, and see how to start to manage a history of changes to it. 
 
- I'm calling this file `index.md`, because it'll be important when we try to publish our website later.
 
 ``` Bash
 vim index.md # Type some content into the file.
@@ -194,7 +235,7 @@ git log
 >       First commit of discourse on UK topography     
 > ```
 
-As well as the commit message, author, and date, 
+You can see the commit message, author, and date...
 
 Hash Codes
 ----------
@@ -206,6 +247,11 @@ The commit "hash code",
 is a unique identifier of that particular revision. 
 
 (This is a really long code, but whenever you need to use it, you can just use the first few characters, however many characters is long enough to make it unique, `c438` for example. )
+
+A revision graph
+----------------
+
+![Revisions form a graph](assets/revisions)
 
 Nothing to see here
 -------------------
@@ -282,6 +328,17 @@ The staging area
 The "staging area" or "index" is the git jargon for the place which contains the list of changes which will be included in the next commit.
 
 You can include specific changes to specific files with git add, commit them, add some more files, and commit them. (You can even add specific changes within a file to be included in the index.)
+
+The Levels of Git
+----------------
+
+![The relationship between the staging area, working directory, and
+repositories in git.](assets/distributed_concepts)
+
+Git Solo Workflow
+-----------------------------
+
+![Working alone with git](assets/distributed_solo)
 
 Review of status
 ----------------
@@ -379,7 +436,7 @@ Reverting
  
 Ok, so now we'd like to undo the nasty commit with the lie about Mount Fictional.
 
-    git revert --in 5028
+    git revert 5028
 
 A commit window pops up, with some default text which you can accept and save. 
 
@@ -501,9 +558,9 @@ If you have not done so already, you should create an account on GitHub: go to [
 SSH keys and GitHub
 -------------------
 
-You'll  want to set things up so that you don't have to keep typing in your password whenever you interact with GitHub via the command line.
+You may want to set things up so that you don't have to keep typing in your password whenever you interact with GitHub via the command line.
 
-Do this with an "ssh keypair". You should have created a keypair if you followed the Software Carpentry shell training. Go to the [ssh settings page](https://github.com/settings/ssh) on GitHub and upload your public key by copying the content from your computer. (Probably at .ssh/id_rsa.pub)
+You can do this with an "ssh keypair". You may have created a keypair in the Software Carpentry shell training. Go to the [ssh settings page](https://github.com/settings/ssh) on GitHub and upload your public key by copying the content from your computer. (Probably at .ssh/id_rsa.pub)
 
 If you have difficulties, the instructions for this are [on the GitHub website](https://help.github.com/articles/generating-ssh-keys). Ask your demonstrator for help here if you need it.
 
@@ -548,6 +605,11 @@ Git, unlike some earlier version control systems is a "distributed" version cont
 Usually, commands that work with remotes allow you to specify the remote to use, but assume the `origin` remote if you don't. 
 
 Here, `git push` will push your whole history onto the server, and now you'll be able to see it on the internet! Refresh your web browser where the instructions were, and you'll see your repository!
+
+Distributed VCS With Publishing
+-------------------------------
+
+![Publishing with git](assets/distributed_solo_publishing)
 
 Playing with GitHub
 -------------------
@@ -686,6 +748,11 @@ Switch to the experiment branch with:
 git checkout experiment 
 ```
 
+Working with branches
+---------------------
+
+![Using branches](assets/branching)
+
 Publishing branches
 -------------------
 
@@ -723,6 +790,15 @@ git merge experiment
 ```
 
 If you have committed changes on both master and experiment, you may hit conflicts, where git can't work out how to merge them. You can [skip ahead][Resolving conflicts] and learn how to solve this, or ask a demonstrator to help with this.
+
+A good branch strategy
+----------------------
+
+* A `production` branch: code used for active work
+* A `develop` branch: for general new code
+* `feature` branches: for specific new ideas
+* `release` branches: when you share code with others
+  * Useful for isolated bug fixes
 
 Tags
 ----
@@ -818,6 +894,16 @@ Now we're going to get to the most important question of all with Git and GitHub
 
 Organise into pairs. You're going to be working on the website of one of the two of you, together, so decide who is going to be the leader, and who the collaborator.
 
+Distributed VCS in principle
+----------------------------
+
+![How distributed VCS works in principle](assets/distributed_principle)
+
+Distributed VCS in practice
+----------------------------
+
+![How distributed VCS works in practice](assets/distributed_practice)
+
 Giving permission
 -----------------
 
@@ -894,6 +980,11 @@ Nonconflicted commits to the same file
 
 Go through the whole process again, but this time, both of you should make changes to a single file, but make sure that you don't touch the same *line*. Again, the merge should work as before.
 
+Sharing without conflicts
+------------------------------------------
+
+![Teamworking in git](assets/distributed_shared_noconflict)
+
 Conflicting commits
 -------------------
 
@@ -938,6 +1029,11 @@ Now commit the merged result:
     git commit -a      
     
 A suggested commit message appears, which you can accept, and then you can `push` the merged result. Check everything is fine on GitHub.
+
+Distributed VCS in teams with conflicts
+------------------------------------------
+
+![Teamworking in git with conflicts](assets/distributed_shared_conflicted)
 
 Social Coding
 =============
