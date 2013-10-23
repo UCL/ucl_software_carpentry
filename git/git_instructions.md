@@ -248,11 +248,6 @@ is a unique identifier of that particular revision.
 
 (This is a really long code, but whenever you need to use it, you can just use the first few characters, however many characters is long enough to make it unique, `c438` for example. )
 
-A revision graph
-----------------
-
-![Revisions form a graph](assets/revisions)
-
 Nothing to see here
 -------------------
 
@@ -333,12 +328,8 @@ The Levels of Git
 ----------------
 
 ![The relationship between the staging area, working directory, and
-repositories in git.](assets/distributed_concepts)
+repositories in git.](assets/distributed_concepts_local)
 
-Git Solo Workflow
------------------------------
-
-![Working alone with git](assets/distributed_solo)
 
 Review of status
 ----------------
@@ -426,7 +417,12 @@ git log --oneline
 > 0bae905 Change title  
 > 5028052 Add a lie about a mountain  
 > c438f17 First commit of discourse on UK topography  
-> ``` 
+> ```
+
+Git Solo Workflow
+-----------------------------
+
+![Working alone with git](assets/distributed_solo) 
 
 Fixing Mistakes
 ===============
@@ -539,11 +535,17 @@ When git reset removes commits, it leaves your working directory unchanged -- so
 
 If you want to lose the change from the working directory as well, you can do `git reset --hard`. 
 
-I'm going to get rid of the silly spelling, and I didn't do `--hard`, so I'll reset the file from the working directory to be the same as in the repository (after removing the reset):
+I'm going to get rid of the silly spelling, and I didn't do `--hard`, so I'll reset the file from the working directory to be the same as in the index:
 
 ``` Bash
 git checkout index.md
-```    
+```
+
+The Levels of Git
+----------------
+
+![The relationship between the staging area, working directory, and
+repository in git.](assets/distributed_concepts_fixing)    
 
 Publishing
 ==========
@@ -605,6 +607,12 @@ Git, unlike some earlier version control systems is a "distributed" version cont
 Usually, commands that work with remotes allow you to specify the remote to use, but assume the `origin` remote if you don't. 
 
 Here, `git push` will push your whole history onto the server, and now you'll be able to see it on the internet! Refresh your web browser where the instructions were, and you'll see your repository!
+
+The Levels of Git
+----------------
+
+![The relationship between the staging area, working directory, and
+repository in git.](assets/distributed_concepts_publishing) 
 
 Distributed VCS With Publishing
 -------------------------------
@@ -684,6 +692,9 @@ git push
 Visit GitHub, and notice this change is on your repository on the server. We could have said `git push origin` to specify the remote to use, but origin is the default.
 
 Editing directly on GitHub
+==========================
+
+Editing directly on GitHub
 --------------------------
 
 Note that you can also make changes in the GitHub website itself. Visit one of your files, and hit "edit".
@@ -714,6 +725,12 @@ git pull
 > ```
 
 and check the change is now present on your local version. `git pull` will fetch changes on the server into your local copy: this is important when you are collaborating with others, as we shall see.
+
+The Levels of Git
+----------------
+
+![The relationship between the staging area, working directory, and
+local and remote repositories in git.](assets/distributed_concepts_sharing)
  
 Branching and tagging
 =====================
@@ -1030,10 +1047,21 @@ Now commit the merged result:
     
 A suggested commit message appears, which you can accept, and then you can `push` the merged result. Check everything is fine on GitHub.
 
+A revision graph
+----------------
+
+![Revisions form a graph](assets/revisions)
+
 Distributed VCS in teams with conflicts
 ------------------------------------------
 
 ![Teamworking in git with conflicts](assets/distributed_shared_conflicted)
+
+The Levels of Git
+----------------
+
+![The relationship between the staging area, working directory, and
+local and remote repositories in git.](assets/distributed_concepts_all)
 
 Social Coding
 =============
