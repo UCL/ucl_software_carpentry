@@ -13,12 +13,7 @@ env.Append(BUILDERS={'PandocSlides':reveal_slides})
 
 
 generate_WSD_figures=False
-if generate_WSD_figures:
-	web_sequence_builder=Builder(action='python -m websequence --style magazine --format=png --in $SOURCE --out $TARGET',
-	    suffix='.png',
-	    src_suffix='.wsd')
-else:
-	web_sequence_builder=Builder(action='echo "Not generating WSD  figures"',
+web_sequence_builder=Builder(action='python -m websequence --style magazine --format=png --in $SOURCE --out $TARGET',
 	    suffix='.png',
 	    src_suffix='.wsd')
 
@@ -41,9 +36,10 @@ def assetpath(node):
 	return os.path.join('reveal','assets',
 		os.path.basename(os.path.splitext(env.GetBuildPath(node))[0])+'.png')
 
-for source in Glob('../git/figures/*.wsd'):
-    png=env.WSD(assetpath(source),source)
-    Depends(git_slides,png)
+if generate_WSD_figures:
+	for source in Glob('../git/figures/*.wsd'):
+	    png=env.WSD(assetpath(source),source)
+	    Depends(git_slides,png)
 for source in Glob('../git/figures/*.dot'):
     png=env.Dot(assetpath(source),source)
     Depends(git_slides,png)
