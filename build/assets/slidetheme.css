@@ -27,3 +27,6 @@ div section .slide {
 	display: inline-block;
 	text-align: center;
 }
+.reveal pre {
+	background: rgb(25,40,25);
+}
