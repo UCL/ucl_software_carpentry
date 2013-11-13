@@ -117,7 +117,7 @@ you could look at [Kate](http://kate-editor.org/).
 
 Regardless of which editor you have chosen you should configure git to use it. Executing something like this in a terminal should work:
 
-```
+``` bash
 git config --global core.editor NameofYourEditorHere
 ```
 
@@ -196,11 +196,15 @@ Git
 
 Install Homebrew via typing this at a terminal:
 
-    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-    
+``` bash
+ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+```
+
 and then type
 
-    brew install git
+``` bash
+brew install git
+```
 
 Then install the [GitHub for Mac client](http://mac.github.com).
 
@@ -230,7 +234,7 @@ http://mac.appstorm.net/roundups/office-roundups/top-10-mac-text-editors/ lists 
 
 To setup git to use *textedit* executing the following in a terminal should do.
 
-```
+``` bash
 git config --global core.editor /Applications/TextEdit.app/Contents/MacOS/TextEdit
 ```
 
@@ -336,7 +340,7 @@ Telling Git about Notepad
 
 Now we need to update the default editor used by Git.
 
-```
+``` bash
 git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst  -nosession -noPlugin"
 ```
 
@@ -349,7 +353,9 @@ Testing python
 
 Confirm that the Python installation has worked by typing:
 	
-```python -V```
+``` bash
+python -V
+```
 
 Which should result in details of your installed python version.
 
