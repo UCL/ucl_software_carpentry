@@ -52,8 +52,9 @@ Drop-in session
 We will be running a drop-in session for people that would like some help with setting up their laptop in 
 advance of the training. You will have been advised as to when this will occur.
 
-All students should either attend this or ensure 
-that they have a working git, python, and editor and shell installation by following the instructions bellow before the workshop. 
+All students should either attend this or ensure that they have a working git, 
+python, and editor and shell installation by following the instructions bellow before the workshop. 
+
 Eduroam
 -------
 
