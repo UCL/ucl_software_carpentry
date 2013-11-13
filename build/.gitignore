@@ -1,1 +1,3 @@
-reveal/*.html
+reveal
+assets
+report.latex
