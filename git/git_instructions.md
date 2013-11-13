@@ -302,7 +302,7 @@ If we do a `git commit` now *nothing will happen*.
 
 Git will only commit changes to files that you choose to include in each commit.
 
-This is a difference from other version control systems, where committing will effect all changed files. 
+This is a difference from other version control systems, where committing will affect all changed files. 
 
 Staging a file to be included in the next commit
 ------------------------------------------------
