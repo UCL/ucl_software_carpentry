@@ -54,9 +54,9 @@ title: UCL Software Carpentry
 
 ## Schedule
 
-* Thursday 26 September:
+* Day 1:
     * Shell and automation
     * Version control with Git and GitHub
-* Friday 27 September:
+* Day 2:
     * Python
     * Testing
