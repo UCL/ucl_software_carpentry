@@ -1,6 +1,7 @@
-% Git and GitHub
-% Dr James Hetherington
-% September 2013
+---
+title: Git and GitHub
+author: Dr James Hetherington
+---
 
 Introduction
 ============

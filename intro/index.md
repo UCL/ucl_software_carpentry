@@ -1,4 +1,6 @@
-## Software Carpentry
+---
+title: UCL Software Carpentry
+---
 
 * Helps researchers be more productive by teaching them basic computing skills:
     * program construction
@@ -22,8 +24,8 @@
     * parallel computing for speed
     * ...but *correctness* is overlooked, or taken for granted
 
-## Software Carpentry aims to fill in the gaps
-    
+## Software Carpentry aims to fill in the gaps
+
 * learn lessons from software engineering practice, and empirical studies
 * start with most important practical steps: software *carpentry*
 
@@ -36,7 +38,7 @@
     1. Use the computer to record history
     1. Make incremental changes
     1. Use version control
-    1. Don’t repeat yourself (or others)
+    1. Don't repeat yourself (or others)
     1. Plan for mistakes
     1. Optimize software only after it works correctly
     1. Document design and purpose, not mechanics

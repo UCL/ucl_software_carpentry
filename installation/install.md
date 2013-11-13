@@ -63,7 +63,7 @@ We will be using UCL's [eduroam](http://www.ucl.ac.uk/isd/staff/wireless/eduroam
 So you should ensure you have eduroam installed and working.
 
 Linux
-======
+=====
 
 Python via package manager
 --------------------------
