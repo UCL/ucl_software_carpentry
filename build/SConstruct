@@ -2,7 +2,6 @@ import rsdpandoc.builders
 import rsdpandoc.globbers
         
 env=Environment(tools=['default',rsdpandoc.builders.add_builders])
-env["HaveWSD"]=True
 
 git_content=Glob("../git/*.md")
 setup_content=Glob("../installation/*.md")
