@@ -8,13 +8,13 @@ setup_content=Glob("../installation/*.md")
 intro_content=Glob("../intro/*.md")
 
 git_slides=env.PandocSlides("reveal/git.html",git_content)
-git_pdf=env.PandocLatex("pdf/git.pdf",git_content)
+#git_pdf=env.PandocLatex("pdf/git.pdf",git_content)
 setup_slides=env.PandocSlides("reveal/setup.html",setup_content)
-setup_pdf=env.PandocLatex("pdf/setup.pdf",setup_content)
+#setup_pdf=env.PandocLatex("pdf/setup.pdf",setup_content)
 intro_slides=env.PandocSlides("reveal/intro.html",intro_content)
 
 rsdpandoc.globbers.assets_glob("../git/figures","reveal/assets",git_slides,env)
-rsdpandoc.globbers.assets_glob("../git/figures","assets",git_pdf,env)
+#rsdpandoc.globbers.assets_glob("../git/figures","assets",git_pdf,env)
 
 rsdpandoc.globbers.default_reveal_assets(git_slides,env)
-rsdpandoc.globbers.default_latex_assets(git_pdf,env)
+#rsdpandoc.globbers.default_latex_assets(git_pdf,env)
