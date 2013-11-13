@@ -1,48 +1,20 @@
-import os
-
-reveal_slides=Builder(action='pandoc -t revealjs -s -V theme=beige'+
-	' --css=beige.css'+
-	' --css=slidetheme.css'+
-	' --mathjax '+
-	' --default-image-extension=png'
-	' -V revealjs-url=http://lab.hakim.se/reveal-js/'+
-	' $SOURCES -o $TARGET')
-
-env=Environment()
-env.Append(BUILDERS={'PandocSlides':reveal_slides})
-
-
-generate_WSD_figures=False
-web_sequence_builder=Builder(action='python -m websequence --style magazine --format=png --in $SOURCE --out $TARGET',
-	    suffix='.png',
-	    src_suffix='.wsd')
-
-graphviz_dot_builder=Builder(action="dot -Tpng $SOURCE -o $TARGET", suffix=".png", src_suffix=".dot")
-graphviz_neato_builder=Builder(action="neato -Tpng $SOURCE -o $TARGET", suffix=".png", src_suffix=".dot")
-env.Append(BUILDERS={'WSD':web_sequence_builder})
-env.Append(BUILDERS={'Dot':graphviz_dot_builder})
-env.Append(BUILDERS={'Neato':graphviz_neato_builder})
+import rsdpandoc.builders
+import rsdpandoc.globbers
+        
+env=Environment(tools=['default',rsdpandoc.builders.add_builders])
+env["HaveWSD"]=True
 
 git_content=Glob("../git/*.md")
 setup_content=Glob("../installation/*.md")
 intro_content=Glob("../intro/*.md")
+
 git_slides=env.PandocSlides("reveal/git.html",git_content)
-
+git_pdf=env.PandocLatex("pdf/git.pdf",git_content)
 setup_slides=env.PandocSlides("reveal/setup.html",setup_content)
-
 intro_slides=env.PandocSlides("reveal/intro.html",intro_content)
 
-def assetpath(node):
-	return os.path.join('reveal','assets',
-		os.path.basename(os.path.splitext(env.GetBuildPath(node))[0])+'.png')
+rsdpandoc.globbers.assets_glob("../git/figures","reveal/assets",git_slides,env)
+rsdpandoc.globbers.assets_glob("../git/figures","assets",git_pdf,env)
 
-if generate_WSD_figures:
-	for source in Glob('../git/figures/*.wsd'):
-	    png=env.WSD(assetpath(source),source)
-	    Depends(git_slides,png)
-for source in Glob('../git/figures/*.dot'):
-    png=env.Dot(assetpath(source),source)
-    Depends(git_slides,png)
-for source in Glob('../git/figures/*.nto'):
-	png=env.Neato(assetpath(source),source)
-	Depends(git_slides,png)
+rsdpandoc.globbers.default_reveal_assets(git_slides,env)
+rsdpandoc.globbers.default_latex_assets(git_pdf,env)
