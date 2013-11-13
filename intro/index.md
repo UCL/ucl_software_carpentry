@@ -9,7 +9,7 @@ title: UCL Software Carpentry
     * the command line
     * data management
 * Volunteer organization supported by the [Alfred P. Sloan Foundation](http://www.sloan.org/) and the [Mozilla Foundation](http://www.mozilla.org/en-US/foundation/).
-* Provides online training materials and run boots camps like this one.
+* Provides online training materials and runs boot camps.
 
 ## Why is Software Carpentry needed?
 
