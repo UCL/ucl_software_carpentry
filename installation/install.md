@@ -68,8 +68,7 @@ Linux
 Python via package manager
 --------------------------
 
-Recent versions of Ubuntu (12.10 and 13.04) pack mostly up to date versions of all needed packages. 
-You should ensure that the following packages are installed:
+Recent versions of Ubuntu (13.04 and 13.10) pack mostly up to date versions of all needed packages. You should ensure that the following packages are installed:
 
 *  python-numpy  
 *  python-scipy  
@@ -126,7 +125,12 @@ The default shell is usually bash but if not you can get to bash by opening a te
 Compilers
 ---------
 
-Those considering following other RITS courses beyond the  should also complete the [Compiler setup instructions](http://development.rc.ucl.ac.uk/training/CPP/#/post-carpentry-installation).
+Those considering following other RITS courses beyond the Software Carpentry  should also install a working C++ compiler. On Linux you are most likely to use g++. On Ubuntu you may either install
+this manually or install build-essential which will install everything needed. 
+
+``` Bash
+sudo apt-get install build-essential
+```
 
 Subversion
 ----------
@@ -190,6 +194,15 @@ Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835) using the Mac
 We do not recommend following this training on older versions of OSX without an app store: upgrade to OSX Mavericks.
 
 Then, go to Xcode...Preferences...Downloads... and install the command line tools option
+
+If the command line tools are not found within XCode you may install them from the command line. Open a terminal and run the following.
+
+```bash
+xcode-select --install
+```
+This should open a popup window allowing you to install the command line tools.
+
+Alternatively the command line tools may be downloaded from [here](https://developer.apple.com/downloads/index.action?name=for%20Xcode%20-#) but this requires a (free) apple developer account. 
 
 Git
 ---
@@ -290,6 +303,8 @@ Install [MinGW](http://sourceforge.net/projects/mingw/) by following the downloa
 It should install MinGW's package manager. On the left, select ``Basic Setup``, and on right select
 ``mingw32-base``, ``mingw-developer-toolkit``, ``mingw-gcc-g++``, ``msys-base``. On some systems these packages
 might be selected from start. Finally, click the installation menu and ``Apply Changes``. 
+
+This also installs the compiler needed for some courses.
 
 Finding out where things got installed
 --------------------------------------
