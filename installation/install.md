@@ -157,8 +157,70 @@ CMake
 
 Again, install the appropriate package with apt-get or yum (`cmake`)
 
+SQLite3
+-------
+
+Install SQLite3 from your package manager. In Ubuntu the package is called sqlite3
+
+Firefox
+-------
+If Firefox is not the default browser in your Linux installation install it from your
+package manager.
+
+Firefox SQLite 3 add-on
+-----------------------
+
+Go into Firefox | Add-ons and search for *Sqlite*. Install the *SQLite Manager*.
+
+
 Mac
 ===
+
+XCode and Command line tools
+----------------------------
+
+We do not recommend following this training on older versions of OSX without an app store: upgrade
+to OSX Mavericks. It should be possible to complete the instructions on any OSX version with the
+App store (Snow Leopard (10.6) and newer) However, we recommend upgrading to Mavericks if possible
+since this is the most well tested.
+
+Mavericks:
+
+Install the XCode command-line-tools by opening a terminal and run the following.
+
+```bash
+xcode-select --install
+```
+And follow the on screen instructions.
+
+You may also install Xcode from the Mac app store if you wish, but it is not needed.
+
+Pre Mavericks:
+
+Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835) using the Mac app store.
+
+Then, go to Xcode...Preferences...Downloads... and install the command line tools option.
+
+Homebrew
+--------
+[Homebrew](brew.sh) is a package manager for OSX which comes with enables the installation of a lot of
+software useful for scientific computing. It is required for some of the installations below.
+But not essential for Software Carpentry. Homebrew requires the Xcode tools above.
+
+Install Homebrew via typing this at a terminal:
+
+``` bash
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+```
+
+and then type.
+
+```bash
+brew doctor
+```
+
+And read the output to verify that everything is working as expected.
+
 
 Python
 ------
@@ -173,14 +235,12 @@ You may then use your Enthought user account to sign into the installed applicat
 academic version. Canopy comes with a package manager from where it is possible to install and
 update a large number of python packaged. The packages installed by default should cover our needs.
 
-If you use this route, you can ignore the distribute \& pip section.
-
 Python from Homebrew
 --------------------
 
 OSX ships with a resent python version and some packages. However this has known limitations and we
-do not recommend it. You can install a new version of python from homebrew with the following.
-Please follow the instructions below to install the Xcode tools and homebrew before attempting
+do not recommend it. You can install a new version of python from Homebrew with the following.
+Please follow the instructions above to install the Xcode tools and Homebrew before attempting
 this.
 
 ```bash
@@ -205,6 +265,8 @@ Which should print:
 Python 2.7.6
 ```
 
+Then install additional python packages by executing the following.
+
 brew install [package-name]
 *  pkg-config
 *  freetype
@@ -216,79 +278,6 @@ pip install [package-name]
 *  scipy
 *  matplotlib
 *  ipython[all]
-
-XCode and Command line tools
-----------------------------
-
-We do not recommend following this training on older versions of OSX without an app store: upgrade
-to OSX Mavericks. It should be possible to complete the instrcutions on any OSX version with the
-App store (Snow Leopard (10.6) and newer) However, we reccoment upgrading to Mavericks if possible
-since this is the most well tested.
-
-Mavericks:
-
-Install the XCode command-line-tools by opening a terminal and run the following.
-
-```bash
-xcode-select --install
-```
-And follow the On scree instructions.
-
-You may also install Xcode from the Mac app store if you wish, but it is not needed.
-
-Pre Mavericks:
-
-Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835) using the Mac app store.
-
-Then, go to Xcode...Preferences...Downloads... and install the command line tools option.
-
-Homebrew
---------
-[Homebrew](brew.sh) is a package manager for OSX which comes with enables the installation of a lot of
-software useful for scientific computing. It is required for some of the installations below.
-But not essential for Software Carpentry. Homebrew requires the Xcode tools.
-
-Install Homebrew via typing this at a terminal:
-
-``` bash
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-```
-
-and then type.
-
-```bash
-brew doctor
-```
-
-And read the output to verify that everything is working as expected.
-
-Git
----
-
-The Xcode command-line-tools comes with git installed at least on OSX 10.8 and later. Verify this by executing:
-
-``` bash
-git --version
-```
-This should print something reasonable such as
-
-``` bash
-git version 1.8.5.2 (Apple Git-48)
-```
-
-Alternatively you can install git in one of the following ways.
-
-### Homebrew
-
-``` bash
-brew install git
-```
-
-### Git Without Homebrew
-
-Alternatively, you can install Git directly without Homebrew
-via [Git](https://help.github.com/articles/set-up-git). Ignore the 'set up git' section.
-Homebrew is the better route, as it will then be easier to obtain other tools you may need later.
 
 CMake
 -----
@@ -318,6 +307,21 @@ git config --global core.editor /Applications/TextEdit.app/Contents/MacOS/TextEd
 
 The default terminal on OSX should also be sufficient. If you want a more advanced terminal
 [iTerm2](http://www.iterm2.com/) is an alternative.
+
+SQLite3
+-------
+
+OS X already ships SQLite3
+
+Firefox
+-------
+Download from the [Firefox website](http://firefox.com/) and install
+
+Firefox SQLite 3 add-on
+-----------------------
+
+Go into Firefox | Add-ons and search for *Sqlite*. Install the *SQLite Manager*.
+
 
 Windows
 =======
@@ -389,14 +393,14 @@ version control session). The following sections goes through this:
 Finding out where things got installed
 --------------------------------------
 
-Now, we need to find out where Notepad++ have been installed, this will be either in `C:/Program
+Now, we need to find out where Notepad++ have been installed, this will be either in `C:\Program
 Files (x86)` or in `C:\ProgramFiles`. The former is the norm on more modern versions of windows. If
-you have the older version, replace `Program\ Files\ \(x86\)` with `Program\ Files` in the
+you have the older version, replace `Program Files (x86)` with `Program Files` in the
 instructions below. If you are unsure about this open Windows explore and navigate to the C
 drive. If the C drive contains both a `Program Files (x86)` and `Program Files` folder Notepad++ is
 most likely to be installed in `Program Files (x86)`. Verify this by opening the folder and look for
 a `Notepad++` subfolder. On a non English widows installation the directories may have different names.
-You should however still use the English names. Just verify if the directory ends with (x86) or
+You should however still use the English names above. Just verify if the directory ends with (x86) or
 not.
 
 Telling the shell where to find Notepad++
@@ -404,7 +408,7 @@ Telling the shell where to find Notepad++
 
 We need to tell the new shell installed with git where Notepad++ is.
 
-In order to do this we will edit a Widows environmental Variable called ```PATH```
+In order to do this we will edit a Widows environmental Variable called ```Path```
 This is basically a list of directories separated by ';' where the shell will look for
 programs.
 
@@ -497,5 +501,20 @@ Check that cmake and subversion work from your Git shell:
 which cmake
 which svn
 ```
+
+SQLite3
+-------
+
+This software is available [here](http://www.sqlite.org/download.html).
+Windows users should select the *Precompiled Binaries for Windows, command-line shell*.
+
+Firefox
+-------
+Download from the [Firefox website](http://firefox.com/) and install
+
+Firefox SQLite 3 add-on
+-----------------------
+
+Go into Firefox | Add-ons and search for *Sqlite*. Install the *SQLite Manager*.
 
 
