@@ -222,7 +222,7 @@ XCode and Command line tools
 
 We do not recommend following this training on older versions of OSX without an app store: upgrade
 to OSX Mavericks. It should be possible to complete the instrcutions on any OSX version with the
-Appstore (Snow Leopard (10.6) and newer) However, we reccoment upgrading to Mavericks if possible
+App store (Snow Leopard (10.6) and newer) However, we reccoment upgrading to Mavericks if possible
 since this is the most well tested.
 
 Mavericks:
@@ -233,11 +233,11 @@ Install the XCode command-line-tools by opening a terminal and run the following
 xcode-select --install
 ```
 
-You may also install Xcode from the Mac appstore if you wish, but it is not needed.
+You may also install Xcode from the Mac app store if you wish, but it is not needed.
 
 Pre Mavericks:
 
-Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835) using the Mac appstore.
+Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835) using the Mac app store.
 
 Then, go to Xcode...Preferences...Downloads... and install the command line tools option.
 
