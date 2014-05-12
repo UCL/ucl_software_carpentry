@@ -232,6 +232,7 @@ Install the XCode command-line-tools by opening a terminal and run the following
 ```bash
 xcode-select --install
 ```
+And follow the On scree instructions.
 
 You may also install Xcode from the Mac app store if you wish, but it is not needed.
 
@@ -307,7 +308,7 @@ The default text editor on OS X *textedit* should be sufficient for our use. Alt
 http://mac.appstorm.net/roundups/office-roundups/top-10-mac-text-editors/ lists a number of other good editors.
 
 A new open source option is Github's Atom editor. You can get it from https://atom.io/
-However note that this is still in somewhat early development.
+However, note that this is still in somewhat early development.
 
 To setup git to use *textedit* executing the following in a terminal should do.
 
@@ -360,8 +361,8 @@ client as well as the [msysgit](http://msysgit.github.io/) terminal client which
 Software Carpentry. You should register with [Github](github.com) for an account and sign into the
 GUI client with this account. This will automatically set-up
 [SSH based authentication](https://help.github.com/articles/generating-ssh-keys#platform-windows)
-for the terminal client. The terminal client comes in 3 different flavours based on Windows CMD (dos
-like), Windows Powershell, and BASH. We will use the BASH client as this most closely resembles the
+for the terminal client. The terminal client comes in 3 different flavours based on Windows CMD
+(DOS like), Windows Powershell, and BASH. We will use the BASH client as this most closely resembles the
 Linux and OS X terminal used by other students. In order to configure this open the Github
 client. Sign in with your credentials and:
 
@@ -401,10 +402,10 @@ not.
 Telling the shell where to find Notepad++
 -----------------------------------------
 
-We need to tell the new shell installed with Git where Notepad++ is.
+We need to tell the new shell installed with git where Notepad++ is.
 
 In order to do this we will edit a Widows environmental Variable called ```PATH```
-This is basically a list of directories separated by ':' where the shell will look for
+This is basically a list of directories separated by ';' where the shell will look for
 programs.
 
 To do this:
@@ -415,7 +416,7 @@ To do this:
 *  Environment Variables
 *  Select Path and press edit.
 
-This will open a Dialog box with a long string ```Variable value:```
+This will open a Dialogue box with a long string ```Variable value:```
 At the end of the string you should add ```;C:\Program Files (x86)\Notepad++```
 Where you substitute ```Program Files (x86)``` with the directory determined above.
 
@@ -476,7 +477,6 @@ You should now have a working version of git, python, and notepad++, all accessi
 Subversion
 ----------
 
-You only need subversion if you are following RSDT courses beyond Software Carpentry.
 Install [subversion](http://sourceforge.net/projects/win32svn/)
 
 And choose to add it to the path for all users if so prompted.
@@ -484,7 +484,6 @@ And choose to add it to the path for all users if so prompted.
 CMake
 -----
 
-You only need CMake if you are following RSDT courses beyond Software Carpentry.
 Install [cmake](http://www.cmake.org/cmake/resources/software.html)
 
 And choose to add it to the path for all users if so prompted.
