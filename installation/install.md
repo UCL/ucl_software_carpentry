@@ -130,7 +130,8 @@ like this in a terminal should work:
 git config --global core.editor NameofYourEditorHere
 ```
 
-The default shell is usually bash but if not you can get to bash by opening a terminal and typing `bash`.
+The default shell is usually bash but if not you can get to bash by opening a terminal and typing
+`bash`.
 
 Compilers
 ---------
@@ -203,9 +204,9 @@ Then, go to Xcode...Preferences...Downloads... and install the command line tool
 
 Homebrew
 --------
-[Homebrew](brew.sh) is a package manager for OSX which comes with enables the installation of a lot of
-software useful for scientific computing. It is required for some of the installations below.
-But not essential for Software Carpentry. Homebrew requires the Xcode tools above.
+[Homebrew](brew.sh) is a package manager for OSX which enables the installation of a
+lot of software useful for scientific computing. It is required for some of the installations
+below. But not essential for Software Carpentry. Homebrew requires the Xcode tools above.
 
 Install Homebrew via typing this at a terminal:
 
@@ -225,10 +226,11 @@ And read the output to verify that everything is working as expected.
 Python
 ------
 
-The Enthought Canopy python distribution exists in two different versions. A basic free version with
-a limited number of packages (Canopy express) and a non free full version. The full version can be
-obtained free of charge for academic use. Register with
-[Enthought Scientific Computing](https://enthought.com/products/canopy/academic/) using your UCL
+We recommend installing a complete scientific python distribution. One of these is
+Enthought Canopy.
+The Enthought Canopy python distribution exists in two different versions. A basic free version
+with a limited number of packages (Canopy express) and a non free full version. The full version
+can be obtained free of charge for academic use. Register with [Enthought Scientific Computing](https://enthought.com/products/canopy/academic/) using your UCL
 e-mail address for an academic licence.
 
 You may then use your Enthought user account to sign into the installed application and activate the
@@ -238,8 +240,7 @@ update a large number of python packaged. The packages installed by default shou
 Python from Homebrew
 --------------------
 
-OSX ships with a resent python version and some packages. However this has known limitations and we
-do not recommend it. You can install a new version of python from Homebrew with the following.
+Alternatively if you wish to install python manually you can use Homebrew. OSX ships with python and some packages. However this has known limitations and we do not recommend it. You can install a new version of python from Homebrew with the following.
 Please follow the instructions above to install the Xcode tools and Homebrew before attempting
 this.
 
@@ -329,6 +330,8 @@ Windows
 Python
 ------
 
+We recommend installing a complete scientific python distribution. One of these is
+Enthought Canopy.
 The Enthought Canopy python distribution exists in two different versions. A basic free version with
 a limited number of packages (Canopy express) and a non free full version. The full version can be
 obtained free of charge for academic use. Register with
@@ -400,8 +403,7 @@ instructions below. If you are unsure about this open Windows explore and naviga
 drive. If the C drive contains both a `Program Files (x86)` and `Program Files` folder Notepad++ is
 most likely to be installed in `Program Files (x86)`. Verify this by opening the folder and look for
 a `Notepad++` subfolder. On a non English widows installation the directories may have different names.
-You should however still use the English names above. Just verify if the directory ends with (x86) or
-not.
+You should however still use the English names above. Just verify if the directory ends with (x86) or not.
 
 Telling the shell where to find Notepad++
 -----------------------------------------
@@ -446,7 +448,7 @@ opens the editor and the close it again.
 which git
 ```
 
-which should produce `/c/Program Files (x86)/Notepad++/notepad++.exe` or `/bin/git`. The ``which``
+which should produce `/bin/git`. The ``which``
 command is used to figure out where a given program is located on disk.
 
 Telling Git about Notepad
