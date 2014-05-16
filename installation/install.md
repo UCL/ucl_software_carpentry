@@ -202,6 +202,11 @@ Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835) using the Mac
 
 Then, go to Xcode...Preferences...Downloads... and install the command line tools option.
 
+Git
+---
+
+The XCode tools comes with Git so no need to do anything more.
+
 Homebrew
 --------
 [Homebrew](brew.sh) is a package manager for OSX which enables the installation of a
@@ -361,9 +366,7 @@ The [solution](http://stackoverflow.com/questions/13036197/ipython-notebook-gett
 Git
 ---
 
-Install [msysgit](http://msysgit.github.io/)
-
-Then install the [GitHub for Windows client](http://windows.github.com/). This comes with both a GUI
+Install the [GitHub for Windows client](http://windows.github.com/). This comes with both a GUI
 client as well as the [msysgit](http://msysgit.github.io/) terminal client which we will use in
 Software Carpentry. You should register with [Github](github.com) for an account and sign into the
 GUI client with this account. This will automatically set-up
