@@ -396,8 +396,6 @@ Using Notepad++ to edit text files including code should be straight forward but
 should configure git to use notepad++ when writing commit messages (We will learn about these in the
 version control session). The following sections goes through this:
 
-This also installs the compiler needed for some courses.
-
 Finding out where things got installed
 --------------------------------------
 
