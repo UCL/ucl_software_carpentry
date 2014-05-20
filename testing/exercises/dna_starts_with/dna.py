@@ -1,6 +1,4 @@
-#
-
-def dna_starts_with(pattern, dna):
+def dna_starts_with(dna, pattern):
     """ Return True if 'dna' starts with 'pattern' """
     # Sanitize input
     dna = dna.upper()
@@ -26,4 +24,3 @@ def convert_genotypes(genotypes):
     for genotype in genotypes:
         result.append(convertions[genotype])
     return result
-

@@ -1,5 +1,5 @@
 # This file tests the dna package
-def test_dna_starts_with():
+def test_normal_input():
     from dna import dna_starts_with
 
     test_cases = [
@@ -8,10 +8,11 @@ def test_dna_starts_with():
         ('cgttga', 'cg', True),
         ('cgttga', 'ct', False),
     ]
-    for dna, pattern, expected in test_cases: 
+    for dna, pattern, expected in test_cases:
        assert dna_starts_with(dna, pattern) == expected
 
-def test_dna_starts_with_UPPER_CASE_INPUT():
+def test_UPPER_CASE_INPUT():
+    from nose.tools import assert_equal
     from dna import dna_starts_with
 
     test_cases = [
@@ -20,8 +21,15 @@ def test_dna_starts_with_UPPER_CASE_INPUT():
         ('cGttga', 'cg', True),
         ('gcttga', 'gC', True),
     ]
-    for dna, pattern, expected in test_cases: 
-       assert dna_starts_with(dna, pattern) == expected
+    for dna, pattern, expected in test_cases:
+        message = "DNA: %s -- Pattern: %s -- expected: %s" % (dna, pattern, expected)
+        # assert_equal gives better error messages than just assert.
+        # It is part of the nosetest toolset.
+        assert_equal(dna_starts_with(dna, pattern), expected, message)
+
+def test_pattern_larger_than_dna():
+    from dna import dna_starts_with
+    assert dna_starts_with('a', 'aa') == False
 
 def test_failure_on_incorrect_input():
     from dna import dna_starts_with
@@ -42,7 +50,7 @@ def test_convert_genotypes_one_element_list():
          [i],
          "Checks {0} is converted acurately to {1}".format(base, i)
     )
-  
+
 def test_convert_genotypes_nelement_list():
   from dna import convert_genotypes
   from nose.tools import assert_list_equal
@@ -52,11 +60,11 @@ def test_convert_genotypes_nelement_list():
        [0, 2],
        "Checks list with more than one element"
   )
-  
+
 def test_convert_genotypes_fails_on_incorrect_input():
   from dna import convert_genotypes
   from nose.tools import assert_raises
 
-  # Same as try: execpt: else:, but using functionality provided by nosetests 
-  with assert_raises(Exception): 
+  # Same as try: execpt: else:, but using functionality provided by nosetests
+  with assert_raises(Exception):
     convert_genotypes(["QQ"])
