@@ -152,18 +152,10 @@ Again, install the appropriate package with apt-get or yum (`cmake`)
 SQLite3
 -------
 
-Install SQLite3 from your package manager. In Ubuntu the package is called sqlite3
+Install SQLite3 from your *python* package manager:
 
-Firefox
--------
-If Firefox is not the default browser in your Linux installation install it from your
-package manager.
-
-Firefox SQLite 3 add-on
------------------------
-
-Go into Firefox | Add-ons and search for *Sqlite*. Install the *SQLite Manager*.
-
+- Enthough Python has a graphical python manager
+- If not using enthought python, then `easy_install squlite3` or `pip install sqlite3` should work.
 
 Mac
 ===
@@ -308,16 +300,7 @@ The default terminal on OSX should also be sufficient. If you want a more advanc
 SQLite3
 -------
 
-OS X already ships SQLite3
-
-Firefox
--------
-Download from the [Firefox website](http://firefox.com/) and install
-
-Firefox SQLite 3 add-on
------------------------
-
-Go into Firefox | Add-ons and search for *Sqlite*. Install the *SQLite Manager*.
+Please follow the instructions for installing sqlite in the Linux section of this document.
 
 
 Windows
@@ -501,16 +484,4 @@ which svn
 SQLite3
 -------
 
-This software is available [here](http://www.sqlite.org/download.html).
-Windows users should select the *Precompiled Binaries for Windows, command-line shell*.
-
-Firefox
--------
-Download from the [Firefox website](http://firefox.com/) and install
-
-Firefox SQLite 3 add-on
------------------------
-
-Go into Firefox | Add-ons and search for *Sqlite*. Install the *SQLite Manager*.
-
-
+Please follow the instructions for sqlite in the Linux section of this document.
